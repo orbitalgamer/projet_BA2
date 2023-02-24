@@ -1,0 +1,23 @@
+Lecture du fichier de l'école
+
+
+
+Transfert fichier vers serveur
+si Transfert ok :
+    Ouverture fichier
+    si Ouverture ok :
+        tant que pas fin de fichier :
+            Lire ligne ou colonne
+            push dans array/bdd
+        end 
+        fermer fichier
+    end
+    sinon afficher erreur Ouverture
+sinon afficher erreur Transfert
+delete fichier
+
+
+
+
+
+       
