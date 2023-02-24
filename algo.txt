@@ -1,20 +1,20 @@
-Lecture du fichier de l'école
+Algo à implémenter :
 
-
-
-Transfert fichier vers serveur
-si Transfert ok :
-    Ouverture fichier
-    si Ouverture ok :
-        tant que pas fin de fichier :
-            Lire ligne ou colonne
-            push dans array/bdd
-        end 
-        fermer fichier
-    end
-    sinon afficher erreur Ouverture
-sinon afficher erreur Transfert
-delete fichier
+Lecture du fichier de l'école: //fonction sert à prendre tous les élève d'un fichier .csv et ensuite les import dans la bdd
+    Transfert fichier vers serveur
+    si Transfert ok :
+        Ouverture fichier
+        si Ouverture ok :
+            tant que pas fin de fichier :
+                Lire ligne ou colonne
+                push dans array/bdd
+            end 
+            fermer fichier
+        end
+        sinon afficher erreur Ouverture
+    sinon afficher erreur Transfert
+    delete fichier
+end
 
 
 
