@@ -15,6 +15,8 @@ gestion des accès à la base de donnée :
 renvoi des données au frontend par json :
     gerer le contenu de l'affichage des différentes classes que chaque prof possède
     gerer la notification au près des admins de test "positif"
+    gerer dire si connecté ou pas pour frontend savoir si faut afficher ou par certaines chose.
+
     
 
 Plus tard, il serait question de gerer l'ajout de questionnaire de manière interactive.
@@ -23,3 +25,41 @@ La méthode pour le faire est encore à determiner. Celà signifie qu'il faudra 
 Eventuellement plus tard, stocker les informations sur la bdd ainsi on peut permeterre a des professionel de rajouter des informations. Pareil pour le contact de professionnel.
 
 Début d'algorithm à implémenté fait dans algo.txt
+
+strucutre des données :
+    professeur :
+        -Id
+        -Nom
+        -Prenom
+        -Email
+        -Mdp
+        -Admin ou pas
+    
+    eleve :
+        -Id
+        -Nom
+        -Prenom
+        -Annee
+        -IdClasse
+    posède un lien unique vers classe
+
+    classe :
+        -Id
+        -Nom
+    possède un lien many to many avec prof
+
+    test :
+        -Id
+        -IdEleve
+        -IdProf
+        -Date
+        -Différence score pour les troubles traité.
+
+
+
+
+A RAJOUTER :
+bdd exter pour fiche info
+avec compte super admin pour créer nouvelle école
+
+fiche info
