@@ -17,6 +17,53 @@ Lecture du fichier de l'école: //fonction sert à prendre tous les élève d'un
 end
 
 
+patern default requête :
+
+recuperer requête.
+traiter requète pour savoir autorisation reqise
+si pas besoin connection alors :
+    renvoie directe des informations //sert si on stock des articles ou info en bdd pour savoir les modifiers facilement
+    //servira surtout si veut pas faire editeur de texte en ligne pour les 
+    //même si veut pas stocker txt en bdd et stock que lien vers un emplacement hdd avec le bonne info
+end
+si connecter alors : //si reqête demande être connecte genre pour avoir liste de ces élève
+    requète bdd pour identifier la personne
+    si permision accepter alors :
+        faire requète voulu
+        reprendre info
+        encode en json
+        renvoyer en json
+    end
+    sinon :
+        informé que accès impossible ou juste rien renvoyer
+    end
+end
+sinon :
+    renvoyer vers page connection pour connecter
+end
+
+requète connection :
+recupère requête
+traiter que c'est une requète connection
+si email et mdp même que dans bdd alors :
+    stocker en var session Id //ainsi si empty, on sait que n'est pas connecté
+    renvoyer ok
+end
+sinon :
+    renovyer erreur connection
+end
+
+requête création de compte : //traité à part car ajoute de compte un peu spécial et même connection en général
+recuperer requète
+traiter que c'est création de compte
+verifier que toutes les informations sont présente
+si tout info présente alors :
+    requète bdd pour ajouter prof
+    renvoie que tout a été ok
+end
+sinon :
+    dire que manque données
+end
 
 
 
