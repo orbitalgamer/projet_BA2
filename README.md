@@ -55,11 +55,17 @@ strucutre des données :
         -Date
         -Différence score pour les troubles traité.
 
-
-
-
-A RAJOUTER :
-bdd exter pour fiche info
-avec compte super admin pour créer nouvelle école
-
-fiche info
+    contact  :
+        -Id
+        -Nom
+        -Prenom
+        -Email
+        -Descriptions
+        -Troubles
+    
+    fiche info :
+        -Id
+        -Nom
+        -Trouble
+        //info stocker dans fichier dans \fiches\Nom.json faudrai faire ensuite lecture et renvoyer vers editor pour le import dedans
+        //et passé en read only pour ça.
