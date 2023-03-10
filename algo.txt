@@ -44,7 +44,7 @@ Algo à implémenter :
             envoyer pas perm
         end
 
-    requète création classe (IdClasse):
+    requète suppression classe (IdClasse):
         recuperer typer requète
         identifier
         si admin:
@@ -209,14 +209,68 @@ Algo à implémenter :
             dire pas perm
         end
 
-//requte contact
+//requète contact
+
+    requète ajout contact (Nom, Prenom, Email, Description, Trouble):
+        recuperer type requète
+        identifier
+        si admin:
+            si param défini:
+                requète bdd création contact
+            end
+            sinon:
+                enovye erreur paramètre pas défini
+            end
+        end
+        sinon:
+            envoyer pas perm
+        end
+
+    requète supprimer contact (IdContact):
+        recuperer type requète
+        identifier
+        si admin:
+            si IdContact défini:
+                requète bdd suppression
+            end
+            sinon:
+                enovye erreur paramètre pas défini
+            end
+        end
+        sinon:
+            envoyer pas perm
+        end    
+
+    requète afficher contact (opt IdContact):
+        recuperer type requète
+        si IdContact défini:
+            requète bdd pour cette Id
+            enoyver cette Id
+        end
+        sinon:
+            requète bdd pour tous les IdContact
+            envoyer en Json
+        end    
+
+    requète modifier contact (IdContact, Nom, Prenom, Email, Description, Trouble):
+        recuperer type requète
+        identifier
+        si admin:
+            si param défini:
+                requète bdd pour update
+                envoyer ok
+            end
+            sinon:
+                envoyoer erreur param pas défini
+            end
+        end
+        sinon:
+            envoyer pas perm
+        end 
     /*
-        requète à faire :
-            -afficher
-            -ajouter
-            -supprimer
-            -envoie test ? compliqué car stock que résultat
+        envoie test ? compliqué car stock que résultat
     */
+
 //requète test
     requète recupération test (opt IdEleve, opt Idprof): //pour faire requète sur prof mettre le premier à null
         recuperer type requète
@@ -289,12 +343,67 @@ Algo à implémenter :
     */
 
 //requète fiche info
-    /*
-    faire :
-        -recup info
-        -update si perm
+    requète recup info (opt Id, opt Trouble):
+        recuperer type requète
+        si Id défini:
+            lire fichier Id.json pour avoir info
+            renvoyer vers constructeur editor.js
+            renvoyer ok
+        end
+        si Id=Null et que Trouble ok
+            requète bdd pour Nom avec trouble % like
+            renovyer list avec json pour constructeur
+        end
 
-    */
+    requète update (IdFiche, json de Editor.js, trouble):
+        récuper type requète
+        identifier
+        si admin : 
+            si IdFiche, Nom et Json défini:
+                requète bdd pour changer nom, trouble
+                réectriture fichier Id.json
+                renvoyer réussi
+            end
+            sinon:
+                renvoyer erreur pas toutes info
+            end
+        end
+        sinon:
+            renvoyer pas perm
+        end
+
+    requète création fiche (Nom, Trouble, Json de Editor.js):
+        récuper type requète
+        identifier
+        si admin : 
+            si IdFiche, Nom et Json défini:
+                requète bdd pour crée info
+                éctriture fichier Id.json
+                renvoyer réussi
+            end
+            sinon:
+                renvoyer erreur pas toutes info
+            end
+        end
+        sinon:
+            renvoyer pas perm
+        end
+
+    requète suppresion fiche (IdFiche):
+        recuperer type requète
+        identifier
+        si admin:
+            si IdFiche défini:
+                requète bdd supprimer fiche
+                supprimer fichier IdFichie.json
+            end
+            sinon:
+                envoyer param pas défini
+            end
+        end
+        sinon:
+            renvoyer pas perm
+        end
 
 
 //requète autre
@@ -350,46 +459,3 @@ recuperer requête :
         renvoyer vers page connection pour connecter
     end
 
-
-
-
-/*
-
-
-
-prioité n école
-donc faire bdd externe
-compte super admin pour ajouter école
-créer user de l'école MySQL
-créer bdd de l'école
-stocker en bdd nom école + mdp bdd.
-pour stocker mdp chiffre, repdrendre projet cryptage symétrique
-
-compte :
-    -Id
-    -Email
-    -Mdp
-    -Admin
-
-école :
-    -Id
-    -Identifiant
-    -Nom
-    -MdpChiffré en symétrique
-
-
-également faire bdd pour pesonne contact
-doit avoir 
-    -Id
-    -IdCompte
-    -Nom
-    -Prenom
-    -Professionel
-    -Description
-
-artices :
-    -Id
-    -Nom
-    //texte stocker dans un fichier externe avec même nom et de type Json
-
-*/
