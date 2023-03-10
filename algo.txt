@@ -1,9 +1,9 @@
 Algo à implémenter :
 
-//requète classe
+//requête classe
 
-    requète modification attirbution classe (IdProf,IdClasse) :
-        recuperer type requète
+    requête modification attirbution classe (IdProf,IdClasse) :
+        recuperer type requête
         idenfiter
         si admin :
             si Idprof et Iclasse défini :
@@ -16,8 +16,8 @@ Algo à implémenter :
             renvoyer pas perm
         end
 
-    requète info (opt IdProf): //faire pour 1 élève particulier?
-        recuperer type requète
+    requête info (opt IdProf): //faire pour 1 élève particulier?
+        recuperer type requête
         idenfiter
         si connecte:
             si IdProf défini:
@@ -33,8 +33,8 @@ Algo à implémenter :
             renvoyer vers connection
         end
     
-    requète création classe (Nom):
-        recuperer typer requète
+    requête création classe (Nom):
+        recuperer type requête
         identifier
         si admin:
             requète rajoute classe
@@ -51,19 +51,19 @@ Algo à implémenter :
             supprimer classe
             supprimer dans table many to many les lien avec prof
             update élève pour passe colone id class à Null
-            enovyer bien passé
+            envoyer bien passé
         end
         sinon :
             envoyer pas perm
         end
 
-    /*à faire requète : 
+    /*à faire requête : 
         -Afficher avec option de trie nbr_eleve, nom //demadner ce qu'il veut comme trie exactement
     */
 
-//requète prof
-    requète pour modif prof (Nom, Prenom, Email):
-        recupèrer type requète
+//requête prof
+    requête pour modif prof (Nom, Prenom, Email):
+        recupérer type requête
         identifier
         si connecter :
             reprend IdProf en session
@@ -75,8 +75,8 @@ Algo à implémenter :
             end
         end
 
-    requète pour renvoyer info prof (opt IdProf):
-        recupèrer type requète
+    requête pour renvoyer info prof (opt IdProf):
+        recupèrer type requête
         identifier
         recuperer IdProf en sessions ou prend celui en param
         si connecter :
@@ -84,19 +84,19 @@ Algo à implémenter :
         end
 
     requête création de compte prof (Email, Nom, Prenom, Mdp): //traité à part car ajoute de compte un peu spécial et même connection en général
-        recuperer requète
+        recuperer requête
         traiter que c'est création de compte
         verifier que toutes les informations sont présente
         si tout info présente alors :
-            requète bdd pour ajouter prof
+            requête bdd pour ajouter prof
             renvoie que tout a été ok
         end
         sinon :
             dire que manque données
         end
 
-    requète suppresion prof (IdProf):
-        recuperer requète
+    requête suppresion prof (IdProf):
+        recuperer requête
         identifier
         si admin :
             si IdProf déifini et IdProf!=$_SESSION['IdProf]:
@@ -113,9 +113,9 @@ Algo à implémenter :
             envoyer pas perm
         end
 
-//requète éleve
-    requète modification élève (IdEleve, Nom, Prenom, IdClasse, Année):
-        recupèrer type requète
+//requête éleve
+    requête modification élève (IdEleve, Nom, Prenom, IdClasse, Année):
+        recupérer type requète
         identifier
         si admin :
             recuperer info sur l'élève
@@ -130,7 +130,7 @@ Algo à implémenter :
             renvoyer erreur pas admin
         end
 
-    requète info élève (opt IdEleve):
+    requête info élève (opt IdEleve):
         recuperer type requète
         idenfiter
         si connecté :
@@ -182,8 +182,8 @@ Algo à implémenter :
         sinon afficher erreur Transfert
         delete fichier
 
-    requète encodage manuel (Nom, Preno, Classe, Année):
-        traiter requète pour savoir le type encodage
+    requête encodage manuel (Nom, Preno, Classe, Année):
+        traiter requête pour savoir le type encodage
         si Nom, Prenom, Class, Année est définit :
             requète pour ajouter élève
             renvoyer ok
@@ -192,8 +192,8 @@ Algo à implémenter :
             renvoyer que manque données.
         end
 
-    requète suppression élève (IdEleve):
-        recuperer type de requète
+    requête suppression élève (IdEleve):
+        recuperer type de requête
         idenfiter
         si admin :
             si IdEleve défini
@@ -277,37 +277,37 @@ Algo à implémenter :
         idenfiter
         si IdEleve ok :
             si connecte :
-                requète bdd pour avoir résultat pour l'élève
+                requête bdd pour avoir résultat pour l'élève
                 renvoyer résultat
             end
             sinon :
-                enovyer vers connection
+                envoyer vers connection
             end
         end
 
         si IdEleve==null et IdProf défini:
             si admin:
-                requète bdd pour avoir test du prof en décroissant
+                requête bdd pour avoir test du prof en décroissant
                 renvoyer resultat
             end
             sinon :
-                requète bdd pour IdProf en session //pour pas que prof aye accès au test d'autre prof
+                requête bdd pour IdProf en session //pour pas que prof ait accès au test d'autre prof
                 renvoyer résultat
             end
         end
 
         sinon:
             si connecte :
-                requète bdd pour avoir résultat pour tous les élèves par Id décroissant
+                requête bdd pour avoir résultat pour tous les élèves par Id décroissant
                 renvoyer résultat en json
             end
             sinon :
-                enovyer vers connection
+                envoyer vers connection
             end
         end
 
-    requète ajout test (IdEleve, scores):
-        recuperer type requète
+    requête ajout test (IdEleve, scores):
+        recuperer type requête
         idenfiter
         si connecte :
             recupère Idprof en session
@@ -322,23 +322,23 @@ Algo à implémenter :
             renvoyé que pas connecter
         end
 
-    requète suppression (IdTest):
-        recuperer type requète
+    requête suppression (IdTest):
+        recuperer type requête
         idenfiter:
         si admin:
-            requète bdd supprimer test
-            enovyer succès
+            requête bdd supprimer test
+            envoyer succès
         end
         sinon:
             si IdProf==$_SESSION['IdPorf']:
-                requète bdd supprimer test
+                requête bdd supprimer test
                 envoye succès
             end
             sinon:
                 erreur pas permision
             end
         end
-    /* à faire requète
+    /* à faire requête
         -trier ? pas date ? à clarifier
     */
 
@@ -406,20 +406,20 @@ Algo à implémenter :
         end
 
 
-//requète autre
+//requête autre
 
-    requète connection (Identifant, mdp) :
+    requête connexion (Identifant, mdp) :
         recupère requête
-        traiter que c'est une requète connection
+        traiter que c'est une requête connexion
         si email/identifiant et mdp même que dans bdd alors : //email pas obligatoire comme identifiant différent
             stocker en var session Id //ainsi si empty, on sait que n'est pas connecté
             renvoyer ok
         end
         sinon :
-            renovyer erreur connection
+            renvoyer erreur connexion
         end
 
-    requète déconnection :
+    requête déconnexion :
         supprimer session
         renvoyer que a été déconecter
 
@@ -437,16 +437,16 @@ script pour désalouer prof : //sert à désalouer prof aprèsn année scollaire
 //patern default requête :
 
 recuperer requête :
-    traiter requète pour savoir autorisation reqise
-    si pas besoin connection alors :
-        renvoie directe des informations //sert si on stock des articles ou info en bdd pour savoir les modifiers facilement
+    traiter requête pour savoir autorisation requise
+    si pas besoin connexion alors :
+        renvoi direct des informations //sert si on stock des articles ou info en bdd pour savoir les modifiers facilement
         //servira surtout si veut pas faire editeur de texte en ligne pour les 
         //même si veut pas stocker txt en bdd et stock que lien vers un emplacement hdd avec le bonne info
     end
-    si connecter alors : //si reqête demande être connecte genre pour avoir liste de ces élève
-        requète bdd pour identifier la personne
-        si permision accepter alors :
-            faire requète voulu
+    si connecter alors : //si requête demande être connecté pour avoir liste de ces élèves
+        requête bdd pour identifier la personne
+        si permision acceptée alors :
+            faire requête voulue
             reprendre info
             encode en json
             renvoyer en json
@@ -456,6 +456,49 @@ recuperer requête :
         end
     end
     sinon :
-        renvoyer vers page connection pour connecter
+        renvoyer vers page connexion pour connecter
     end
 
+
+
+
+/*
+
+
+
+prioité n école
+donc faire bdd externe
+compte super admin pour ajouter école
+créer user de l'école MySQL
+créer bdd de l'école
+stocker en bdd nom école + mdp bdd.
+pour stocker mdp chiffre, repdrendre projet cryptage symétrique
+
+compte :
+    -Id
+    -Email
+    -Mdp
+    -Admin
+
+école :
+    -Id
+    -Identifiant
+    -Nom
+    -MdpChiffré en symétrique
+
+
+également faire bdd pour pesonne contact
+doit avoir 
+    -Id
+    -IdCompte
+    -Nom
+    -Prenom
+    -Professionel
+    -Description
+
+artices :
+    -Id
+    -Nom
+    //texte stocké dans un fichier externe avec même nom et de type Json
+
+*/
