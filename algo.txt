@@ -182,7 +182,7 @@ Algo à implémenter :
         sinon afficher erreur Transfert
         delete fichier
 
-    requête encodage manuel (Nom, Preno, Classe, Année):
+    requête encodage manuel (Nom, Prenom, Classe, Année):
         traiter requête pour savoir le type encodage
         si Nom, Prenom, Class, Année est définit :
             requète pour ajouter élève
