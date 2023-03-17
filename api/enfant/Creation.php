@@ -36,7 +36,7 @@ if($enfant->newEnfant()) {
 else {
 
     echo json_encode(
-        array('message' => 'Echec de l'ajout de l'enfant')
+        array('message' => "Echec de l'ajout de l'enfant")
     );
 }
 
