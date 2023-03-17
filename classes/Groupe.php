@@ -8,7 +8,12 @@ class Groupe {
 
     //Requête création groupe
 
-    public function newGroup() {
+    public function __construct($db) {
+
+        this->bdd = $db;
+    }
+
+    public function newGroupe() {
         
         //Crea requête
         $query = "INSERT INTO `classe`(`Id`, `Nom`) VALUES (NULL,':Nom')";
