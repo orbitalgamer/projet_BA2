@@ -2,12 +2,12 @@
     class BaseDeDonnee{
         //var privé pour config la connection
         private $host='localhost';
-        private $NomBdd='projet_ba2';
+        private $NomBdd='projetba2';
         private $user='root';
         private $Mdp='';
         private $lienBdd;
 
-        public fucntion connect() { //var connecter
+        public function connect() { //var connecter
             $this->lienBdd=null; //déconnecte si était déjà connecté
             try{ //essaye de se connecter avec param au dessus
                 $this->lienBdd= new PDO('mysql:host='.$this->host.';dbname='.$this->NomBdd,$this->user, $this->Mdp);
