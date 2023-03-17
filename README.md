@@ -67,5 +67,5 @@ strucutre des données :
         -Id
         -Nom
         -Trouble
-        //info stocker dans fichier dans \fiches\Nom.json faudrai faire ensuite lecture et renvoyer vers editor pour le import dedans
+        //info stocker dans fichier dans \fiches\Id.json faudrai faire ensuite lecture et renvoyer vers editor pour le import dedans
         //et passé en read only pour ça.
