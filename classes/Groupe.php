@@ -35,6 +35,30 @@ class Groupe {
 
 
     }
+
+    public function modifGroupe() {
+
+        //Crea requête
+
+        $query = "UPDATE classe SET Nom=:Nom WHERE Id = :Id";
+
+        //Prepare
+        $requete = $this->bdd->prepare($query);
+        $this->Nom=htmlspecialchars(strip_tags($this->Nom));
+        $this->Id=htmlspecialchars(strip_tags($this->Id));
+        //link param
+        $requete->bindParam(':Nom', $this->Nom);
+        $requete->bindParam(':Id', $this->Id);
+
+
+        if($requete->execute()) {
+
+            return true;
+        }
+        
+        else {return false;}
+
+    }
 }
 
 
