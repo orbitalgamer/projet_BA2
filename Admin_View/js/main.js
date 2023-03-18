@@ -6,8 +6,7 @@ import {
 } 
 from "./event.js";
 
-  
-console.log(window.innerWidth);
+
 searchBarEvents;
 menuIconEvents;
 
