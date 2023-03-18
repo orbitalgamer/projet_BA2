@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link href="style/adminMain.css" rel="stylesheet">
+</head>
+<body>
+ <div class="container">
+   <div class="sideMenu">
+     <button class="menuBtn">
+      <div class="menuIcon" id="one"></div>
+      <div class="menuIcon" id="two"></div>
+      <div class="menuIcon" id="three"></div>
+     </button>
+     <div class="mainSideMenu">
+       <a class="box" href="">Tableau de Bord</a>
+       <a class="box" href="">Classes</a>
+       <a class="box" href="">Enseignant</a>
+       <a class="box" href="">Questionnaires</a>
+       <a class="box" href="">Contacts</a>
+       <a class="box" href="">Se deconnecter</a>
+       
+     </div>
+
+   </div>
+   
+   <div class="headerContainer">
+    <div class="titre">
+      Mon tableau de bord
+    </div>
+    <div class="searchBarContainer">
+      
+        <input type="text" class="searchBar" placeholder="Rechercher un élève, un enseignant,...">
+      <button class="searchBtn">
+      	&#x1F50D
+      </button>
+      
+    </div>
+  
+
+   </div>
+
+   <div class="mainContainer">
+   
+    <div class="tableContainer">
+      <div class="topTable">
+        <div id="titleTable"> 
+          Classes 
+        </div>
+        <a href="#" id="classeBtn">Accéder à vos classes</a>
+      </div>
+      <div class="mainTable">
+         
+        <a href="#" class="row row-1">3A</a>
+        <a href="#" class="row row-2">4A</a>
+        <a href="#" class="row row-3">5A</a>
+        <a href="#" class="row row-4">6A</a>
+        <a href="#" class="row row-1">7A</a>
+        <a href="#" class="row row-2">8A</a>
+        <a href="#" class="row row-3">10A</a>
+      </div>
+      <div class="bottomTable">
+        <a href="#" id="classeBtn2">Accéder à vos classes</a> <!--To992px-->
+      </div>
+    </div>
+    <div class="blockContainer">
+      <div class="block" id="ClasseBlock">
+        Classes
+      </div>
+      <div class="block" id="profBlock">
+        Enseignants
+      </div>
+      <div class="block" id="contactBlock">
+        Contacts
+      </div>
+      <div class="block" id="TestBlock">
+        Questionnaires
+      </div>
+    
+    </div>
+    
+   </div>
+
+   <div class="bottom">
+
+   </div>
+ </div>
+
+
+ <!--------------------Mobile devices(max-width:768px)---------------------------------->
+ <div class="container768px">
+  <div class="sideMenu768px">
+    <button class="menuBtn768px">
+      <div class="menuIcon768px" id="one"></div>
+      <div class="menuIcon768px" id="two768px"></div>
+      <div class="menuIcon768px" id="three"></div>
+     </button>
+     <div class="mainSideMenu768px">
+      <a class="box" href="">Tableau de Bord</a>
+      <a class="box" href="">Classes</a>
+      <a class="box" href="">Enseignant</a>
+      <a class="box" href="">Questionnaires</a>
+      <a class="box" href="">Contacts</a>
+      <a class="box" href="">Se deconnecter</a>
+      
+    </div>
+  </div>
+  <div class="headerContainer768px">
+    <div class="searchBarContainer768px">
+      
+      <input type="text" class="searchBar768px" placeholder="Rechercher un élève, un enseignant,...">
+    <button class="searchBtn768px">
+      &#x1F50D
+    </button>
+    
+  </div>
+  </div>
+  <div class="mainContainer768px">
+    <div class="infoPageText">
+      <div class="PagePrevious">
+        <a id="textPage" href="#">&#x2302; Tableau de bord / </a>
+      </div>
+      <div class="PageNext">
+
+      </div>
+
+    </div>
+    <div class="block768px" id="ClasseBlock">
+      Classes
+    </div>
+    <div class="block768px" id="profBlock">
+      Enseignants
+    </div>
+    <div class="block768px" id="contactBlock">
+      Contacts
+    </div>
+    <div class="block768px" id="TestBlock">
+      Questionnaires
+    </div>
+  </div>
+  <div class="bottomContainer768px">
+  </div>
+ </div>
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>
