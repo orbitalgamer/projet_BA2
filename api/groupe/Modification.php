@@ -14,21 +14,26 @@ $db = $database->connect();
 $groupe = new Groupe($db);
 
 $data = json_decode(file_get_contents("php://input"));
-$groupe->Nom = $data->Nom;
-$groupe->Id = $data->Id;
 
-if($groupe->ModifGroupe()) {
+if(isset($data->Nom) && isset($_GET['Id'])){
+    $groupe->Nom = $data->Nom;
+    $groupe->Id = $_GET['Id'];
 
-    echo json_encode(
-        array('message' => 'Nom du groupe modifie !')
-    );
+    if($groupe->ModifGroupe()) {
+
+        echo json_encode(
+            array('message' => 'succes')
+        );
+    }
+
+    else {
+        echo json_encode(
+            array('message' => 'echec')
+        );
+    }
 }
-
-else {
-
-    echo json_encode(
-        array('message' => 'Echec de la modification')
-    );
+else{
+    echo json_encode(array('message'=>'echec', 'error'=>'param invalide'));
 }
 
 ?>

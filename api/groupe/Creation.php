@@ -19,22 +19,26 @@ $groupe = new Groupe($db);
 //get input
 $data = json_decode(file_get_contents("php://input"));
 //echo "Nom = ".$data->Nom;
-$groupe->Nom = $data->Nom;
+if(isset($data->Nom)){
+    $groupe->Nom = $data->Nom;
 
-// Mettre en requête Nom : (nom du groupe)
+    // Mettre en requête Nom : (nom du groupe)
 
-if($groupe->newGroupe()) {
+    $rep=$groupe->newGroupe();
 
-    echo json_encode(
-        array('message' => 'Groupe cree !')
-    );
+    if(!isset($rep['error'])) {
+        echo json_encode(array('message' => 'succes'));
+    }
+
+    else {
+        $ret=array('message' => 'echec');
+        $ret['error']=$rep['error'];
+        echo json_encode($ret);
+
+    }
 }
-
-else {
-
-    echo json_encode(
-        array('message' => 'Echec de la creation du groupe')
-    );
+else{    
+    echo json_encode(array('message' => 'echec', 'error'=>'param invalide'));
 }
 
 

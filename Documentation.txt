@@ -49,6 +49,9 @@ utilisation Prof :
             id introuvable pour quand prof existe pas
             pas perm si veut tout les prof et que pas admin
             pas connecter si pas connecte
+        resultat :
+        renvoie liste dans data
+            data=>Index=>Nom,Prenom,Email //rem index juste à passé dans tous mais pour montrer que bien séparé
     
     pour Modification:
         api/Enseignant/Modification.php
@@ -69,6 +72,60 @@ utilisation Prof :
             pas perm
             pas connecter
             id pas defini si pas donné id
+
+
+utilisation classe :
+    pour création  :
+        api/Groupe/Creation.php 
+            prend en param
+                "Nom"
+            erreur possible
+                param invalide
+                pas perm
+                pas connecter
+            retour possible
+                succes/échec
+        
+    pour Selectionner :
+        api/Groupe/Affichage.php
+            prend en param:
+                "IdProf" prend soit Id particulier, soit All pour tous ou None pour aucun
+                "IdClasse" prend soit Id particulier, soit All pour toutes
+                "Eleve" prend true/false si veut élève ou pas
+            erreur possible :
+                param invalide
+                pas perm besoin de perm quand regarde pour IdProf différent de soi ou classe pas accès
+                pas connecter 
+            resulta
+                data=> classe particlier=>Enseignant=>Nom,Prenom,Email
+                                        =>Enfan =>Nom,Prenom,Annee
+    
+    pour Modifier :
+        api/Groupe/Modification.php
+            prend en param
+                "Nom"
+                prend en param Get avec NomGet="Id" et valeur Id de la classe
+            erreur possible :
+                pas perm
+                pas connecter
+                param invalide
+            résultat
+                succes/echec
+    
+    pour supprimer/désalouer
+        api/Groupe/Suppression.php
+            prend en param
+                "Desalouer" true ou false si on veut que désalouer ou supprimer classe
+                si que Desalouer, peut donne "IdProf" ou "IdClasse" pour faire pour un prof ou classe
+
+                si supprimer, faut donné "IdClasse" obligatoirement pour supprimer
+            erreur:
+                pas perm
+                pas connecter
+                param invalide
+                classe existe pas
+            resultat
+                echec/réussite
 
 
 

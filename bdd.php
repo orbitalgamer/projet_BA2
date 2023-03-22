@@ -4,7 +4,6 @@
         //var privé pour config la connection
         private $host='localhost';
         private $NomBdd='projetba2';
-        private $NomBdd='projetba2';
         private $user='root';
         private $Mdp='';
         private $lienBdd;

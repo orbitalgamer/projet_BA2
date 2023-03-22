@@ -16,20 +16,26 @@ $Prof = new Enseignant($Bdd);
 //récup info
 $data = json_decode(file_get_contents("php://input"));
 
-$Prof->Nom = $data->Nom;
-$Prof->Prenom = $data->Prenom;
-$Prof->Email = $data->Email;
-$Prof->Mdp = $data->Mdp;
+if(isset($data->Nom) && isset($data->Prenom) && isset($data->Email) && isset($data->Mdp)){
 
-//fait requète
-$retour=$Prof->Creation();
-if(!isset($retour['error'])){
-    echo json_encode(array('message'=>'succes'));
+    $Prof->Nom = $data->Nom;
+    $Prof->Prenom = $data->Prenom;
+    $Prof->Email = $data->Email;
+    $Prof->Mdp = $data->Mdp;
+
+    //fait requète
+    $retour=$Prof->Creation();
+    if(!isset($retour['error'])){
+        echo json_encode(array('message'=>'succes'));
+    }
+    else{
+        $rep = array('message' => "echec");
+        $rep['error']=$retour['error'];
+        echo json_encode($rep);
+    }
 }
 else{
-    $rep = array('message' => "echec");
-    $rep['error']=$retour['error'];
-    echo json_encode($rep);
+    echo json_encode(array('message'=>'echec', 'error'=>'param invalide'));
 }
 
 ?>

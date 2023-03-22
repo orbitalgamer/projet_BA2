@@ -167,10 +167,8 @@ class Enseignant{
         else{
             return array('error'=>'pas connecter');
         }
+    }    
     
-}    
-    
-
     public function Connection(){
         //requète pour rechercher nom et prenom comme c'est ça l'indetifiant
         $querry = "SELECT Id, Nom, Prenom, Email, Mdp, Admin FROM " .$this->NomTable." WHERE Nom= :nom AND Prenom= :prenom";
@@ -208,6 +206,7 @@ class Enseignant{
             return false;
         }
     }
+
     public function Modifier($Id = -42){
         if(isset($_SESSION['Id'])){
             if($Id != -42){

@@ -14,14 +14,21 @@ $Prof=new Enseignant($Bdd);
 
 $data = json_decode(file_get_contents("php://input"));
 
-$Prof->Identifiant = $data->Identifiant;
-$Prof->Mdp = $data->Mdp;
+if(isset($data->Identifiant) && isset($data->Mdp)){
 
-if($Prof->Connection()){
-    echo json_encode(array('message'=>'succes'));
+    $Prof->Identifiant = $data->Identifiant;
+    $Prof->Mdp = $data->Mdp;
+
+    if($Prof->Connection()){
+        echo json_encode(array('message'=>'succes'));
+    }
+    else{
+        echo json_encode(array('message'=>'echec'));
+    }
 }
 else{
-    echo json_encode(array('message'=>'echec'));
+    echo json_encode(array('message'=>'echec', 'error'=>'param invalide'));
 }
+
 
 ?>
