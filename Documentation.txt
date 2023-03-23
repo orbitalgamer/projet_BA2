@@ -77,9 +77,14 @@ utilisation Prof :
 utilisation classe :
     pour création  :
         api/Groupe/Creation.php 
-            prend en param
-                "Nom"
+            prend en parma
+                "Allocaiton" bool qui permet de savoir si veux créer classe ou donné allocation
+            si allocation flase : rajotuer param "Nom" pour le nom de la classe
+            sinon, "IdProf" et "IdClasse" pour avoir allocation
             erreur possible
+                class existe deja (pour ajout)
+                classe existe pas (pour allocation)
+                
                 param invalide
                 pas perm
                 pas connecter

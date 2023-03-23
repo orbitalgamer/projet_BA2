@@ -19,18 +19,18 @@ if(isset($data->Nom) && isset($_GET['Id'])){
     $groupe->Nom = $data->Nom;
     $groupe->Id = $_GET['Id'];
 
-    if($groupe->ModifGroupe()) {
+    $retour=$groupe->ModifGroupe();
 
-        echo json_encode(
-            array('message' => 'succes')
-        );
+    if(!isset($retour['error'])){
+        $rep = array('message' => "succes");
+        echo json_encode($rep);
+    }
+    else{
+        $rep = array('message' => "echec");
+        $rep['error']=$retour['error'];
+        echo json_encode($rep);
     }
 
-    else {
-        echo json_encode(
-            array('message' => 'echec')
-        );
-    }
 }
 else{
     echo json_encode(array('message'=>'echec', 'error'=>'param invalide'));

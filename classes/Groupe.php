@@ -2,6 +2,10 @@
 
 class Groupe {
 
+    /*
+    A FINIR ATTRIBUTION PROF pour une classe spécifique
+    */
+
     public $Idclasse;
     public $Nom;
     private $bdd;
@@ -368,7 +372,75 @@ class Groupe {
             return array('error'=>'pas connecter');
         }
     }
+    public function Allouer($IdProf, $IdClasse){
 
+
+        if(isset($_SESSION['Id'])){
+            if(isset($_SESSION['Admin']) && $_SESSION['Admin']==true){
+                //verifier que prof déjà pas cette classe
+                $querry ="SELECT Id FROM classenseignant WHERE IdProf=:IdProf AND IdClasse=:IdClasse";
+                
+                //créer requète
+                $requete=$this->bdd->prepare($querry);
+
+                //mettre param
+                $requete->bindParam(':IdProf', $IdProf);
+                $requete->bindParam(':IdClasse', $IdClasse);
+
+                //excute
+                $requete->execute();
+
+                //regarder les données
+                $rep=$requete->fetch();
+                
+
+                if($rep == null){ //si existe rien
+                   
+                    //vérifier si classe existe
+                    $querry ="SELECT Nom FROM classe WHERE Id=:Id";
+
+                    //créer requète
+                    $requete=$this->bdd->prepare($querry);
+
+                    //mettre param
+                    $requete->bindParam(':Id', $IdClasse);
+
+                    //excute
+                    $requete->execute();
+
+                    //regarder les données
+                    $rep=$requete->fetch();
+
+                    if($rep != null){
+                        //requète
+                        $querry ="INSERT INTO classenseignant (IdProf, IdClasse) VALUES (:IdProf, :IdClasse)";
+                        //créer requète
+                        $requete=$this->bdd->prepare($querry);
+
+                        //mettre param
+                        $requete->bindParam(':IdProf', $IdProf);
+                        $requete->bindParam(':IdClasse', $IdClasse);
+                        
+                        //excute
+                        $requete->execute();
+                    }
+                    else{
+                        return array('error'=>'classe existe pas');
+                    }
+                    
+                }
+                else{
+                    return array('error'=>'prof deja acces a la classe');
+                }
+            }
+            else{
+                return array('error'=>'pas perm');
+            }
+        }
+        else{
+            return array('error'=>'pas connecter');
+        }
+    }
 
 }
 
