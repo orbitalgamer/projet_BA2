@@ -1,5 +1,5 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@500&display=swap');
 *{
     box-sizing: border-box;
   }
@@ -64,7 +64,7 @@
     /*flex-direction: line;*/
   }
   box{
-    background: #a1a1a1;
+    background: #a1a1a185;
     border: 1px solid #000000; 
     
   }
@@ -77,9 +77,14 @@
     width: 75%;
     height : 50%;
     font-weight: 400;
-    font-size: 36px;
-    display: flex; 
+    font-size: calc((3vw + 3vh)/2) ;
+    text-align:center;
+    display: table;
 
+  }
+  #box1 span{
+    vertical-align:middle;
+    display: table-cell;
   }
   #box2{
     position: relative;
@@ -89,7 +94,15 @@
     font-weight: 400;
     font-size: 36px;
     display: flex; 
+    background:  #a8bbfe96;
+    border: 3px solid #000000; 
 
+  }
+  p{
+    margin-left: 10px ;
+    margin-right: 10px;
+    
+    font-size: calc((2vw + 2vh)/2) ;
   }
   #box3{
     position: relative;
@@ -97,10 +110,11 @@
     width: 30%;
     height : 50%;
     font-weight: 400;
-    font-size: 36px;
     display: flex; 
+   
     
   }
+  
   #box4{
     position: relative;
     align-self: center;
@@ -119,7 +133,7 @@
     position: relative;
     aspect-ratio: 1 / 1;
     width: 100%;
-    
+    background: #949494;
     border-radius: 100%;
   }
   #box6{
@@ -135,6 +149,7 @@
     align-items: center;
     justify-content: center;
     font-size : 1.8vw;
+    background: #949494;
     
   }
 }
