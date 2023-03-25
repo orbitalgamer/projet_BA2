@@ -1,0 +1,154 @@
+@media screen and (min-width : 70px){
+    @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@500&display=swap');
+    *{
+        box-sizing: border-box;
+      }
+      
+      html {
+        font-family: 'Nunito', sans-serif;
+        background: #AAAFFF;
+        overflow-x: hidden;
+        overflow-y: hidden;
+        margin : 0;
+      }
+      
+    iframe{
+        width : 100%;
+        height : 6vh;
+        border: 2px solid black;
+        width: 100%;
+        position: sticky;
+        top: 0;
+        z-index: 1;
+        background: #ffffff;
+        flex-direction: line;
+        display :flex;
+        row-gap : 10%;
+    }
+      .grid{
+        
+        width: 100vw;
+        height: 100vh;
+        display :flex;
+        flex-direction: row;
+        /*align-items: center;
+        justify-content: center;*/ 
+      }
+    #box1{
+        position: relative;
+        width: 45%;
+        height: 100%;
+        display :flex;
+        flex-direction: column;
+        color: #FFFFFF;
+        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+    }
+    #text{
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: auto;
+        margin-bottom: auto;
+        width: 75%;
+        height: 50%;
+        flex-direction: row;
+        gap: 100px;
+        
+    }
+    h1{
+        font-size: calc((7vw + 4vh)/2);
+        text-align: center 
+    }
+    h3{
+        font-size: calc((3vw + 2vh)/2);
+        text-align: center 
+    }
+    #box2{
+        position: relative;
+        width: 55%;
+        height: 100%;
+        display :flex;
+    }
+    #box3{
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: auto;
+        margin-bottom: auto;
+        width: 75%;
+        height: 75%;
+        border: 1px solid #000000;
+        display :flex;
+        flex-direction: column;
+        background: #FFFFFF;
+        border-radius: 90px;
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 4px;
+        gap : 3vh;
+    }
+    #logo{
+        margin-left: auto;
+        margin-right: auto;
+        margin-top : 8%;
+        position: relative;
+        aspect-ratio: 1 / 1;
+        width: 25%;
+        background: #949494;
+    }
+    #boxmail{ 
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top : 1%;
+        width: 80%;
+        height: 10%;
+        text-indent: 10px;
+        background: #D9D9D9;
+        border: 1px solid #ffffff;
+        border-radius: 20px;
+        font-size: calc((2vw + 2vh)/2); 
+    }
+    #boxpassword{
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+        width: 80%;
+        height: 10%;
+        text-indent: 10px;
+        background: #D9D9D9;
+        border-radius: 20px;
+        border: 1px solid #ffffff;
+        font-size: calc((2vw + 2vh)/2);
+    }
+    #box6{
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+        width: 80%;
+        height: 10%;
+        text-indent: 10px;
+        font-size: calc((2vw + 2vh)/2);
+        background: #ffffff00;
+        color: #00B2FF;
+    }
+    #boxconnexion{
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+        width: 80%;
+        height: 15%;
+        background: #00B2FF;
+        border-radius: 25px;
+        display :flex;
+        font-size: calc((4vw + 3vh)/2);
+    }
+    #boxconnexiontext{
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: auto;
+        margin-bottom: auto;
+        color: #FFFFFF;
+        width: auto;
+        height: auto;
+    }
+}

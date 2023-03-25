@@ -25,7 +25,7 @@
 
     height : 100%;
     font-weight: 400;
-    font-size: 1.2vw; 
+    font-size: calc((2vw + 30vh)/2);
     border-right: 1.5px solid rgb(0, 0, 0);
     
     
