@@ -74,25 +74,41 @@ class Groupe {
         //comparé à d'autre pas besoin de repdrendre info comme juste un param donc si pas modifier, pas modification de la classe
         if(isset($_SESSION['Id'])){
             if(isset($_SESSION['Admin']) && $_SESSION['Admin']==true){
-                //Crea requête
-                $query = "UPDATE classe SET Nom=:Nom WHERE Id = :Id";
+                //verifier que classe existe
+                $query = "SELECT Nom FROM classe WHERE Id = :Id";
 
                 //Prepare
                 $requete = $this->bdd->prepare($query);
-                $this->Nom=htmlspecialchars(strip_tags($this->Nom));
 
                 //link param
-                $requete->bindParam(':Nom', $this->Nom);
                 $requete->bindParam(':Id', $Id);
 
+                $requete->execute();
 
-                if($requete->execute()) {
+                if($requete->fetch()){
+                    //Crea requête
+                    $query = "UPDATE classe SET Nom=:Nom WHERE Id = :Id";
 
-                    return array();
+                    //Prepare
+                    $requete = $this->bdd->prepare($query);
+                    $this->Nom=htmlspecialchars(strip_tags($this->Nom));
+
+                    //link param
+                    $requete->bindParam(':Nom', $this->Nom);
+                    $requete->bindParam(':Id', $Id);
+
+
+                    if($requete->execute()) {
+
+                        return array();
+                    }
+                    
+                    else {
+                        return array('error'=>'param invalide');
+                    }
                 }
-                
-                else {
-                    return array('error'=>'param invalide');
+                else{
+                    return array('error'=>'classe existe pas');
                 }
             }
             else {
@@ -193,7 +209,6 @@ class Groupe {
                     $IdProf=$_SESSION['Id']; //renvoie que ces informations car si pas admin peut pas accèder aux autres
                 }
                 //sinon admin peut tout voir
-                $IdProf='None';
             }
             else if($IdProf == 'All'){
                 if(!(isset($_SESSION['Admin']) && $_SESSION['Admin']==true)){ //si pas admin et que veut tous, envoie pas perm
@@ -208,13 +223,19 @@ class Groupe {
 
             if($IdClasse != 'All'){  //si veut que une classe
                 $Row= $this->SelectRow($IdProf, $IdClasse, $Eleve); //fait requète pour cette calsse
-                $retour=array();
-                $retour['data']=$Row;
-                return $retour;
+                if($Row){
+                    $retour=array();
+                    $retour['data']=$Row;
+                    return $retour;
+                }
+                else{
+                    return array('error'=>'pas acces classe');
+                }
 
             }
-            else if($IdClasse == 'All' && $IdProf != 'All'){ //requète pour rechercher pour 1 prof
+            else if($IdClasse == 'All' && $IdProf != 'All' && $IdProf !='None'){ //requète pour rechercher pour 1 prof
                 //fait requète pour trouver nom et id classe àpd de l'id du prof
+
                 $querry = "SELECT Classe.Nom, Classe.Id 
                             FROM classenseignant Lien 
                             LEFT JOIN classe Classe 
@@ -226,6 +247,7 @@ class Groupe {
 
                 //mettre param
                 $requete->bindParam(':IdProf', $IdProf);
+                
 
                 //excute
                 $requete->execute();
@@ -335,7 +357,7 @@ class Groupe {
         if(isset($_SESSION['Id'])){
             if(isset($_SESSION['Admin']) && $_SESSION['Admin'] == true){
                 //pour supprimer à partir d'un prof
-                if($IdProf != -42){
+                if($IdProf != -42 && $IdClasse==-42){ //pour supprimer tout de ce prof
                     $querry="DELETE FROM classenseignant WHERE IdProf=:IdProf";
 
                     //prepare
@@ -347,7 +369,7 @@ class Groupe {
                     //execute la requète
                     $requete->execute();
                 }
-                else if($IdClasse != -42){
+                else if($IdClasse != -42 && $IdProf==-42){ //pour supprimer tout ce cette classe
                     $querry="DELETE FROM classenseignant WHERE IdClasse=:IdProf";
 
                     //prepare
@@ -355,6 +377,19 @@ class Groupe {
 
                     //mets param
                     $requete->bindParam(':IdProf', $IdClasse);
+
+                    //execute la requète
+                    $requete->execute();
+                }
+                else if($IdClasse != -42 && $IdProf !=-42){ //pour supprimer accès d'un prof a une classe
+                    $querry="DELETE FROM classenseignant WHERE IdClasse=:IdClasse AND IdProf=:IdProf";
+
+                    //prepare
+                    $requete=$this->bdd->prepare($querry);
+
+                    //mets param
+                    $requete->bindParam(':IdProf', $IdProf);
+                    $requete->bindParam(':IdClasse', $IdClasse);
 
                     //execute la requète
                     $requete->execute();

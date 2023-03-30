@@ -94,16 +94,17 @@ utilisation classe :
     pour Selectionner :
         api/Groupe/Affichage.php
             prend en param:
-                "IdProf" prend soit Id particulier, soit All pour tous ou None pour aucun
+                "IdProf" prend soit Id particulier, soit All pour tous ou None pour aucun (si veut pour lui même peut utiliser None)
                 "IdClasse" prend soit Id particulier, soit All pour toutes
                 "Eleve" prend true/false si veut élève ou pas
             erreur possible :
                 param invalide
                 pas perm besoin de perm quand regarde pour IdProf différent de soi ou classe pas accès
+                pas acces classe quand prof essaye avoir info classe que pas accès
                 pas connecter 
             resulta
-                data=> classe particlier=>Enseignant=>Nom,Prenom,Email
-                                        =>Enfan =>Nom,Prenom,Annee
+                data=> Id,Nom de la classe=>Enseignant=>Nom,Prenom,Email
+                                          =>Enfant =>Nom,Prenom,Annee
     
     pour Modifier :
         api/Groupe/Modification.php
@@ -132,5 +133,61 @@ utilisation classe :
             resultat
                 echec/réussite
 
+utilisation enfant:
+    pour Créer :
+        api/Enfant/Creation.php
+            prend en param:
+                "Nom"
+                "Prenom"
+                "Annee"
+                "IdClasse"
+            erreur possible
+                pas connecter
+                pas perm
+                enfant existe deja
+                classe existe pas
+                param invalide
+            résutlat :
+                succes/echec
+    
+    pour Afficher :
+        api/Enfant/Affichage.php
+            param possible :
+                param get avec NomGet="Id" puis Id élève ou All pour tout les élèves
+            param recheche :
+                "IdClass" pour demander élève qui sont dans cette classe //peut valoir All pour toutes les classe je sais un peu redondant à groupe mais le permet s'il le faut
+                "IdProf" pour deamdner pour un prof 
+                remarque peut combiner les deux ou que 1 seul à la fois. par défaut recheche pour les classe du compte même si admin faut alors précisé le prof
+                et quand recheche prof, faut admin ou être ce prof pour avoir la/les classe
+            erreur possible
+                pas connecter
+                pas perm
+                eleve existe pas
+            resultat
+                data=> IdClasse,NomClasse=>Entant=>Nom,Prenom,Annee
 
+    pour modifier:
+        api/Enfant/Modification.php
+            prend en paramètre Get avec NomGet=Id 
+            param classique : champ comme création et faut que mettre ceux modifier donc potentiellement :
+            "Nom"
+            "Prenom"
+            "Annee"
+            "IdClasse"
+        erreur possible
+            pas connecter
+            pas perm
+            classe existe pas
+            eleve existe pas
+        resultat:
+        succes/erreur
 
+    pour supprimer:
+        api/Enfant/Suppression.php
+            prend en paramètre Get avec NomGet=Id suivi = IdEleve
+        erreur possible
+            pas connecter
+            pas perm
+            param invalide
+        résultat:
+            succes/echec

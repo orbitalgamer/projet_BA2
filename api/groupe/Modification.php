@@ -17,9 +17,8 @@ $data = json_decode(file_get_contents("php://input"));
 
 if(isset($data->Nom) && isset($_GET['Id'])){
     $groupe->Nom = $data->Nom;
-    $groupe->Id = $_GET['Id'];
 
-    $retour=$groupe->ModifGroupe();
+    $retour=$groupe->ModifGroupe($_GET['Id']);
 
     if(!isset($retour['error'])){
         $rep = array('message' => "succes");
