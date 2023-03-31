@@ -64,8 +64,110 @@ class Test{
 
 
 
+    }
+
+
+    public function recupTest($IdTest) {  // Si on retourne l'Id du test
+
+        $perm = false;  // booléen pour check si la personne a l'autorisation
+
+        if(isset($_SESSION['Id'])) {
+
+            if(isset($_SESSION['Admin']) && $_SESSION['Admin'] = true) {
+
+                $perm = true;
+            }
+
+        }
+
+            $query = "SELECT `Id`, `IdProf`, `IdEleve`, `Date`, `ScoreTDA`, `ScoreDyslexie`, `ScoreDysortho` FROM `test` WHERE Id = :Id";
+
+             //Prepare
+             $requete = $this->bdd->prepare($query);
+             $this->Id=htmlspecialchars(strip_tags($this->Id));
+
+             //link param
+             $requete->bindParam(':Id', $IdTest);
+
+             $requete->execute();
+             $rep = $requete->fetch();
+
+             if($rep == NULL) {
+
+                return array('error'=>'pas trouve');
+             }
+
+             else {
+
+                $retour = array();
+                $retour ['data'] = $rep;
+
+                return $retour;
+
+             }
+
+
+        else {
+
+            return array('error'=>'pas perm');
+        }
+
+
+
+       
+    }
+
+    public function recupEnfant($IdEnfant) {  // Si on retourne l'Id de l'élève
+
+        
+        $perm = false;  // booléen pour check si la personne a l'autorisation
+
+        if(isset($_SESSION['Id'])) {
+
+            if(isset($_SESSION['Admin']) && $_SESSION['Admin'] = true) {
+
+                $perm = true;
+            }
+        }
+
+
+            $query = "SELECT `Id`, `IdProf`, `IdEleve`, `Date`, `ScoreTDA`, `ScoreDyslexie`, `ScoreDysortho` FROM `test` WHERE IdEleve = :IdEleve";
+
+             //Prepare
+             $requete = $this->bdd->prepare($query);
+             $this->IdEleve=htmlspecialchars(strip_tags($this->IdEleve));
+
+             //link param
+             $requete->bindParam(':IdEleve', $IdEnfant);
+
+             $requete->execute();
+             $rep = $requete->fetch();
+
+             if($rep == NULL) {
+
+                return array('error'=>'pas trouve');
+             }
+
+             else {
+
+                $retour = array();
+                $retour ['data'] = $rep;
+
+                return $retour;
+
+             }
+
+        else {
+
+            return array('error'=>'pas perm');
+        }
+
+
 
     }
+
+
+
 
 
 }
