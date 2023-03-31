@@ -96,13 +96,22 @@
     display: flex; 
     background:  #a8bbfe96;
     border: 3px solid #000000; 
+    text-align: justify;
+    text-justify: inter-word;
+    flex-direction: column;
 
+
+  }
+  h1{
+    margin-left: auto ;
+    margin-right: auto;
+    font-size: calc((3vw + 3vh)/2) ;
   }
   p{
     margin-left: 10px ;
     margin-right: 10px;
     
-    font-size: calc((2vw + 2vh)/2) ;
+    font-size: calc((1.8vw + 1.8vh)/2) ;
   }
   .box3{
     position: relative;
