@@ -1,3 +1,11 @@
+:root{
+  --color1 : #ffb94900;
+  --color2 : #24f57800;
+  --color3 : #aaeaf5;
+  /*--colorfull: linear-gradient(180deg,#ade8f4 0%,#00b4d8 100% );*/
+  --colorfull: rgb(255, 255, 255);
+  
+}
 
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@500&display=swap');
 *{
@@ -6,7 +14,7 @@
   
   html {
     font-family: 'Nunito', sans-serif;
-    background: #ffffff;
+    
     overflow-x: hidden;
     margin : 0;
   }
@@ -26,12 +34,12 @@
  }
   .grid{
     width: 100vw;
-    height: 350vh;
+    height: 300vh;
     display :flex;
     flex-direction: column;
     /*align-items: center;
     justify-content: center;*/ 
-    row-gap : 10%;
+    background: var(--colorfull);
   }
   .grid2{
     width: 100%;
@@ -39,24 +47,26 @@
     display :flex;
     align-items: center;
     justify-content: center;
+    background: linear-gradient(180deg,var(--color1) 0%, var(--color1) 90%, var(--color2) 100%);
   }
   .grid3{
       width: 100%;
-      height: 34%;
+      height: 45%;
       display :flex;
       align-items: center;
       justify-content: center;
       gap: 20px;
       flex-wrap: wrap;
       row-gap: 10%; 
+      background: var(--color2);
   }
   .grid4{
     width: 100%;
-    height: 33%;
+    height: 30%;
     display :flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(180deg, #FFFFFF 0%, #4AC180 10%, #4AC180 95%,#FFFFFF 100%);
+    background: linear-gradient(180deg,var(--color2) 0%, var(--color3) 5%, var(--color3) 100%);
     flex-wrap: wrap;
     gap : 10%;
     
@@ -64,7 +74,7 @@
     /*flex-direction: line;*/
   }
   box{
-    background: #a1a1a185;
+    background: #a1a1a100;
     border: 1px solid #000000; 
     
   }
@@ -75,11 +85,16 @@
     position: relative;
     align-self: center;
     width: 75%;
-    height : 50%;
+    height : 80%;
     font-weight: 400;
-    font-size: calc((3vw + 3vh)/2) ;
+    font-size: calc((5vw + 5vh)/2) ;
     text-align:center;
     display: table;
+    color : #ffffff;
+    border-radius: calc((8vw + 8vh)/2) ;
+    background-image:linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../img/enfant1.jpg");
+    background-size: cover;
+    
 
   }
   .box1 span{
@@ -90,17 +105,15 @@
     position: relative;
     align-self: center;
     width: 60%;
-    height : 50%;
+    height : 45%;
     font-weight: 400;
     font-size: 36px;
     display: flex; 
-    background:  #a8bbfe96;
-    border: 3px solid #000000; 
+    background:  #ffffff1a;
+    border: 3px solid #00000000; 
     text-align: justify;
     text-justify: inter-word;
     flex-direction: column;
-
-
   }
   h1{
     margin-left: auto ;
@@ -110,18 +123,15 @@
   p{
     margin-left: 10px ;
     margin-right: 10px;
-    
     font-size: calc((1.8vw + 1.8vh)/2) ;
   }
   .box3{
     position: relative;
     align-self: center;
     width: 30%;
-    height : 50%;
+    height : 45%;
     font-weight: 400;
     display: flex; 
-   
-    
   }
   
   .box4{
@@ -159,6 +169,5 @@
     justify-content: center;
     font-size : 1.8vw;
     background: #ffffff;
-    
   }
 }
