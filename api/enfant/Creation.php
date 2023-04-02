@@ -8,6 +8,7 @@ header('Access-Control-Allow-Methods: POST');
 header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type,Access-Control-Allow-Methods, Authorization, X-Requested-With');
 
 include_once '../../bdd.php';
+include_once '../../erreur.php';
 include_once '../../classes/Enfant.php';
 
 
@@ -38,11 +39,13 @@ if(isset($data->Nom) && isset($data->Prenom) && isset($data->Annee) && isset($da
     else{
         $rep = array('message' => "echec");
         $rep['error']=$retour['error'];
+        erreur($rep['error']);
         echo json_encode($rep);
     }
 }
 else{
    echo json_encode(array('message' => "echec", 'error'=>'param invalide'));
+   erreur('param invalide');
 }
 
 

@@ -1,8 +1,12 @@
 <html>
-<?php
-    echo "ça fonctionne ?";
-?>
-<h2> test</h2>
-    <h3> edit par internet</h3>
-    <h6> thibaut was here</h6>
+<head>
+</head>
+<script src="Import.js"></script>
+<body>
+<h1>titre </h1>
+<div id="editeur"></div>
+<h6>fin fichier</h6>
+</body>
+
+<script src="EditeurWrite.js"></script>
 </html>

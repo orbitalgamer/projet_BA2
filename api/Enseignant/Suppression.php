@@ -6,6 +6,7 @@ header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type,
 
 include_once '../../bdd.php';
 include_once '../../classes/Enseignant.php';
+include_once '../../erreur.php';
 
 //création objet bdd pour connection 
 $db = New BaseDeDonnee();
@@ -20,13 +21,15 @@ if(isset($_GET['Id'])){ //Id doit êter définit
         echo json_encode(array('message' => 'succes'));
     }
     else{
-        $rep = array('message' => "echec");
-        $rep['error']=$retour['error'];
-        echo json_encode($rep);
+        $retour = array('message' => "echec");
+        $retour['error']=$rep['error'];
+        erreur($retour['error']);
+        echo json_encode($retour);
     }
     
 }else{
     $rep = array('message' => "echec", 'error'=>'id pas defini'); //ereur si Id pas défini
+    erreur();
     echo json_encode($rep);
 }
 

@@ -1,41 +1,40 @@
 <?php
-
-//headers
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
-header('Access-Control-Allow-Methods: PUT');
+header('Access-Control-Allow-Methods: POST');
 header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type,Access-Control-Allow-Methods, Authorization, X-Requested-With');
 
 include_once '../../bdd.php';
-include_once '../../classes/Groupe.php';
-include_once '../../erreur.php';
+include_once '../../classes/Fiche.php';
 
-$database = new BaseDeDonnee();
-$db = $database->connect();
-$groupe = new Groupe($db);
+//création objet bdd pour connection 
+$db = New BaseDeDonnee();
+//conenction
+$Bdd = $db->connect();
 
+$Fiche = new Fiche($Bdd);
+//récup info
 $data = json_decode(file_get_contents("php://input"));
 
-if(isset($data->Nom) && isset($_GET['Id'])){
-    $groupe->Nom = $data->Nom;
+if(isset($data->Nom) && isset($data->Sujet) && isset($data->Json)){
 
-    $retour=$groupe->ModifGroupe($_GET['Id']);
+    $Fiche->Nom = $data->Nom;
+    $Fiche->Sujet = $data->Sujet;
+    $Fiche->Json = $data->Json;
 
+    //fait requète
+    $retour=$Fiche->Create();
     if(!isset($retour['error'])){
-        $rep = array('message' => "succes");
-        echo json_encode($rep);
+        echo json_encode(array('message'=>'succes'));
     }
     else{
         $rep = array('message' => "echec");
         $rep['error']=$retour['error'];
-        erreur($rep['error']);
         echo json_encode($rep);
     }
-
 }
 else{
     echo json_encode(array('message'=>'echec', 'error'=>'param invalide'));
-    erreur();
 }
 
 ?>

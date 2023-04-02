@@ -6,6 +6,7 @@ header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type,
 
 include_once '../../bdd.php';
 include_once '../../classes/Enseignant.php';
+include_once '../../erreur.php';
 
 //création objet bdd pour connection 
 $db = New BaseDeDonnee();
@@ -47,6 +48,7 @@ else{
     $rep = array('message' => "echec");
     $rep['error']=$retour['error'];
     echo json_encode($rep);
+    erreur($rep['error']);
 }
 
 ?>

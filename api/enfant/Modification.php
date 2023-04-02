@@ -6,6 +6,7 @@ header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type,
 
 include_once '../../bdd.php';
 include_once '../../classes/Enfant.php';
+include_once '../../erreur.php';
 
 //création objet bdd pour connection 
 $db = New BaseDeDonnee();
@@ -40,11 +41,13 @@ if(isset($_GET['Id'])){
     else{
         $rep = array('message' => "echec");
         $rep['error']=$retour['error'];
+        erreur($rep['error']);
         echo json_encode($rep);
     }
 }
 else{
     echo json_encode(array('message'=>'echec','error'=>'param invalide'));
+    erreur();
 }
 
 

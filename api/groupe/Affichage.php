@@ -4,6 +4,7 @@ header('Content-Type: application/json');
 
 include_once '../../bdd.php';
 include_once '../../classes/Groupe.php';
+include_once '../../erreur.php';
 
 //création objet bdd pour connection 
 $db = New BaseDeDonnee();
@@ -24,11 +25,13 @@ if(isset($data->IdProf) && isset($data->IdClasse) && isset($data->Eleve)){
     else{
         $rep = array('message' => "echec");
         $rep['error']=$retour['error'];
+        erreur($rep['error']);
         echo json_encode($rep);
     }
 }
 else{
     echo json_encode(array('message'=>'echec', 'error'=>'param invalide'));
+    erreur();
 }
 
 ?>

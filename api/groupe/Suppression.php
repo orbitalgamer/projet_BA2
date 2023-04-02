@@ -6,6 +6,7 @@ header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type,
 
 include_once '../../bdd.php';
 include_once '../../classes/Groupe.php';
+include_once '../../erreur.php';
 
 //création objet bdd pour connection 
 $db = New BaseDeDonnee();
@@ -50,11 +51,12 @@ if(isset($Data->Desalouer)){
     else{
         $retour = array('message' => "echec");
         $retour['error']=$rep['error'];
+        erreur($retour['error']);
         echo json_encode($retour);
     }
 }
 else{
-    
+    erreur();
     echo json_encode(array('message'=>'echec', 'error'=>'param invalide'));
 }
 

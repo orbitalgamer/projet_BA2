@@ -1,9 +1,11 @@
 <?php
+
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
 
 include_once '../../bdd.php';
 include_once '../../classes/Enfant.php';
+include_once '../../erreur.php';
 
 //création objet bdd pour connection 
 $db = New BaseDeDonnee();
@@ -22,6 +24,7 @@ if(isset($_SESSION['Id'])){
 }
 else{
     echo json_encode(array('message'=>'echec', 'error'=>'pas connecter'));
+    erreur('pas connecter');
     die();
 }
 
@@ -35,6 +38,7 @@ if(isset($_GET['Id'])){
     else{
         $rep = array('message' => "echec");
         $rep['error']=$retour['error'];
+        erreur($rep['error']);
         echo json_encode($rep);
     }
 }
@@ -55,6 +59,7 @@ else{
     else{
         $rep = array('message' => "echec");
         $rep['error']=$retour['error'];
+        erreur($rep['error']);
         echo json_encode($rep);
     }
 }

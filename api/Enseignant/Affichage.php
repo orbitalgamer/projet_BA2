@@ -4,6 +4,7 @@ header('Content-Type: application/json');
 
 include_once '../../bdd.php';
 include_once '../../classes/Enseignant.php';
+include_once '../../erreur.php';
 
 //création objet bdd pour connection 
 $db = New BaseDeDonnee();
@@ -24,6 +25,7 @@ if(isset($_GET['Id'])){
     else{
         $rep = array('message' => "echec");
         $rep['error']=$retour['error'];
+        erreur($rep['error']);
         echo json_encode($rep);
     }
 }
@@ -37,6 +39,7 @@ else{
     else{
         $rep = array('message' => "echec");
         $rep['error']=$retour['error'];
+        erreur($rep['error']);
         echo json_encode($rep);
     }
 }

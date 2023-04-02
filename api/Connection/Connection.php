@@ -21,9 +21,11 @@ if(isset($data->Identifiant) && isset($data->Mdp)){
 
     if($Prof->Connection()){
         echo json_encode(array('message'=>'succes'));
+        http_response_code(200);
     }
     else{
         echo json_encode(array('message'=>'echec'));
+        http_response_code(403);
     }
 }
 else{
