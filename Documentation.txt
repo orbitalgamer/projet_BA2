@@ -6,7 +6,7 @@ paramètre classique envoyer en raw json avec nom exact donné sinon plante.
 
 api se décompse de la manière suivante:
 
-tout requète commence par url/api/.... pour dire qu'on est dans l'api
+tout requète commence par https://api.themistest.be/ pour dire qu'on est dans l'api
 
 en général, renvoie toujours "message":"succes" si a fonctionner et "message":"echec" si a raté
 si a raté, existe 'error': avec l'erreur associé
