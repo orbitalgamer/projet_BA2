@@ -191,3 +191,62 @@ utilisation enfant:
             param invalide
         résultat:
             succes/echec
+
+utilisation des Fiches:
+    pour créer:
+        api/Fiche/Creation.php
+            parm :
+            "Nom"
+            "Sujet"
+            "Json" c'est le json pour l'editeur mais je m'occupe à le faire fonctionner
+        erreur possible
+            pas connecter
+            par perm
+            erreur creation fiche //erruer dans écriture du fichier sur serveur
+            erreur intern //erreur pour créer dans bdd
+            fiche existe deja
+        résultat:
+        succes/echec
+
+    pour sélectionner :
+        api/Fiche/Affichage.php
+            param :
+                si passe en param Get avec NomGet="Id" puis l'Id, revnoi nom, sujet, json
+                si passe Id=All, renvoi tout mais pas le json
+                si passe en param normal "Sujet" avec un sujet ressemblant genre dys => dysorthogrpahie, ou autre va afficher les 15 premier les plus proche
+            erreur
+                fiche introuvable //si pas psosible trouvé json de la fiche
+                fiche existe pas
+            résultat:
+                "data"=>fiche=>Id,Nom,Sujet,Json
+                echec/succes
+    
+    pour modifier :
+        api/Fiche/Modification.php
+            param:
+                prend en param get NomGet='Id' l'id de la fiche
+                puis prend
+                "Nom"
+                "Sujet"
+                "Json"
+                de ce que tu veux modifier genre juste changer le nom, pas besoin redonner le reste
+            erreur possible:
+                pas connecter
+                pas perm
+                erreur modification fiche
+                param invalide
+                fiche existe pas
+            résultat:
+                succes/echec
+    
+    pour supprimer :
+        api/Fiche/Suppression.php
+            param 
+                prend en param Get avec NomGet="Id" et c'est l'Id de la fiche
+            erreur possible:
+                pas connecter
+                pas perm
+                fiche existe pas
+                param invalide
+            résultat :
+                succes/echec

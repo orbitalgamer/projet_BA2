@@ -26,7 +26,7 @@ class Fiche {
 
                 //mettre param
                 $requete->bindParam(':Nom', $this->Nom);
-                $requete->bindParam(':Sujet', $this->Sujet);
+                $requete->bindParam(':Sujet', strtolower($this->Sujet));
 
                 //execute
                 $requete->execute();
@@ -89,37 +89,86 @@ class Fiche {
         }
     }
 
-    public function Read($Id){ // pour lire une seul fiche
-        //création requète
-        $query="SELECT Nom, Sujet FROM fiche WHERE Id=:Id";
+    public function Read($Id="All"){ // pour lire une fiche particulier ou All pour toutes
+        if($Id!="All"){
+            //création requète
+            $query="SELECT Nom, Sujet FROM fiche WHERE Id=:Id";
 
-        //preparer
-        $requete=$this->Bdd->prepare($query);
+            //preparer
+            $requete=$this->Bdd->prepare($query);
 
-        //mettre parm
-        $requete->bindParam(':Id', $Id);
+            //mettre parm
+            $requete->bindParam(':Id', $Id);
 
-        //executé
-        $requete->execute();
+            //executé
+            $requete->execute();
 
-        //récupe
-        $rep=$requete->fetch();
+            //récupe
+            $rep=$requete->fetch();
 
-        //si fichier existe
-        if($rep){
-            $url="../../Fiches/".$Id.".json";
-            $Fichier=fopen($url, "r"); // ouvre ficheir
-            if($Fichier){
-                $text=fread($Fichier,filesize($url));
-                $retour['data']=json_decode($text);
-                return $retour;
+            //si fichier existe
+            if($rep){
+                $url="../../Fiches/".$Id.".json";
+                $Fichier=fopen($url, "r"); // ouvre ficheir
+                if($Fichier){
+                    $text=fread($Fichier,filesize($url));
+                    $retour['data']=json_decode($text);
+                    return $retour;
+                }
+                else{
+                    return array('error'=>'fichier introuvable');
+                }
             }
             else{
-                return array('error'=>'fichier introuvable');
+                return array('error'=>'fiche existe pas');
             }
         }
         else{
-            return array('error'=>'fiche existe pas');
+            //requète
+            $query="SELECT Id, Nom, Sujet FROM fiche";
+
+            //crée requète
+            $requete=$this->Bdd->prepare($query);            
+
+            //execute
+            $requete->execute();
+
+            //prépare la sorite
+            $retour=array();
+            $retour['data']=array();
+
+            //prend chauqe réponse et mest dans la sortie 
+            while($rep=$requete->fetch()){
+                array_push($retour['data'], $rep);
+            }
+            return $retour;
+        }
+    }
+
+    public function ReadLike($Sujet){ //sélectionnai Sujet approximative genre dys => dysorthographie
+        if(strlen($Sujet)>=2){
+            //requète pour avoir tous les sujets correspondant
+            $query="SELECT Id, Nom, Sujet FROM fiche WHERE Sujet LIKE :Sujet LIMIT 15";
+
+            //crée requète
+            $requete=$this->Bdd->prepare($query);
+
+            //mettre param
+            $Sujet='%'.strtolower($Sujet).'%'; //doit rajouter patern pour dire que sujet peut être patout dans le nom
+            $requete->bindParam(':Sujet',$Sujet);
+
+            //execute
+            $requete->execute();
+
+            //prépare la sorite
+            $retour=array();
+            $retour['data']=array();
+
+            //prend chauqe réponse et mest dans la sortie 
+            while($rep=$requete->fetch()){
+                array_push($retour['data'], $rep);
+            }
+            return $retour;
         }
     }
 
@@ -158,7 +207,7 @@ class Fiche {
                     //mettre param
                     $requete->bindParam(':Id', $Id);
                     $requete->bindParam(':Nom', $this->Nom);
-                    $requete->bindParam(':Sujet', $this->Sujet);
+                    $requete->bindParam(':Sujet', strtolower($this->Sujet));
 
 
                     //execute
@@ -172,7 +221,7 @@ class Fiche {
                                 return array();
                             }
                             else{
-                                return array('error'=>'erreur creation fiche');    
+                                return array('error'=>'erreur modification fiche');    
                             }
                         }
                         return array();

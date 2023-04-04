@@ -11,10 +11,26 @@ $db = New BaseDeDonnee();
 $Bdd = $db->connect();
 
 $Fiche = new Fiche($Bdd);
-//récup info
 
+//récup info
+$data = json_decode(file_get_contents("php://input"));
+
+//si Id défini
 if(isset($_GET['Id'])){
     $retour =$Fiche->Read($_GET['Id']);
+    if(!isset($retour['error'])){
+        $rep = array('message' => "succes");
+        $rep['data']= $retour['data'];
+        echo json_encode($rep);
+    }
+    else{
+        $rep = array('message' => "echec");
+        $rep['error']=$retour['error'];
+        echo json_encode($rep);
+    }
+}
+else if(isset($data->Sujet)){
+    $retour=$Fiche->ReadLike($data->Sujet);
     if(!isset($retour['error'])){
         $rep = array('message' => "succes");
         $rep['data']= $retour['data'];
