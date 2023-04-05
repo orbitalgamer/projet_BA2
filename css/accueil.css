@@ -40,6 +40,7 @@
     /*align-items: center;
     justify-content: center;*/ 
     background: var(--colorfull);
+    
   }
   .grid2{
     width: 100%;
@@ -47,6 +48,7 @@
     display :flex;
     align-items: center;
     justify-content: center;
+   
     
   }
   .grid3{
@@ -58,6 +60,7 @@
       gap: 20px;
       flex-wrap: wrap;
       row-gap: 10%; 
+    
   }
   .grid4{
     width: 100%;
@@ -69,11 +72,10 @@
     flex-wrap: wrap;
     gap : 10vw;
     row-gap : 50px;
+   
     /*flex-direction: line;*/
   }
-  invbox{
-    border: 1px solid #00000000; 
-  }
+
   .box1{
     position: relative;
     align-self: center;
@@ -87,7 +89,7 @@
     border-radius: calc((8vw + 8vh)/2) ;
     background-image:linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../img/enfant1.jpg");
     background-size: cover;
-    border: 1px solid #00000000;
+   
     
     
 
@@ -108,7 +110,7 @@
     text-align: justify;
     text-justify: inter-word;
     flex-direction: column;
-    border: 1px solid #000000;
+
     
   }
   h1{
@@ -128,7 +130,7 @@
     height : 45%;
     font-weight: 400;
     display: flex; 
-    border: 1px solid #000000;
+   
    
     
   }
@@ -148,7 +150,7 @@
     top : 5%;
     width: 10%;
     aspect-ratio: 1 / 1.5;
-    border : 1px solid #000000;
+   
     font-weight: 400;
     font-size: 36px;
     display: flex; 
