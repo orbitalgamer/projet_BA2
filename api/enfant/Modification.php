@@ -13,43 +13,49 @@ $db = New BaseDeDonnee();
 //conenction
 $Bdd = $db->connect();
 
-$Enfant = new Enfant($Bdd);
-if(isset($_GET['Id'])){
-    $Id=$_GET['Id']; //prend Id qu'on travail
+$data = json_decode(file_get_contents("php://input"));
 
-    $data = json_decode(file_get_contents("php://input"));
+if(isset($data->Token)){
+    $Enfant = new Enfant($Bdd, $data->Token);
 
-    //set ce qu'on a défini de nouveau ainsi pas besoin de redire tout le reste
-    if(isset($data->Nom)){
-        $Enfant->Nom = strtolower(htmlspecialchars(strip_tags($data->Nom)));
-    }
-    if(isset($data->Prenom)){
-        $Enfant->Prenom = strtolower(htmlspecialchars(strip_tags($data->Prenom)));
-    }
-    if(isset($data->Annee)){
-        $Enfant->Annee = strtolower(htmlspecialchars(strip_tags($data->Annee)));
-    }
-    if(isset($data->IdClasse)){
-        $Enfant->IdClasse = strtolower(htmlspecialchars(strip_tags($data->IdClasse)));
-    }
+    if(isset($_GET['Id'])){
+        $Id=$_GET['Id']; //prend Id qu'on travail
 
-    $retour = $Enfant->Update($Id);
+        //set ce qu'on a défini de nouveau ainsi pas besoin de redire tout le reste
+        if(isset($data->Nom)){
+            $Enfant->Nom = strtolower(htmlspecialchars(strip_tags($data->Nom)));
+        }
+        if(isset($data->Prenom)){
+            $Enfant->Prenom = strtolower(htmlspecialchars(strip_tags($data->Prenom)));
+        }
+        if(isset($data->Annee)){
+            $Enfant->Annee = strtolower(htmlspecialchars(strip_tags($data->Annee)));
+        }
+        if(isset($data->IdClasse)){
+            $Enfant->IdClasse = strtolower(htmlspecialchars(strip_tags($data->IdClasse)));
+        }
 
-    if(!isset($retour['error'])){
-        echo json_encode(array('message'=>'succes'));
+        $retour = $Enfant->Update($Id);
+
+        if(!isset($retour['error'])){
+            echo json_encode(array('message'=>'succes'));
+        }
+        else{
+            $rep = array('message' => "echec");
+            $rep['error']=$retour['error'];
+            erreur($rep['error']);
+            echo json_encode($rep);
+        }
     }
     else{
-        $rep = array('message' => "echec");
-        $rep['error']=$retour['error'];
-        erreur($rep['error']);
-        echo json_encode($rep);
+        echo json_encode(array('message'=>'echec','error'=>'param invalide'));
+        erreur();
     }
 }
 else{
     echo json_encode(array('message'=>'echec','error'=>'param invalide'));
-    erreur();
+    erreur('param invalide');
 }
-
 
 
 ?>

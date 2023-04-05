@@ -1,7 +1,5 @@
 <?php
 
-
-
 class Test{
 
     public $Id;
@@ -18,6 +16,13 @@ class Test{
 
 
     public function creaTest() {
+        /*
+        condition :
+            prof peut créer test pour l'enfant qu'il a
+            amdin peut créer test pour enfant qu'il n'a pas
+
+            pour vérifier enfant, faire requète d'enfant car compliqué
+        */
 
         $query = "SELECT Nom,Prenom FROM eleve WHERE Id=:IdEleve";
         //preparer
@@ -67,7 +72,20 @@ class Test{
     }
 
 
+/*
+pour affichage condition :
+faut que le prof à fait le test même si plus l'enfant
+
+admin doit tout voir
+
+prof peut également voir si d'autre personne ont des doute sur l'enfant s'il l'a encore
+
+décomposer ça plusieur fonction
+1 pour une ligne si pour le prof ou pas
+*/
+
     public function recupTest($IdTest) {  // Si on retourne l'Id du test
+        
 
         $perm = false;  // booléen pour check si la personne a l'autorisation
 

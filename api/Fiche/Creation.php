@@ -12,29 +12,35 @@ $db = New BaseDeDonnee();
 //conenction
 $Bdd = $db->connect();
 
-$Fiche = new Fiche($Bdd);
 //récup info
 $data = json_decode(file_get_contents("php://input"));
+if(isset($data->Token)){
+    $Fiche = new Fiche($Bdd, $data->Token);
+    
+    if(isset($data->Nom) && isset($data->Sujet) && isset($data->Json)){
 
-if(isset($data->Nom) && isset($data->Sujet) && isset($data->Json)){
+        $Fiche->Nom = $data->Nom;
+        $Fiche->Sujet = $data->Sujet;
+        $Fiche->Json = $data->Json;
 
-    $Fiche->Nom = $data->Nom;
-    $Fiche->Sujet = $data->Sujet;
-    $Fiche->Json = $data->Json;
-
-    //fait requète
-    $retour=$Fiche->Create();
-    if(!isset($retour['error'])){
-        echo json_encode(array('message'=>'succes'));
+        //fait requète
+        $retour=$Fiche->Create();
+        if(!isset($retour['error'])){
+            echo json_encode(array('message'=>'succes'));
+        }
+        else{
+            $rep = array('message' => "echec");
+            $rep['error']=$retour['error'];
+            echo json_encode($rep);
+        }
     }
     else{
-        $rep = array('message' => "echec");
-        $rep['error']=$retour['error'];
-        echo json_encode($rep);
+        echo json_encode(array('message'=>'echec', 'error'=>'param invalide'));
     }
 }
 else{
-    echo json_encode(array('message'=>'echec', 'error'=>'param invalide'));
+    echo json_encode(array('message'=>'echec','error'=>'param invalide'));
+    erreur('param invalide');
 }
 
 ?>

@@ -13,42 +13,47 @@ $db = New BaseDeDonnee();
 //conenction
 $Bdd = $db->connect();
 
-$Prof = new Enseignant($Bdd);
-if(isset($_GET['Id'])){
-    $Id=$_GET['Id']; //prend Id qu'on travail
-    
-}else{
-    $Id=-42; //osef car sécurité derrière qui fera que peut modifier que le sien
-}
-
 $data = json_decode(file_get_contents("php://input"));
-//set ce qu'on a défini de nouveau ainsi pas besoin de redire tout le reste
-if(isset($data->Nom)){
-    $Prof->Nom = strtolower(htmlspecialchars(strip_tags($data->Nom)));
-}
-if(isset($data->Prenom)){
-    $Prof->Prenom = strtolower(htmlspecialchars(strip_tags($data->Prenom)));
-}
-if(isset($data->Email)){
-    $Prof->Email = strtolower(htmlspecialchars(strip_tags($data->Email)));
-}
-if(isset($data->Mdp)){
-    $Prof->Mdp = strtolower(htmlspecialchars(strip_tags($data->Mdp)));
-}
-if(isset($data->Admin)){
-    $Prof->Admin = strtolower(htmlspecialchars(strip_tags($data->Admin)));
-}
+if(isset($data->Token)){
+    $Prof = new Enseignant($Bdd, $data->Token);
+    if(isset($_GET['Id'])){
+        $Id=$_GET['Id']; //prend Id qu'on travail
+        
+    }else{
+        $Id=-42; //osef car sécurité derrière qui fera que peut modifier que le sien
+    }
 
-$retour = $Prof->Modifier($Id);
+    //set ce qu'on a défini de nouveau ainsi pas besoin de redire tout le reste
+    if(isset($data->Nom)){
+        $Prof->Nom = strtolower(htmlspecialchars(strip_tags($data->Nom)));
+    }
+    if(isset($data->Prenom)){
+        $Prof->Prenom = strtolower(htmlspecialchars(strip_tags($data->Prenom)));
+    }
+    if(isset($data->Email)){
+        $Prof->Email = strtolower(htmlspecialchars(strip_tags($data->Email)));
+    }
+    if(isset($data->Mdp)){
+        $Prof->Mdp = strtolower(htmlspecialchars(strip_tags($data->Mdp)));
+    }
+    if(isset($data->Admin)){
+        $Prof->Admin = strtolower(htmlspecialchars(strip_tags($data->Admin)));
+    }
 
-if(!isset($retour['error'])){
-    echo json_encode(array('message'=>'succes'));
+    $retour = $Prof->Modifier($Id);
+
+    if(!isset($retour['error'])){
+        echo json_encode(array('message'=>'succes'));
+    }
+    else{
+        $rep = array('message' => "echec");
+        $rep['error']=$retour['error'];
+        echo json_encode($rep);
+        erreur($rep['error']);
+    }
 }
 else{
-    $rep = array('message' => "echec");
-    $rep['error']=$retour['error'];
-    echo json_encode($rep);
-    erreur($rep['error']);
+    echo json_encode(array('message'=>'echec','error'=>'param invalide'));
+    erreur('param invalide');
 }
-
 ?>

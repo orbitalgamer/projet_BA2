@@ -14,6 +14,13 @@ class Enfant {
 
     public function __construct($db) {
         $this->bdd = $db;
+
+        $auth = New Auth($db); //créer objet auth
+        $reponse = $auth->VerifConnection($Token); //verifie si connecté
+        if(!isset($reponse['error'])){ //remets en variable session pour leur requète qui plante
+            $_SESSION['Id']=$reponse['Id'];
+            $_SESSION['Admin']=$reponse['Admin'];
+        }
     }
 
     public function newEnfant() {

@@ -10,7 +10,7 @@ $db = New BaseDeDonnee();
 //conenction
 $Bdd = $db->connect();
 
-$Fiche = new Fiche($Bdd);
+$Fiche = new Fiche($Bdd,"osef"); //fait pas gaffe au token car pas besoin
 
 //récup info
 $data = json_decode(file_get_contents("php://input"));

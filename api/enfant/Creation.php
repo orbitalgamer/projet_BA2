@@ -14,41 +14,43 @@ include_once '../../classes/Enfant.php';
 
 $database = new BaseDeDonnee();
 $db = $database->connect();
-$enfant = new Enfant($db);
 
-
-//get input
 $data = json_decode(file_get_contents("php://input"));
-//echo "Nom = ".$data->Nom;
 
-if(isset($data->Nom) && isset($data->Prenom) && isset($data->Annee) && isset($data->IdClasse)){
+if(isset($data->Token)){
+    $Enfant = new Enfant($Bdd, $data->Token);
 
-    $enfant->Nom = $data->Nom;
-    $enfant->Prenom = $data->Prenom;
-    $enfant->Annee = $data->Annee;
-    $enfant->IdClasse = $data->IdClasse;
+    if(isset($data->Nom) && isset($data->Prenom) && isset($data->Annee) && isset($data->IdClasse)){
 
-    // Mettre en requête Nom : (nom du groupe)
+        $enfant->Nom = $data->Nom;
+        $enfant->Prenom = $data->Prenom;
+        $enfant->Annee = $data->Annee;
+        $enfant->IdClasse = $data->IdClasse;
 
-    $retour=$enfant->newEnfant();
+        // Mettre en requête Nom : (nom du groupe)
 
-    if(!isset($retour['error'])){
-        $rep = array('message' => "succes");
-        echo json_encode($rep);
+        $retour=$enfant->newEnfant();
+
+        if(!isset($retour['error'])){
+            $rep = array('message' => "succes");
+            echo json_encode($rep);
+        }
+        else{
+            $rep = array('message' => "echec");
+            $rep['error']=$retour['error'];
+            erreur($rep['error']);
+            echo json_encode($rep);
+        }
     }
     else{
-        $rep = array('message' => "echec");
-        $rep['error']=$retour['error'];
-        erreur($rep['error']);
-        echo json_encode($rep);
+    echo json_encode(array('message' => "echec", 'error'=>'param invalide'));
+    erreur('param invalide');
     }
-}
-else{
-   echo json_encode(array('message' => "echec", 'error'=>'param invalide'));
-   erreur('param invalide');
-}
 
-
+}else{
+    echo json_encode(array('message'=>'echec','error'=>'param invalide'));
+    erreur('param invalide');
+}
 
 
 ?>

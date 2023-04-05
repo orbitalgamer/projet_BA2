@@ -13,37 +13,43 @@ $db = New BaseDeDonnee();
 //conenction
 $Bdd = $db->connect();
 
-$fiche = new Fiche($Bdd);
-
+//récup info
 $data = json_decode(file_get_contents("php://input"));
+if(isset($data->Token)){
+    $Fiche = new Fiche($Bdd, $data->Token);
 
-if(isset($_GET['Id'])){ //regarde si on a un Id
-    //set ce qu'on a défini de nouveau ainsi pas besoin de redire tout le reste
-    if(isset($data->Nom)){
-        $fiche->Nom = strtolower(htmlspecialchars(strip_tags($data->Nom)));
-    }
-    if(isset($data->Sujet)){
-        $fiche->Sujet = strtolower(htmlspecialchars(strip_tags($data->Sujet)));
-    }
-    if(isset($data->Json)){
-        $fiche->Json = $data->Json;
-    }
-   
-    $retour = $fiche->Update($_GET['Id']);
+    if(isset($_GET['Id'])){ //regarde si on a un Id
+        //set ce qu'on a défini de nouveau ainsi pas besoin de redire tout le reste
+        if(isset($data->Nom)){
+            $fiche->Nom = strtolower(htmlspecialchars(strip_tags($data->Nom)));
+        }
+        if(isset($data->Sujet)){
+            $fiche->Sujet = strtolower(htmlspecialchars(strip_tags($data->Sujet)));
+        }
+        if(isset($data->Json)){
+            $fiche->Json = $data->Json;
+        }
+    
+        $retour = $fiche->Update($_GET['Id']);
 
-    if(!isset($retour['error'])){
-        echo json_encode(array('message'=>'succes'));
+        if(!isset($retour['error'])){
+            echo json_encode(array('message'=>'succes'));
+        }
+        else{
+            $rep = array('message' => "echec");
+            $rep['error']=$retour['error'];
+            echo json_encode($rep);
+            erreur($rep['error']);
+        }
     }
     else{
-        $rep = array('message' => "echec");
-        $rep['error']=$retour['error'];
-        echo json_encode($rep);
-        erreur($rep['error']);
+        erreur();
+        echo json_encode(array('message'=>"echec", "error"=>"param invalide"));
     }
 }
 else{
-    erreur();
-    echo json_encode(array('message'=>"echec", "error"=>"param invalide"));
+    echo json_encode(array('message'=>'echec','error'=>'param invalide'));
+    erreur('param invalide');
 }
 
 ?>
