@@ -67,15 +67,9 @@
     justify-content: center;
     background: linear-gradient(180deg,var(--color2) 0%, var(--color3) 5%,var(--color3) 95%, var(--color2) 100%);
     flex-wrap: wrap;
-    gap : 10%;
-    
+    gap : 10vw;
     row-gap : 50px;
     /*flex-direction: line;*/
-  }
-  box{
-    background: #a1a1a100;
-    border: 1px solid #000000; 
-    
   }
   invbox{
     border: 1px solid #00000000; 
@@ -93,7 +87,8 @@
     border-radius: calc((8vw + 8vh)/2) ;
     background-image:linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../img/enfant1.jpg");
     background-size: cover;
-    border: 1px solid #ffffff00;
+    border: 1px solid #00000000;
+    
     
 
   }
@@ -110,10 +105,11 @@
     font-size: 36px;
     display: flex; 
     background:  #ffffff1a;
-    border: 3px solid #00000000; 
     text-align: justify;
     text-justify: inter-word;
     flex-direction: column;
+    border: 1px solid #000000;
+    
   }
   h1{
     margin-left: auto ;
@@ -132,6 +128,7 @@
     height : 45%;
     font-weight: 400;
     display: flex; 
+    border: 1px solid #000000;
    
     
   }
@@ -142,6 +139,7 @@
   #propose{
     background-image:url("../img/enfant3.jpg");
     background-size: cover;
+    background-position-x: center;
   }
   
   .box4{
@@ -150,7 +148,7 @@
     top : 5%;
     width: 10%;
     aspect-ratio: 1 / 1.5;
-   
+    border : 1px solid #000000;
     font-weight: 400;
     font-size: 36px;
     display: flex; 
