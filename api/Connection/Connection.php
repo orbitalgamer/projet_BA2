@@ -26,7 +26,7 @@ if(isset($data->Identifiant) && isset($data->Mdp)){
     else{
         $rep =array('message'=>'echec');
         $rep['error']=$retour['error'];
-        echo json_encode();
+        echo json_encode($rep);
         http_response_code(403);
     }
 }

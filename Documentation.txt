@@ -11,6 +11,8 @@ tout requète commence par https://api.themistest.be/ pour dire qu'on est dans l
 en général, renvoie toujours "message":"succes" si a fonctionner et "message":"echec" si a raté
 si a raté, existe 'error': avec l'erreur associé
 
+pour chaque requète doit mettre "Token" avec la valeur du token pour savoir qui s'est. Connection permet de le donné quand pas d'erreur conenction alors pas obligatoire
+
 requètes :
 
 système connection :

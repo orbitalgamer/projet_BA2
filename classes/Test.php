@@ -1,5 +1,6 @@
 <?php
 
+require_once 'Auth.php'; //pour vérifier que connecté
 class Test{
 
     public $Id;

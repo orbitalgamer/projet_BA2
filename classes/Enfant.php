@@ -1,5 +1,6 @@
 <?php
 
+require_once 'Auth.php'; //pour vérifier que connecté
 class Enfant {
 
     public $Id;
@@ -12,7 +13,7 @@ class Enfant {
 
     //Requête création groupe
 
-    public function __construct($db) {
+    public function __construct($db, $Token) {
         $this->bdd = $db;
 
         $auth = New Auth($db); //créer objet auth
