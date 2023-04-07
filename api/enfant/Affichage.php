@@ -43,6 +43,20 @@ if(isset($data->Token)){
             echo json_encode($rep);
         }
     }
+    else if(isset($_GET['Req'])){
+        $retour =$Enfant->Recherche($_GET['Req']);
+        if(!isset($retour['error'])){
+            $rep = array('message' => "succes");
+            $rep['data']= $retour['data'];
+            echo json_encode($rep);
+        }
+        else{
+            $rep = array('message' => "echec");
+            $rep['error']=$retour['error'];
+            erreur($rep['error']);
+            echo json_encode($rep);
+        }
+    }
     else{
         if(isset($data->IdClasse)){
             $IdClasse=$data->IdClasse;
@@ -67,6 +81,6 @@ if(isset($data->Token)){
 }
 else{
     echo json_encode(array('message'=>'echec','error'=>'param invalide'));
-    erreur('param invalide');
+    erreur('token invalide');
 }
 ?>

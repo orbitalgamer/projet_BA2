@@ -284,6 +284,43 @@ class Enseignant{
                 return array('error'=>'pas perm');
             }
         }
+       
+    }
+    public function Rechercher($recherche){
+        if(isset($_SESSION['Id'])){
+            if(isset($_SESSION['Admin']) && $_SESSION['Admin']==true){
+                //création requète mets pas encore le like
+                $querry="SELECT Id, Nom, Prenom, Email, Admin FROM enseignant WHERE Nom LIKE :rq OR Prenom LIKE :rq OR Email LIKE :rq"; 
+                
+                //mets les % pour fair requète like
+                $recherche= '%'.$recherche.'%';
+
+                //prépare
+                $requete=$this->Bdd->prepare($querry);
+
+                //mets param :
+                $requete->bindParam(':rq', $recherche);
+
+                //execute
+                $requete->execute();
+
+                //créé stockage de donnée
+                 $reponse = array(); 
+                 $reponse['data']=array();
+                 
+                 //créer compteur pour donné ordre des prof pour avoir ordre continue et plus simple pour lire après
+                 $compteur=0;
+                 
+                 while($rep=$requete->fetch()){
+                         $reponse['data'][$compteur]=$rep; //rajoute prof
+                         $compteur++;
+                 }
+                 return $reponse;
+            }
+            else{
+                return array('error'=>'pas perm');
+            }
+        }
         else{
             return array('error'=>'pas connecter');
         }

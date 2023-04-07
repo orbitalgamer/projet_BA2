@@ -54,6 +54,6 @@ if(isset($data->Token)){
 }
 else{
     echo json_encode(array('message'=>'echec','error'=>'param invalide'));
-    erreur('param invalide');
+    erreur('token invalide');
 }
 ?>

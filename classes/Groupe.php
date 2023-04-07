@@ -482,6 +482,62 @@ class Groupe {
         }
     }
 
+    public function Recherche($recherche){
+        if(isset($_SESSION['Id'])){
+            if(isset($_SESSION['Admin']) && $_SESSION['Admin']==true){
+                //création requète mets pas encore le like pour admin
+                $querry="SELECT Id, Nom FROM classe WHERE Nom LIKE :rq"; 
+                
+                //mets les % pour fair requète like
+                $recherche= '%'.$recherche.'%';
+
+                //prépare
+                $requete=$this->bdd->prepare($querry);
+
+                //mets param :
+                $requete->bindParam(':rq', $recherche);
+            }
+            else{ //si pas admin, regarder pour ce prof en question.
+                //fait requète pour avoir que les enfant de ce prof
+                $querry = "SELECT Class.Nom, Class.Id 
+                FROM classenseignant Lien
+                LEFT JOIN classe Class 
+                ON Class.Id = Lien.IdClasse
+                WHERE Lien.IdProf=:IdProf AND Class.Nom LIKE :rq ";
+                
+                //mets les % pour fair requète like
+                $recherche= '%'.$recherche.'%';
+
+                //prépare
+                $requete=$this->bdd->prepare($querry);
+
+                //mets param :
+                $requete->bindParam(':rq', $recherche);
+                $requete->bindParam(':IdProf', $_SESSION['Id']);
+            }
+            // reste du code identique pour les deux
+
+            //execute
+            $requete->execute();
+
+            //créé stockage de donnée
+             $reponse = array(); 
+             $reponse['data']=array();
+             
+             //créer compteur pour donné ordre des prof pour avoir ordre continue et plus simple pour lire après
+             $compteur=0;
+             
+             while($rep=$requete->fetch()){
+                     $reponse['data'][$compteur]=$rep; //rajoute prof
+                     $compteur++;
+             }
+             return $reponse;
+        }
+        else{
+            return array('error'=>'pas connecter');
+        }
+    }
+
 }
 
 ?>

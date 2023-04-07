@@ -153,7 +153,7 @@ class Fiche {
         }
     }
 
-    public function ReadLike($Sujet){ //sélectionnai Sujet approximative genre dys => dysorthographie
+    public function Read($Sujet){ //sélectionnai Sujet approximative genre dys => dysorthographie
         if(strlen($Sujet)>=2){
             //requète pour avoir tous les sujets correspondant
             $query="SELECT Id, Nom, Sujet FROM fiche WHERE Sujet LIKE :Sujet LIMIT 15";

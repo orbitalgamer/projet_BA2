@@ -11,7 +11,7 @@ tout requète commence par https://api.themistest.be/ pour dire qu'on est dans l
 en général, renvoie toujours "message":"succes" si a fonctionner et "message":"echec" si a raté
 si a raté, existe 'error': avec l'erreur associé
 
-pour chaque requète doit mettre "Token" avec la valeur du token pour savoir qui s'est. Connection permet de le donné quand pas d'erreur conenction alors pas obligatoire
+pour chaque requète doit mettre "Token" avec la valeur du token pour savoir qui s'est. Connection permet de le donné quand pas d'erreur conenction alors pas obligatoire sinon revoie token invalide
 
 requètes :
 
@@ -47,6 +47,7 @@ utilisation Prof :
             prend en paramètre Get avce NomGet=Id pour avoir info d'un Id particulier uniquement pour admin
             Si Id=All, renvoie tous les prof demande être admin
             si précise rien renvoie ces donné à lui (admin et normal)
+            si passe en param Get avec NomGet=Req, un champ va regarder si  nom ou prenom ou email contient en partie la requète
         erreur possible:
             id introuvable pour quand prof existe pas
             pas perm si veut tout les prof et que pas admin
@@ -156,6 +157,7 @@ utilisation enfant:
         api/Enfant/Affichage.php
             param possible :
                 param get avec NomGet="Id" puis Id élève ou All pour tout les élèves
+                param get avec NomGet="Req" puis ce que tu veux chercher dans leur nom et prenom
             param recheche :
                 "IdClass" pour demander élève qui sont dans cette classe //peut valoir All pour toutes les classe je sais un peu redondant à groupe mais le permet s'il le faut
                 "IdProf" pour deamdner pour un prof 

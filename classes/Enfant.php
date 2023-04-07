@@ -500,7 +500,6 @@ class Enfant {
                 else{
                     return array('error'=>'param invalide');
                 }
-
             }
             else{
                 return array('error'=>'pas perm');
@@ -509,7 +508,64 @@ class Enfant {
         else{
             return array('error'=>'pas connecter');
         }
-        //cree requète
+    }
+
+    public function Recherche($recherche){
+        if(isset($_SESSION['Id'])){
+            if(isset($_SESSION['Admin']) && $_SESSION['Admin']==true){
+                //création requète mets pas encore le like
+                $querry="SELECT Id, Nom, Prenom, Annee FROM eleve WHERE Nom LIKE :rq OR Prenom LIKE :rq"; 
+                
+                //mets les % pour fair requète like
+                $recherche= '%'.$recherche.'%';
+
+                //prépare
+                $requete=$this->bdd->prepare($querry);
+
+                //mets param :
+                $requete->bindParam(':rq', $recherche);
+            }
+            else{ //si pas admin, regarder pour ce prof en question.
+                //fait requète pour avoir que les enfant de ce prof
+                $querry="SELECT Enfant.Id, Enfant.Nom, Enfant.Prenom, Enfant.Annee, Enfant.IdClasse, Classe.Nom as NomClasse 
+                    FROM eleve Enfant
+                    LEFT JOIN classenseignant Lien
+                    ON Lien.IdClasse=Enfant.IdClasse
+                    LEFT JOIN classe Classe
+                    ON Classe.Id=Lien.IdClasse
+                    WHERE Lien.IdProf=:IdProf AND (Enfant.Prenom LIKE :rq OR Enfant.Nom LIKE :rq)";
+
+                //mets les % pour fair requète like
+                $recherche= '%'.$recherche.'%';
+
+                //prépare
+                $requete=$this->bdd->prepare($querry);
+
+                //mets param :
+                $requete->bindParam(':rq', $recherche);
+                $requete->bindParam(':IdProf', $_SESSION['Id']);
+            }
+            // reste du code identique pour les deux
+
+            //execute
+            $requete->execute();
+
+            //créé stockage de donnée
+             $reponse = array(); 
+             $reponse['data']=array();
+             
+             //créer compteur pour donné ordre des prof pour avoir ordre continue et plus simple pour lire après
+             $compteur=0;
+             
+             while($rep=$requete->fetch()){
+                     $reponse['data'][$compteur]=$rep; //rajoute prof
+                     $compteur++;
+             }
+             return $reponse;
+        }
+        else{
+            return array('error'=>'pas connecter');
+        }
     }
 }
 

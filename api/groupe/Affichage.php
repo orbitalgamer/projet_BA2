@@ -17,23 +17,39 @@ $data = json_decode(file_get_contents("php://input"));
 if(isset($data->Token)){
     $Groupe = new Groupe($Bdd, $data->Token);
 
-    if(isset($data->IdProf) && isset($data->IdClasse) && isset($data->Eleve)){
-        $retour =$Groupe->Selectionner($data->IdProf, $data->IdClasse, $data->Eleve);
-        if(!isset($retour['error'])){
-            $rep = array('message' => "succes");
-            $rep['data']= $retour['data'];
-            echo json_encode($rep);
-        }
-        else{
-            $rep = array('message' => "echec");
-            $rep['error']=$retour['error'];
-            erreur($rep['error']);
-            echo json_encode($rep);
-        }
+    if(isset($_GET['Req'])){
+        $retour =$Groupe->Recherche($_GET['Req']);
+            if(!isset($retour['error'])){
+                $rep = array('message' => "succes");
+                $rep['data']= $retour['data'];
+                echo json_encode($rep);
+            }
+            else{
+                $rep = array('message' => "echec");
+                $rep['error']=$retour['error'];
+                erreur($rep['error']);
+                echo json_encode($rep);
+            }
     }
     else{
-        echo json_encode(array('message'=>'echec', 'error'=>'param invalide'));
-        erreur();
+        if(isset($data->IdProf) && isset($data->IdClasse) && isset($data->Eleve)){
+            $retour =$Groupe->Selectionner($data->IdProf, $data->IdClasse, $data->Eleve);
+            if(!isset($retour['error'])){
+                $rep = array('message' => "succes");
+                $rep['data']= $retour['data'];
+                echo json_encode($rep);
+            }
+            else{
+                $rep = array('message' => "echec");
+                $rep['error']=$retour['error'];
+                erreur($rep['error']);
+                echo json_encode($rep);
+            }
+        }
+        else{
+            echo json_encode(array('message'=>'echec', 'error'=>'param invalide'));
+            erreur();
+}
     }
 }
 else{

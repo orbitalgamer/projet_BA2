@@ -21,7 +21,6 @@ if(isset($data->Token)){
         $rep=array('message'=>'succes');
         echo json_encode($rep);
         http_response_code(200);
-        session_start();
         session_unset();
         session_destroy();
     }
@@ -33,7 +32,7 @@ if(isset($data->Token)){
     }
 }
 else{
-    echo json_encode(array('message'=>'echec', 'error'=>'param invalide'));
+    echo json_encode(array('message'=>'echec', 'error'=>'token invalide'));
 }
 
 

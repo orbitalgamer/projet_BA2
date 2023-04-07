@@ -32,6 +32,20 @@ $Prof = new Enseignant($Bdd, $data->Token);
             echo json_encode($rep);
         }
     }
+    else if(isset($_GET['Req'])){
+        $retour =$Prof->Rechercher($_GET['Req']);
+        if(!isset($retour['error'])){
+            $rep = array('message' => "succes");
+            $rep['data']= $retour['data'];
+            echo json_encode($rep);
+        }
+        else{
+            $rep = array('message' => "echec");
+            $rep['error']=$retour['error'];
+            erreur($rep['error']);
+            echo json_encode($rep);
+        }
+    }
     else{
         $retour =$Prof->Selectionner();
         if(!isset($retour['error'])){
@@ -47,7 +61,7 @@ $Prof = new Enseignant($Bdd, $data->Token);
         }
     }
 }else{
-    echo json_encode(array('message'=>'echec','error'=>'param invalide'));
+    echo json_encode(array('message'=>'echec','error'=>'token invalide'));
     erreur('param invalide');
 }
 ?>
