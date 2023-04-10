@@ -1,0 +1,74 @@
+documentation projet ba2 : Themistest
+
+Pour faire requète il faut que dans header de requète rajouter 'Content-Type'='application/json'.
+Quand dit pour un paramètre de type get se rajoute comme ça : url.php?NomGet=ValeurGet Je veux dire pas nom get le nom donné plus loin
+paramètre classique envoyer en raw json avec nom exact donné sinon plante.
+
+api se décompse de la manière suivante:
+
+tout requète commence par url/api/.... pour dire qu'on est dans l'api
+
+en général, renvoie toujours "message":"succes" si a fonctionner et "message":"echec" si a raté
+si a raté, existe 'error': avec l'erreur associé
+
+requètes :
+
+système connection :
+    pour Connection :
+        api/Connection/Connection.php
+            prend en paramètre :
+                "Identifiant" qui est juste Nom.Prenom de la personne
+                "Mdp" qui est sont mot de passe
+            erreur possible: aucune
+   
+    pour déconnection :
+        api/Connection/Deconnection/php
+            prend aucun param
+        erreur possible:
+            aucune    
+
+utilisation Prof :
+    pour Création :
+        api/Enseignant/Creation.php
+            prend en param:
+                "Nom"
+                "Prenom"
+                "Email"
+                "Mdp" //déjà chiffre sur serveur donc faut pas le rechiffrer
+            erreur possible:
+                pas perm pour quand pas admin
+                pas connecter si pas connecter
+                prof existe deja si prof existe deja
+    
+    pour Affichage:
+        api/Enseignant/Affichage.php
+            prend en paramètre Get avce NomGet=Id pour avoir info d'un Id particulier uniquement pour admin
+            Si Id=All, renvoie tous les prof demande être admin
+            si précise rien renvoie ces donné à lui (admin et normal)
+        erreur possible:
+            id introuvable pour quand prof existe pas
+            pas perm si veut tout les prof et que pas admin
+            pas connecter si pas connecte
+    
+    pour Modification:
+        api/Enseignant/Modification.php
+            prend en paramètre Get avec NomGet=Id si admin veut changer info d'un autre Prof sinon pas de param get
+            sinon pour modifier soi même pas beson de param Get
+            param classique : les champ modifier à la personne note le champ non modifier ne sont pas a remplir
+        erreur possible:
+            param invalide si requète pas passe au serveur sql
+            prof introuvable si prof existe pas
+            pas connecter si pas connecter
+            pas perm quand essaye modifier qqun autre alors que pas admin
+
+    pour Suppression:
+        api/Enseignant/Suppression.php
+            prend en paramètre Get avec NomGet=Id l'id qu'on veut supprimer
+        erreur possible:
+            param invalide si erreur requète niveau sql
+            pas perm
+            pas connecter
+            id pas defini si pas donné id
+
+
+
