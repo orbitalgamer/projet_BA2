@@ -22,10 +22,12 @@
     justify-content:center; 
     align-items: center;
     font-weight: 400;
-    font-size: calc((1vw + 1vh));
+    font-size: 1.5vw ;
+    overflow: hidden
   }
   .barreup a {
     color: #000000;
+    text-decoration: none;
   }
    .grid1{
     position: relative;
@@ -91,6 +93,11 @@
     display: flex;
     justify-content:space-evenly; 
     row-gap: 10px;
+  }
+  .box2 a{
+    color: #000000;
+    text-decoration: none;
+
   }
   .trouble{
 

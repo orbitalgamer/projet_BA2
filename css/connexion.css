@@ -6,13 +6,17 @@
       
     html {
         font-family: 'Nunito', sans-serif;
+        margin : 0;
         background: #20a39e;
         overflow-x: hidden;
         overflow-y: hidden;
-        margin : 0;
+        
     }
     .barreup{
+        margin : 0;
         width : 100%;
+       
+        box-sizing: border-box;
         height : 6vh;
         border: 2px solid black;
         position: sticky;
@@ -24,7 +28,9 @@
         justify-content:center; 
         align-items: center;
         font-weight: 400;
-        font-size: calc((1vw + 1vh));
+        font-size: 1.5vw ;
+        overflow: hidden
+       
     }
     .barreup a {
         color: #000000;
@@ -35,8 +41,7 @@
         height: 100vh;
         display :flex;
         flex-direction: row;
-        /*align-items: center;
-        justify-content: center;*/ 
+        box-sizing: border-box;
       }
     .box1{
         position: relative;

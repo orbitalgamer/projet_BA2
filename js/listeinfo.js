@@ -10,7 +10,9 @@
     switcher.addEventListener('mouseout',function(){
 
         switcher.className = "trouble notover";
-    } )})
+    } )
+
+})
 
 
    

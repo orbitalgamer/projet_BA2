@@ -32,7 +32,9 @@
     justify-content:center; 
     align-items: center;
     font-weight: 400;
-    font-size: calc((1vw + 1vh));
+    font-size: 1.5vw ;
+    overflow: hidden
+    
  }
  .barreup a {
   color: #000000;
