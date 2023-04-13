@@ -38,6 +38,7 @@
  }
  .barreup a {
   color: #000000;
+  text-decoration: none;
 }
   .grid{
     width: 100vw;
