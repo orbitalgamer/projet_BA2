@@ -81,6 +81,7 @@
     }
     .box3{
         position: relative;
+        box-sizing: border-box;
         margin-left: auto;
         margin-right: auto;
         margin-top: auto;
@@ -106,6 +107,7 @@
     }
     .boxID{ 
         position: relative;
+        box-sizing: border-box;
         margin-left: auto;
         margin-right: auto;
         margin-top : 1%;
@@ -119,6 +121,7 @@
     }
     .boxpassword{
         position: relative;
+        box-sizing: border-box;
         margin-left: auto;
         margin-right: auto;
         width: 80%;
@@ -131,6 +134,7 @@
     }
     .box6{
         position: relative;
+        box-sizing: border-box;
         margin-left: auto;
         margin-right: auto;
         width: 80%;
@@ -142,6 +146,8 @@
     }
     .boxconnexion{
         position: relative;
+        box-sizing: border-box;
+        top: -2%;
         margin-left: auto;
         margin-right: auto;
         width: 80%;
@@ -167,12 +173,16 @@
         width: 80%;
         height: 15%;
         font-size: calc((4vw + 3vh)/2);
-        top : -10px;
+      /*  top : -10px;*/
     }
     #over{
+        transform: scale(1.05);
+        font-size: calc((4.1vw + 3.1vh)/2);
+        /*
         width: 82%;
         height: 16%;
-        font-size: calc((4.1vw + 3.1vh)/2);
+        
         top : -13px;
+        */
     }
 }
