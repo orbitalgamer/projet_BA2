@@ -33,6 +33,7 @@ if(isset($data->Token)){
 }
 else{
     echo json_encode(array('message'=>'echec', 'error'=>'token invalide'));
+    http_response_code(500);
 }
 
 

@@ -193,7 +193,30 @@ class Enfant {
                     return $retour;
                 }
                 else{
-                    return array('error'=>'pas perm');  
+                    //si pas admin va sélection tous les élève qu'il a 
+                    $query="SELECT Enfant.Id, Enfant.Nom, Enfant.Prenom, Enfant.Annee, Enfant.IdClasse, Classe.Nom as NomClasse 
+                    FROM eleve Enfant
+                    LEFT JOIN classenseignant Lien
+                    ON Lien.IdClasse=Enfant.IdClasse
+                    LEFT JOIN classe Classe
+                    ON Classe.Id=Lien.IdClasse
+                    WHERE Lien.IdProf=:IdProf";
+
+                    //prépare
+                    $rq=$this->bdd->prepare($query);
+
+                    $rq->bindParam(':IdProf', $_SESSION['Id']);
+
+                    $rq->execute();
+
+                    $retour=array();
+                    $retour['data']=array();
+
+                    while($rep=$rq->fetch())
+                    {
+                        array_push($retour['data'], $rep);
+                    }
+                    return $retour;
                 }
             }
             
