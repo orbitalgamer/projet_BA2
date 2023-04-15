@@ -16,7 +16,7 @@ $Bdd = $db->connect();
 //récup info
 $data = json_decode(file_get_contents("php://input"));
 if(isset($data->Token)){
-    $Fiche = new Fiche($Bdd, $data->Token);
+    $fiche = new Fiche($Bdd, $data->Token);
 
     if(isset($_GET['Id'])){ //regarde si on a un Id
         //set ce qu'on a défini de nouveau ainsi pas besoin de redire tout le reste

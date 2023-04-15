@@ -18,7 +18,7 @@ $db = $database->connect();
 $data = json_decode(file_get_contents("php://input"));
 
 if(isset($data->Token)){
-    $Enfant = new Enfant($Bdd, $data->Token);
+    $enfant = new Enfant($db, $data->Token);
 
     if(isset($data->Nom) && isset($data->Prenom) && isset($data->Annee) && isset($data->IdClasse)){
 

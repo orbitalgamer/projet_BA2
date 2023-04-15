@@ -16,7 +16,7 @@ $Bdd = $db->connect();
 //récup info
 $data = json_decode(file_get_contents("php://input"));
 if(isset($data->Token)){
-    $Fiche = new Fiche($Bdd, $data->Token);
+    $fiche = new Fiche($Bdd, $data->Token);
 
     if(isset($_GET['Id'])){ //Id doit êter définit
         $rep=$fiche->Delete($_GET['Id']);

@@ -19,7 +19,7 @@ $db = $database->connect();
 $data = json_decode(file_get_contents("php://input"));
 
 if(isset($data->Token)){
-    $Groupe = new Groupe($Bdd, $data->Token);
+    $groupe = new Groupe($Bdd, $data->Token);
     
     if(isset($data->Allocation) && $data->Allocation==true){
         //si veux allouer

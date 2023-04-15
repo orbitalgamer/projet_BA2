@@ -19,7 +19,7 @@ if(isset($data->Token)){
     $Enfant = new Enfant($Bdd, $data->Token);
 
     if(isset($_GET['Id'])){
-        $retour = $enfant->Delete($_GET['Id']);
+        $retour = $Enfant->Delete($_GET['Id']);
 
         if(!isset($retour['error'])){
             echo json_encode(array('message'=>'succes'));
