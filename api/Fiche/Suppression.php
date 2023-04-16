@@ -5,7 +5,7 @@ header('Access-Control-Allow-Methods: DELETE');
 header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type,Access-Control-Allow-Methods, Authorization, X-Requested-With');
 
 include_once '../../bdd.php';
-include_once '../../classes/Enseignant.php';
+include_once '../../classes/Fiche.php';
 include_once '../../erreur.php';
 
 //création objet bdd pour connection 
@@ -13,12 +13,13 @@ $db = New BaseDeDonnee();
 //conenction
 $Bdd = $db->connect();
 
+//récup info
 $data = json_decode(file_get_contents("php://input"));
 if(isset($data->Token)){
-    $Prof = new Enseignant($Bdd, $data->Token);
+    $fiche = new Fiche($Bdd, $data->Token);
+
     if(isset($_GET['Id'])){ //Id doit êter définit
-        $Prof->Id=$_GET['Id']; //lui donne Id
-        $rep=$Prof->Supprimer();
+        $rep=$fiche->Delete($_GET['Id']);
         if(!isset($rep['error'])){
             echo json_encode(array('message' => 'succes'));
         }
@@ -34,6 +35,7 @@ if(isset($data->Token)){
         erreur();
         echo json_encode($rep);
     }
+    
 }
 else{
     echo json_encode(array('message'=>'echec','error'=>'token invalide'));

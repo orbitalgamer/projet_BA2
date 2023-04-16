@@ -6,10 +6,12 @@ paramètre classique envoyer en raw json avec nom exact donné sinon plante.
 
 api se décompse de la manière suivante:
 
-tout requète commence par url/api/.... pour dire qu'on est dans l'api
+tout requète commence par https://api.themistest.be/ pour dire qu'on est dans l'api
 
 en général, renvoie toujours "message":"succes" si a fonctionner et "message":"echec" si a raté
 si a raté, existe 'error': avec l'erreur associé
+
+pour chaque requète doit mettre "Token" avec la valeur du token pour savoir qui s'est. Connection permet de le donné quand pas d'erreur conenction alors pas obligatoire sinon revoie token invalide
 
 requètes :
 
@@ -45,6 +47,7 @@ utilisation Prof :
             prend en paramètre Get avce NomGet=Id pour avoir info d'un Id particulier uniquement pour admin
             Si Id=All, renvoie tous les prof demande être admin
             si précise rien renvoie ces donné à lui (admin et normal)
+            si passe en param Get avec NomGet=Req, un champ va regarder si  nom ou prenom ou email contient en partie la requète
         erreur possible:
             id introuvable pour quand prof existe pas
             pas perm si veut tout les prof et que pas admin
@@ -78,7 +81,7 @@ utilisation classe :
     pour création  :
         api/Groupe/Creation.php 
             prend en parma
-                "Allocaiton" bool qui permet de savoir si veux créer classe ou donné allocation
+                "Allocation" bool qui permet de savoir si veux créer classe ou donné allocation
             si allocation flase : rajotuer param "Nom" pour le nom de la classe
             sinon, "IdProf" et "IdClasse" pour avoir allocation
             erreur possible
@@ -153,7 +156,8 @@ utilisation enfant:
     pour Afficher :
         api/Enfant/Affichage.php
             param possible :
-                param get avec NomGet="Id" puis Id élève ou All pour tout les élèves
+                param get avec NomGet="Id" puis Id élève ou All pour tout les élèves si admin de tout l'école si pas admin, uniquement du prof
+                param get avec NomGet="Req" puis ce que tu veux chercher dans leur nom et prenom
             param recheche :
                 "IdClass" pour demander élève qui sont dans cette classe //peut valoir All pour toutes les classe je sais un peu redondant à groupe mais le permet s'il le faut
                 "IdProf" pour deamdner pour un prof 
@@ -191,3 +195,118 @@ utilisation enfant:
             param invalide
         résultat:
             succes/echec
+
+utilisation des Fiches:
+    pour créer:
+        api/Fiche/Creation.php
+            parm :
+            "Nom"
+            "Sujet"
+            "Json" c'est le json pour l'editeur mais je m'occupe à le faire fonctionner
+        erreur possible
+            pas connecter
+            par perm
+            erreur creation fiche //erruer dans écriture du fichier sur serveur
+            erreur intern //erreur pour créer dans bdd
+            fiche existe deja
+        résultat:
+        succes/echec
+
+    pour sélectionner :
+        api/Fiche/Affichage.php
+            param :
+                si passe en param Get avec NomGet="Id" puis l'Id, revnoi nom, sujet, json
+                si passe Id=All, renvoi tout mais pas le json
+                si passe en param normal "Sujet" avec un sujet ressemblant genre dys => dysorthogrpahie, ou autre va afficher les 15 premier les plus proche
+            erreur
+                fiche introuvable //si pas psosible trouvé json de la fiche
+                fiche existe pas
+            résultat:
+                "data"=>fiche=>Id,Nom,Sujet,Json
+                echec/succes
+    
+    pour modifier :
+        api/Fiche/Modification.php
+            param:
+                prend en param get NomGet='Id' l'id de la fiche
+                puis prend
+                "Nom"
+                "Sujet"
+                "Json"
+                de ce que tu veux modifier genre juste changer le nom, pas besoin redonner le reste
+            erreur possible:
+                pas connecter
+                pas perm
+                erreur modification fiche
+                param invalide
+                fiche existe pas
+            résultat:
+                succes/echec
+    
+    pour supprimer :
+        api/Fiche/Suppression.php
+            param 
+                prend en param Get avec NomGet="Id" et c'est l'Id de la fiche
+            erreur possible:
+                pas connecter
+                pas perm
+                fiche existe pas
+                param invalide
+            résultat :
+                succes/echec
+
+utilisation des Test:
+    pour créer :
+        api/Test/Creation.php
+            param :
+                IdEleve
+                ScoreTDA
+                ScoreDyslexie
+                ScoreDysortho
+            erreur possible:
+                pas connecter
+                pas perm
+                pas acces a cette eleve
+                param invalide
+            resultat:
+                echec/succes
+    
+    pour afficher :
+        api/Test/Affichage.php
+            param :
+                soit prend en param get avec NomGet="Id" pour rechercher avec Id test, peut mettre All pour avoir accès a tout ce que le prof à acceès (si admin : tout )
+                soit prend en param get avec NomGet="IdEleve" pour rechercher pour un eleve pour admin et prof recherche que pour lui sinon rajouter NomGet="AllProf" à true pour rechercher pour tout les profs
+                soit prend en param get avec NomGet="IdProf" si pas admin peut que rechercher pour sois sinon peut rechercehr pour qqun d'autre
+                soit prend en param get avec NomGet="Req" pour faire rechercher pour si pas admin recherche que pour enfant sinon recherche prof avec
+            erreur psosible
+                pas connecter
+                pas perm
+                pas acces a cette enfant
+                param invalide
+                test existe pas
+                aucun test trouve
+            resultat
+                echec/succes
+                pour Id :
+                data=>liste=>NomProf, IdProf, PrenomProf, IdEleve, NomEnfant, PrenomEnfant, AnneeEnfant, Date, ScoreTDA, ScoreDyslexie, ScoreDysortho
+                pour IdEleve :
+                data=>liste=>Id,NomProf, PrenomProf, Date, ScoreTDA, ScoreDyslexie, ScoreDysortho
+                pour IdProf
+                data=>liste=>Id,NomEnfant, PrenomEnfant, AnneeEnfant, Date, ScoreDyslexie, ScoreTDA, ScoreDysortho
+                pour Req:
+                data=>prof=>
+                    =>enfant=>Id, Nom, Prenom, Annee, (test)=>Id, NomProf, PrenomProf, Date, ScoreDyslexie, ScoreTDA, ScoreDysortho
+    
+    pour supprimer :
+        api/Test/Suppression.php
+            param :
+                soit Id
+                soit IdEleve
+                soit IdProf
+            erreur possible
+                pas connecter
+                pas perm
+                test existe pas
+                pas acces a cette enfant
+            resultat :
+                echec/succes

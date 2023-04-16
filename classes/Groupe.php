@@ -1,10 +1,8 @@
 <?php
 
+require_once 'Auth.php'; //pour vérifier que connecté
 class Groupe {
 
-    /*
-    A FINIR ATTRIBUTION PROF pour une classe spécifique
-    */
 
     public $Idclasse;
     public $Nom;
@@ -13,8 +11,15 @@ class Groupe {
 
     //Requête création groupe
 
-    public function __construct($db) {
+    public function __construct($db, $Token) {
         $this->bdd = $db;
+
+        $auth = New Auth($db); //créer objet auth
+        $reponse = $auth->VerifConnection($Token); //verifie si connecté
+        if(!isset($reponse['error'])){ //remets en variable session pour leur requète qui plante
+            $_SESSION['Id']=$reponse['Id'];
+            $_SESSION['Admin']=$reponse['Admin'];
+        }
     }
 
     public function newGroupe() {
@@ -471,6 +476,62 @@ class Groupe {
             else{
                 return array('error'=>'pas perm');
             }
+        }
+        else{
+            return array('error'=>'pas connecter');
+        }
+    }
+
+    public function Recherche($recherche){
+        if(isset($_SESSION['Id'])){
+            if(isset($_SESSION['Admin']) && $_SESSION['Admin']==true){
+                //création requète mets pas encore le like pour admin
+                $querry="SELECT Id, Nom FROM classe WHERE Nom LIKE :rq"; 
+                
+                //mets les % pour fair requète like
+                $recherche= '%'.$recherche.'%';
+
+                //prépare
+                $requete=$this->bdd->prepare($querry);
+
+                //mets param :
+                $requete->bindParam(':rq', $recherche);
+            }
+            else{ //si pas admin, regarder pour ce prof en question.
+                //fait requète pour avoir que les enfant de ce prof
+                $querry = "SELECT Class.Nom, Class.Id 
+                FROM classenseignant Lien
+                LEFT JOIN classe Class 
+                ON Class.Id = Lien.IdClasse
+                WHERE Lien.IdProf=:IdProf AND Class.Nom LIKE :rq ";
+                
+                //mets les % pour fair requète like
+                $recherche= '%'.$recherche.'%';
+
+                //prépare
+                $requete=$this->bdd->prepare($querry);
+
+                //mets param :
+                $requete->bindParam(':rq', $recherche);
+                $requete->bindParam(':IdProf', $_SESSION['Id']);
+            }
+            // reste du code identique pour les deux
+
+            //execute
+            $requete->execute();
+
+            //créé stockage de donnée
+             $reponse = array(); 
+             $reponse['data']=array();
+             
+             //créer compteur pour donné ordre des prof pour avoir ordre continue et plus simple pour lire après
+             $compteur=0;
+             
+             while($rep=$requete->fetch()){
+                     $reponse['data'][$compteur]=$rep; //rajoute prof
+                     $compteur++;
+             }
+             return $reponse;
         }
         else{
             return array('error'=>'pas connecter');

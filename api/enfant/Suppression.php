@@ -6,29 +6,39 @@ header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type,
 
 include_once '../../bdd.php';
 include_once '../../classes/Enfant.php';
+include_once '../../erreur.php';
 
 //création objet bdd pour connection 
 $db = New BaseDeDonnee();
 //conenction
 $Bdd = $db->connect();
 
-$enfant = new Enfant($Bdd);
+$data = json_decode(file_get_contents("php://input"));
 
+if(isset($data->Token)){
+    $Enfant = new Enfant($Bdd, $data->Token);
 
-if(isset($_GET['Id'])){
-    $retour = $enfant->Delete($_GET['Id']);
+    if(isset($_GET['Id'])){
+        $retour = $Enfant->Delete($_GET['Id']);
 
-    if(!isset($retour['error'])){
-        echo json_encode(array('message'=>'succes'));
+        if(!isset($retour['error'])){
+            echo json_encode(array('message'=>'succes'));
+        }
+        else{
+            $rep = array('message' => "echec");
+            $rep['error']=$retour['error'];
+            erreur($rep['error']);
+            echo json_encode($rep);
+        }
     }
     else{
-        $rep = array('message' => "echec");
-        $rep['error']=$retour['error'];
-        echo json_encode($rep);
+        echo json_encode(array('message'=>'echec','error'=>'param invalide'));
+        erreur();
     }
 }
 else{
-    echo json_encode(array('message'=>'echec','error'=>'param invalide'));
+    echo json_encode(array('message'=>'echec','error'=>'token invalide'));
+    erreur('param invalide');
 }
 
 

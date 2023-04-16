@@ -8,31 +8,42 @@ header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type,
 
 include_once '../../bdd.php';
 include_once '../../classes/Groupe.php';
+include_once '../../erreur.php';
 
 $database = new BaseDeDonnee();
 $db = $database->connect();
-$groupe = new Groupe($db);
 
+//récup info
 $data = json_decode(file_get_contents("php://input"));
 
-if(isset($data->Nom) && isset($_GET['Id'])){
-    $groupe->Nom = $data->Nom;
+if(isset($data->Token)){
+    $groupe = new Groupe($Bdd, $data->Token);
 
-    $retour=$groupe->ModifGroupe($_GET['Id']);
+    if(isset($data->Nom) && isset($_GET['Id'])){
+        $groupe->Nom = $data->Nom;
 
-    if(!isset($retour['error'])){
-        $rep = array('message' => "succes");
-        echo json_encode($rep);
+        $retour=$groupe->ModifGroupe($_GET['Id']);
+
+        if(!isset($retour['error'])){
+            $rep = array('message' => "succes");
+            echo json_encode($rep);
+        }
+        else{
+            $rep = array('message' => "echec");
+            $rep['error']=$retour['error'];
+            erreur($rep['error']);
+            echo json_encode($rep);
+        }
+
     }
     else{
-        $rep = array('message' => "echec");
-        $rep['error']=$retour['error'];
-        echo json_encode($rep);
+        echo json_encode(array('message'=>'echec', 'error'=>'param invalide'));
+        erreur();
     }
-
 }
 else{
-    echo json_encode(array('message'=>'echec', 'error'=>'param invalide'));
+    echo json_encode(array('message'=>'echec','error'=>'token invalide'));
+    erreur('param invalide');
 }
 
 ?>

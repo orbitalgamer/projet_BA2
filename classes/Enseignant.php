@@ -1,4 +1,6 @@
 <?php
+
+require_once 'Auth.php'; //pour vérifier que connecté
 class Enseignant{
     public $Id;
     public $Nom;
@@ -13,8 +15,15 @@ class Enseignant{
 
 
     //cosntrctuteur pour définir objet Bdd pour objet PDO
-    public function __construct($db){
+    public function __construct($db, $Token){
         $this->Bdd=$db;
+
+        $auth = New Auth($db); //créer objet auth
+        $reponse = $auth->VerifConnection($Token); //verifie si connecté
+        if(!isset($reponse['error'])){ //remets en variable session pour leur requète qui plante
+            $_SESSION['Id']=$reponse['Id'];
+            $_SESSION['Admin']=$reponse['Admin'];
+        }
     }
 
     public function Creation(){
@@ -167,45 +176,7 @@ class Enseignant{
         else{
             return array('error'=>'pas connecter');
         }
-    }    
-    
-    public function Connection(){
-        //requète pour rechercher nom et prenom comme c'est ça l'indetifiant
-        $querry = "SELECT Id, Nom, Prenom, Email, Mdp, Admin FROM " .$this->NomTable." WHERE Nom= :nom AND Prenom= :prenom";
-
-        //preparer requète
-        $rq=$this->Bdd->prepare($querry);
-
-        //mettre donné en place
-        $arr=explode('.', strtolower(htmlspecialchars(strip_tags($this->Identifiant)))); //mets en minuscule et sépare identifiant en nom et preom
-        $this->Nom=$arr[0];
-        $this->Prenom=$arr[1];
-        
-        //rehash le mdp pour vérifier si c'est le même
-        $Mdp=password_hash($this->Mdp, PASSWORD_DEFAULT);
-
-        //lie paramètre
-        $rq->bindParam(':nom', $this->Nom);
-        $rq->bindParam(':prenom', $this->Prenom);
-        //var_dump($this);
-        
-        //echo "SELECT Id, Nom, Prenom, Email, Mdp, Admin FROM " .$this->NomTable." WHERE Nom=".$this->Nom." AND Prenom=".$this->Prenom." AND Mdp= ".$this->Mdp;
-
-        //execute
-        $rq->execute();
-        $rep=$rq->fetch();
-        
-        if($rep != null && password_verify($this->Mdp, $rep['Mdp'])){
-            $_SESSION['Id']=$rep['Id']; //sauvegarde Id en session pour réutiliser
-            if($rep['Admin'] == true){ //mets si admin
-                $_SESSION['Admin']=true;
-            }
-            return true;
-        }
-        else{
-            return false;
-        }
-    }
+    }   
 
     public function Modifier($Id = -42){
         if(isset($_SESSION['Id'])){
@@ -308,6 +279,43 @@ class Enseignant{
                     return array('error'=>'param invalide');
                 }
                 //gestion erreur après
+            }
+            else{
+                return array('error'=>'pas perm');
+            }
+        }
+       
+    }
+    public function Rechercher($recherche){
+        if(isset($_SESSION['Id'])){
+            if(isset($_SESSION['Admin']) && $_SESSION['Admin']==true){
+                //création requète mets pas encore le like
+                $querry="SELECT Id, Nom, Prenom, Email, Admin FROM enseignant WHERE Nom LIKE :rq OR Prenom LIKE :rq OR Email LIKE :rq"; 
+                
+                //mets les % pour fair requète like
+                $recherche= '%'.$recherche.'%';
+
+                //prépare
+                $requete=$this->Bdd->prepare($querry);
+
+                //mets param :
+                $requete->bindParam(':rq', $recherche);
+
+                //execute
+                $requete->execute();
+
+                //créé stockage de donnée
+                 $reponse = array(); 
+                 $reponse['data']=array();
+                 
+                 //créer compteur pour donné ordre des prof pour avoir ordre continue et plus simple pour lire après
+                 $compteur=0;
+                 
+                 while($rep=$requete->fetch()){
+                         $reponse['data'][$compteur]=$rep; //rajoute prof
+                         $compteur++;
+                 }
+                 return $reponse;
             }
             else{
                 return array('error'=>'pas perm');
