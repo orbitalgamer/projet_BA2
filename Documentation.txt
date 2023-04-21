@@ -100,14 +100,18 @@ utilisation classe :
                 "IdProf" prend soit Id particulier, soit All pour tous ou None pour aucun (si veut pour lui même peut utiliser None)
                 "IdClasse" prend soit Id particulier, soit All pour toutes
                 "Eleve" prend true/false si veut élève ou pas
+            prend en param Get avec NomGet="Req" le nom que recherche comme classe
             erreur possible :
                 param invalide
                 pas perm besoin de perm quand regarde pour IdProf différent de soi ou classe pas accès
                 pas acces classe quand prof essaye avoir info classe que pas accès
                 pas connecter 
             resulta
+                pour normal :
                 data=> Id,Nom de la classe=>Enseignant=>Nom,Prenom,Email
                                           =>Enfant =>Nom,Prenom,Annee
+                pour recherche :
+                data=>liste=>Nom,Id
     
     pour Modifier :
         api/Groupe/Modification.php

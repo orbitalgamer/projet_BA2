@@ -44,7 +44,7 @@ if(isset($data->Token)){
         }
     }
     else if(isset($_GET['Req'])){
-        $retour =$Enfant->Recherche($_GET['Req']);
+        $retour =$Enfant->Recherche(strtolower($_GET['Req']));
         if(!isset($retour['error'])){
             $rep = array('message' => "succes");
             $rep['data']= $retour['data'];

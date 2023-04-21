@@ -19,7 +19,7 @@ $db = $database->connect();
 $data = json_decode(file_get_contents("php://input"));
 
 if(isset($data->Token)){
-    $groupe = new Groupe($Bdd, $data->Token);
+    $groupe = new Groupe($db, $data->Token);
     
     if(isset($data->Allocation) && $data->Allocation==true){
         //si veux allouer
@@ -49,7 +49,7 @@ if(isset($data->Token)){
     else{
         //si veux créer classe
         if(isset($data->Nom)){
-            $groupe->Nom = $data->Nom;
+            $groupe->Nom = strtolower($data->Nom);
         
             // Mettre en requête Nom : (nom du groupe)
         

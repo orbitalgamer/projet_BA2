@@ -19,8 +19,8 @@ if(isset($data->Token)){
     
     if(isset($data->Nom) && isset($data->Sujet) && isset($data->Json)){
 
-        $Fiche->Nom = $data->Nom;
-        $Fiche->Sujet = $data->Sujet;
+        $Fiche->Nom = strtolower($data->Nom);
+        $Fiche->Sujet = strtolower($data->Sujet);
         $Fiche->Json = $data->Json;
 
         //fait requète

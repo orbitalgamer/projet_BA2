@@ -30,7 +30,7 @@ if(isset($_GET['Id'])){
     }
 }
 else if(isset($data->Sujet)){
-    $retour=$Fiche->ReadLike($data->Sujet);
+    $retour=$Fiche->ReadLike(strtolower($data->Sujet));
     if(!isset($retour['error'])){
         $rep = array('message' => "succes");
         $rep['data']= $retour['data'];

@@ -18,7 +18,7 @@ if(isset($data->Token)){
     $Groupe = new Groupe($Bdd, $data->Token);
 
     if(isset($_GET['Req'])){
-        $retour =$Groupe->Recherche($_GET['Req']);
+        $retour =$Groupe->Recherche(strtolower($_GET['Req']));
             if(!isset($retour['error'])){
                 $rep = array('message' => "succes");
                 $rep['data']= $retour['data'];
@@ -33,7 +33,7 @@ if(isset($data->Token)){
     }
     else{
         if(isset($data->IdProf) && isset($data->IdClasse) && isset($data->Eleve)){
-            $retour =$Groupe->Selectionner($data->IdProf, $data->IdClasse, $data->Eleve);
+            $retour =$Groupe->Selectionner(strtolower($data->IdProf), strtolower($data->IdClasse), strtolower($data->Eleve));
             if(!isset($retour['error'])){
                 $rep = array('message' => "succes");
                 $rep['data']= $retour['data'];

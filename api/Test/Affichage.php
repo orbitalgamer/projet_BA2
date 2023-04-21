@@ -42,7 +42,7 @@ if(isset($data->Token)){
 
     } 
     else if(isset($_GET['Req'])){
-        $rep=$test->Recherche($_GET['Req']);        
+        $rep=$test->Recherche(strtolower($_GET['Req']));
     }
     else{
         echo json_encode(array('message'=>'echec','error'=>'param invalide'));

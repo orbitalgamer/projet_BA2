@@ -17,10 +17,10 @@ $db = $database->connect();
 $data = json_decode(file_get_contents("php://input"));
 
 if(isset($data->Token)){
-    $groupe = new Groupe($Bdd, $data->Token);
+    $groupe = new Groupe($db, $data->Token);
 
     if(isset($data->Nom) && isset($_GET['Id'])){
-        $groupe->Nom = $data->Nom;
+        $groupe->Nom = strtolower($data->Nom);
 
         $retour=$groupe->ModifGroupe($_GET['Id']);
 
