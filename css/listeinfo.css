@@ -25,11 +25,11 @@
     background: #ace9fb;
     flex-direction: row;
     display :flex;
-    gap : 8%;
+    gap : 8vw;
     justify-content:center; 
     align-items: center;
     font-weight: 400;
-    font-size: calc((1vw + 1vh)) ;
+    font-size: 25px ;
     overflow: hidden
   }
   .barreup a {
