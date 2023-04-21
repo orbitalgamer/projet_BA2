@@ -74,6 +74,8 @@
       gap: 20px;
       flex-wrap: wrap;
       row-gap: 10%; 
+      padding-top: 100px;
+      padding-bottom: 100px;
     
   }
   .grid4{
@@ -85,7 +87,7 @@
     display :flex;
     align-items: center;
     justify-content: space-evenly;
-    background: linear-gradient(180deg,var(--color2) 0%, var(--color3) 5%,var(--color3) 95%, #1B98E0 100%) ;
+    background: linear-gradient(180deg,var(--color2) 0%, #1B98E0 10%, #1B98E0 100%) ;
     flex-wrap: wrap;
     
     
