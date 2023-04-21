@@ -161,8 +161,10 @@
         margin-top : 8%;
         position: relative;
         aspect-ratio: 1 / 1;
-        width: 25%;
-        background: #949494;
+        width: 20%;
+            background-image:url("../img/Logo.png");
+            background-size: cover;
+          
     }
     .boxID{ 
         position: relative;
