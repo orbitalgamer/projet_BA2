@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Votre session</title>
+    <link href="./style/main.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="sideMenu">
+          <a href="#" class="title" id="ThemisTest">ThemisTest</a>
+          <a href="#" class="title" id="Classe">Vos classes</a>
+          <a href="./test_view/test.html" class="title" id="testMenu" >Testez vos élèves</a>
+          <a href="#" class="title" id="contact">Contact</a>
+          <a href="#" class="title" id="doc" >Documentation</a>
+          <div  id="profil">
+              
+              <div class="title" id="titleProfil">Michel Richard 
+              <span class="btn">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                  <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                  <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                </svg>
+              </span>
+              </div>
+              <div class="mainContainer">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+                  <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                </svg>
+                <ul>
+                 <li> <a href="../Profil_View/ProfilView.html" class="blockMenu" id="modifier">modifier votre profil</a></li>
+                 <li class="line"></li>
+                  <li><a href="#" class="blockMenu" id="deconnexion">deconnexion 
+                      <svg class="deconnexionIcon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+                      <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
+                      <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/></svg>
+                  </a>
+                  </li>
+                </ul>
+                
+              </div>
+
+
+        </div>
+        </div>
+            <div class="classContainer">
+
+                <div class="tableContainer">
+                    <div class="topTable">
+                      <div id="titleTable"> 
+                        Elèves
+                      </div>
+                      <a href="#" id="classeBtn">Accéder à tous vos élèves</a>
+                    </div>
+                    <div class="mainTable">
+                       
+                      <a href="#" class="row row-1">
+                        <div class="elementRowHead"id="numHead">#</div>
+                        <div class="elementRowHead" id="nomHead">Nom</div>
+                        <div class="elementRowHead" id="prenomHead">Prenom</div>
+                        <div class="elementRowHead" id="testHead">Test</div>
+                      </a>
+                      
+                      
+                      
+                    </div>
+                   
+                  </div>
+
+            </div>
+            <div class="blockContainer">
+                
+                <a href="../Profil_View/ProfilView.html"class="block" id="contactBlock">
+                  Profil
+                </a>
+                <a href="./test_view/test.html" class="block" id="TestBlock">
+                  Questionnaires
+                </a >
+              
+            </div>
+    
+        
+    </div>
+
+
+    <script type="module" src="./js/main.js"></script>
+</body>
+</html>
