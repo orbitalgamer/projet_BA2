@@ -2,19 +2,25 @@
 :root{
   --color1 : #ffb94900;
   --color2 : #24f57800;
-  --color3 : #aaeaf5;
+  --color3 : #1B98E0;
   /*--colorfull: linear-gradient(180deg,#ade8f4 0%,#00b4d8 100% );*/
   --colorfull: rgb(255, 255, 255);
   
 }
-
+@font-face {
+	font-family: 'SylexiadSansMedium';
+	src: url('../Font/SylexiadSansMedium.ttf') format('opentype'),
+       url('../Font/SylexiadSansMedium.woff') format('woff');
+	font-weight: 500;
+	font-style: normal;
+}
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@500&display=swap');
 *{
     box-sizing: border-box;
   }
   
   html {
-    font-family: 'Nunito', sans-serif;
+    font-family: 'SylexiadSansMedium', sans-serif;
     overflow-x: hidden;
     margin : 0;
   }
@@ -79,7 +85,7 @@
     display :flex;
     align-items: center;
     justify-content: space-evenly;
-    background: linear-gradient(180deg,var(--color2) 0%, var(--color3) 5%,var(--color3) 95%, var(--color2) 100%) ;
+    background: linear-gradient(180deg,var(--color2) 0%, var(--color3) 5%,var(--color3) 95%, #1B98E0 100%) ;
     flex-wrap: wrap;
     
     
@@ -87,7 +93,58 @@
    
     /*flex-direction: line;*/
   }
+  .barredown{
+    width : 101%;
+    height : 6vh;
+    flex-direction: row;
+    display :flex;
+    gap : 2%;
+    justify-content:left; 
+    align-items: center;
+    font-weight: 400;
+    font-size: calc((1vw + 1vh)) ;
+    overflow: hidden;
+    background: #1B98E0;
+    color: white;
+ }
+ .left{
+    width : auto;
+    height : 100%;
+    display :flex;
+    flex-wrap: nowrap;
+    gap : 2%;
+    justify-content:left; 
+    align-items: center;
+    font-weight: 400;
+    font-size: calc((0.9vw + 0.9vh)) ;
 
+ }
+ .right{
+    width : 100%;
+    height : 6vh;
+    flex-direction: row;
+    display :flex;
+    gap : 2%;
+    justify-content:right; 
+    align-items: center;
+    font-weight: 400;
+    font-size: calc((1vw + 1vh)) ;
+    overflow: hidden;
+ }
+ #Polytechlogo{
+  padding-right: 50px;
+  height : 4vh;
+  width : auto;
+}
+#Umonslogo{
+  
+  height : 4vh;
+  width : auto;
+}
+ .copyright{
+  height: auto; 
+  padding-left: 50px;
+ }
   .box1{
     position: relative;
     align-self: center;
@@ -124,12 +181,13 @@
   h1{
     margin-left: auto;
     margin-right: auto;
-    font-size: calc((3vw + 3vh)/2) ;
+    font-size: calc((4vw + 4vh)/2) ;
   }
   p{
     margin-left: 10px ;
     margin-right: 10px;
-    font-size: calc((1.8vw + 1.8vh)/2) ;
+    font-size: calc((2vw + 2vh)/2) ;
+    line-height : 25px;
   }
   .box3{
     position: relative;
@@ -189,7 +247,9 @@
     flex-wrap: nowrap;
     align-items: center;
     justify-content: center;
-    font-size : 25px;
-    background: #ffffff;
+    font-size : 30px;
+    color: white;
   }
+ 
+  
 }
