@@ -94,6 +94,7 @@
      .copyright{
       height: auto; 
       padding-left: 50px;
+      white-space: nowrap;
      }
     .grid{
         
@@ -162,8 +163,8 @@
         position: relative;
         aspect-ratio: 1 / 1;
         width: 20%;
-            background-image:url("../img/Logo.png");
-            background-size: cover;
+        background-image:url("../img/Logo.png");
+        background-size: cover;
           
     }
     .boxID{ 

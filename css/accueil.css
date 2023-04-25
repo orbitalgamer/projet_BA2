@@ -145,6 +145,7 @@
  .copyright{
   height: auto; 
   padding-left: 50px;
+  white-space: nowrap;
  }
   .box1{
     position: relative;
