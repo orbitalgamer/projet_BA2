@@ -48,32 +48,35 @@
 }
   .grid{
     width: 100vw;
-    height: 350vh;
+    height: 430vh;
     display :flex;
     flex-direction: column;
     /*align-items: center;
     justify-content: center;*/ 
     background: var(--colorfull);
+
     
   }
   .grid2{
     width: 100%;
-    height: 30%;
+    height: 100vh;
     display :flex;
     align-items: center;
     justify-content: center;
-   
+ 
+
+    
   
   }
   .grid3{
       width: 100%;
-      height: 48%;
+      height: 210vh;
       display :flex;
       align-items: center;
       justify-content: center;
       gap: 20px;
       flex-wrap: wrap;
-      row-gap: 10%; 
+      row-gap: 100px; 
       padding-top: 100px;
       padding-bottom: 250px;
   }
@@ -88,6 +91,7 @@
     justify-content: space-evenly;
     background: linear-gradient(180deg,var(--color2) 0%, #1B98E0 10%, #1B98E0 100%) ;
     flex-wrap: wrap;
+ 
     
     
     row-gap : 50px;
@@ -151,7 +155,7 @@
     position: relative;
     align-self: center;
     width: 78%;
-    height : 80%;
+    height : 75vh;
     font-weight: 400;
     font-size: calc((5vw + 5vh)/2) ;
     text-align:center;
@@ -169,15 +173,14 @@
     position: relative;
     align-self: center;
     width: 60%;
-    height : 60%;
+    height : 60vh;
     font-weight: 400;
     font-size: 36px;
     display: flex; 
-    background:  #ffffff1a;
     text-align: justify;
     text-justify: inter-word;
     flex-direction: column;
-
+    border: 10px solid red;
     
   }
   h1{
@@ -189,18 +192,28 @@
     margin-left: 10px ;
     margin-right: 10px;
     font-size: calc((2vw + 2vh)/2) ;
-    line-height : 25px;
+    line-height : 120%;
   }
   .box3{
     position: relative;
     align-self: center;
     width: 30%;
-    height : 60%;
+    height : 60vh;
     font-weight: 400;
     display: flex; 
-   
-   
     
+  }
+  .box4{
+    position: relative;
+    align-self: center;
+    width: 78%;
+    height : 35vh;
+    font-weight: 400;
+    font-size: calc((5vw + 5vh)/2) ;
+    text-align:center;
+    display: table;
+    color : #ffffff;
+    border-radius: calc((8vw + 8vh)/2);
   }
   #objectif{
     background-image:url("../img/enfant2.jpg");
@@ -212,7 +225,7 @@
     background-position-x: center;
   }
   
-  .box4{
+  .box5{
     position: relative;
     align-self: center;
     top : 5%;
@@ -223,13 +236,12 @@
     font-weight: 400;
     font-size: 36px;
     display: flex; 
-    background: #a1a1a100;
     flex-direction: column;
     flex-wrap: nowrap;
     border: 2px solid rgba(0, 0, 0, 0);
     
   }
-  .box5{
+  .box6{
     
     position: relative;
     aspect-ratio: 1/1;
@@ -237,7 +249,7 @@
     background: #949494;
     border-radius: 100%;
   }
-  .box6{
+  .box7{
     position: relative;
     align-self: center;
     top : 20px;
