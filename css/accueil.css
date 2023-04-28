@@ -48,7 +48,7 @@
 }
   .grid{
     width: 100vw;
-    height: 430vh;
+    height: 400vh;
     display :flex;
     flex-direction: column;
     /*align-items: center;
@@ -78,7 +78,7 @@
       flex-wrap: wrap;
       row-gap: 100px; 
       padding-top: 100px;
-      padding-bottom: 250px;
+      padding-bottom: 200px;
   }
   .grid4{
     width: 100%;
@@ -180,7 +180,6 @@
     text-align: justify;
     text-justify: inter-word;
     flex-direction: column;
-    border: 10px solid red;
     
   }
   h1{
@@ -206,18 +205,19 @@
   .box4{
     position: relative;
     align-self: center;
-    width: 78%;
-    height : 35vh;
+    width: 60%;
+    height : 40vh;
     font-weight: 400;
-    font-size: calc((5vw + 5vh)/2) ;
-    text-align:center;
-    display: table;
-    color : #ffffff;
-    border-radius: calc((8vw + 8vh)/2);
+    font-size: 36px;
+    display: flex; 
+    text-align: justify;
+    text-justify: inter-word;
+    flex-direction: column;
   }
   #objectif{
     background-image:url("../img/enfant2.jpg");
     background-size: cover;
+    background-position-x: center;
   }
   #propose{
     background-image:url("../img/enfant3.jpg");
