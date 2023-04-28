@@ -24,6 +24,10 @@
     overflow-x: hidden;
     margin : 0;
   }
+  body {
+    margin: 0;
+    padding: 0;
+}
 @media screen and (min-width:140px) {
   .barreup{
     width : 100%;
@@ -159,15 +163,18 @@
     font-weight: 400;
     font-size: calc((5vw + 5vh)/2) ;
     text-align:center;
-    display: table;
+    display: flex;
+    flex-direction: column;
     color : #ffffff;
-    border-radius: calc((8vw + 8vh)/2) ;
+    border-radius: calc((8vw + 8vh)/2);
     background-image:linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../img/enfant1.jpg");
     background-size: cover;
+    justify-content: center;
+    gap: 10%;
   }
-  .box1 span{
-    vertical-align:middle;
-    display: table-cell;
+  #Titre{
+    font-size: calc(4vw + 4vh) ;
+    font-weight: 600;
   }
   .box2{
     position: relative;
@@ -264,6 +271,7 @@
     font-size : 30px;
     color: white;
   }
+  
   #Thibaut{
     background-image:url("../img/Thibaut.png");
     background-size: cover;

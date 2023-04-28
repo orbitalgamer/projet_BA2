@@ -15,6 +15,10 @@
     overflow-x: hidden;
     margin : 0;
   }
+  body {
+    margin: 0;
+    padding: 0;
+}
 @media screen and (min-width:140px) {
   .barreup{
     width : 100%;
@@ -109,7 +113,7 @@
     flex-direction: column;
     justify-content: center;
     gap : 5%;
-
+    margin-left : 10px;
   }
   .box1{
     position: relative;
@@ -117,6 +121,7 @@
     width : 50%;
     height : auto;
     font-size:calc((4vw + 4vh)/2) ;
+    margin-left: 10px;
 
   }
   .recherche{
@@ -127,6 +132,7 @@
     border: 1px solid #000000;
     font-size:calc((1.5vw + 1.5vh)/2) ;
     background: #abe0ff;
+    margin-left: 10px;
   }
   .grid3{
     position: relative;
@@ -136,7 +142,7 @@
     display: flex;
     flex-direction: column;
     gap:5%;
-   
+    padding : 1px;
   }
   .letter{
     position: relative;
