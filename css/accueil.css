@@ -252,6 +252,51 @@
     font-size : 30px;
     color: white;
   }
+  #Thibaut{
+    background-image:url("../img/Thibaut.png");
+    background-size: cover;
+    background-position-x: center;
+  }
+  #Manon{
+    background-image:url("../img/Thibaut.png");
+    background-size: cover;
+    background-position-x: center;
+  }
+  #Cyril{
+    background-image:url("../img/Thibaut.png");
+    background-size: cover;
+    background-position-x: center;
+  }
+  #Gabriel{
+    background-image:url("../img/Thibaut.png");
+    background-size: cover;
+    background-position-x: center;
+  }
+  #NicolasV{
+    background-image:url("../img/Thibaut.png");
+    background-size: cover;
+    background-position-x: center;
+  }
+  #NicolasW{
+    background-image:url("../img/Thibaut.png");
+    background-size: cover;
+    background-position-x: center;
+  }
+  #Mejdi{
+    background-image:url("../img/Thibaut.png");
+    background-size: cover;
+    background-position-x: center;
+  }
+  #Hugo{
+    background-image:url("../img/Thibaut.png");
+    background-size: cover;
+    background-position-x: center;
+  }
+  #Mohammed{
+    background-image:url("../img/Thibaut.png");
+    background-size: cover;
+    background-position-x: center;
+  }
  
   
 }
