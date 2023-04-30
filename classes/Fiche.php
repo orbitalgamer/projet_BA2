@@ -1,12 +1,17 @@
 <?php
 
 require_once 'Auth.php'; //pour vérifier que connecté
+
+function VraiUrl( $file_url ){ //fonction prend la vrai url serveur pour enovyer dans href et lié au pdf
+   
+    return realpath(parse_url($file_url, PHP_URL_PATH));
+}
+
 class Fiche {
 
     public $Id;
     public $Nom;
     public $Sujet;
-    public $Json;
     private $Bdd;
 
 
@@ -34,7 +39,7 @@ class Fiche {
 
                 //mettre param
                 $requete->bindParam(':Nom', $this->Nom);
-                $requete->bindParam(':Sujet', strtolower($this->Sujet));
+                $requete->bindParam(':Sujet', $this->Sujet);
 
                 //execute
                 $requete->execute();
@@ -70,15 +75,7 @@ class Fiche {
                     $rep=$requete->fetch();
 
                     if($rep){
-                        $Fichier=fopen("../../Fiches/".$rep['Id'].".json", "w"); //ouvrer et créer fichier pour cette Id
-                        if($Fichier){
-                            fwrite($Fichier, json_encode($this->Json));
-                            fclose($Fichier);
-                            return array();
-                        }
-                        else{
-                            return array('error'=>'erreur creation fiche');    
-                        }
+                        return array('upload'=>"upload", "data"=>array("Id"=>$rep['Id']));
                     }
                     else{
                         return array('error'=>'erreur interne');
@@ -116,16 +113,12 @@ class Fiche {
 
             //si fichier existe
             if($rep){
-                $url="../../Fiches/".$Id.".json";
-                $Fichier=fopen($url, "r"); // ouvre ficheir
-                if($Fichier){
-                    $text=fread($Fichier,filesize($url));
-                    $retour['data']=json_decode($text);
-                    return $retour;
-                }
-                else{
-                    return array('error'=>'fichier introuvable');
-                }
+
+                $retour= array();
+                $retour['data']=$rep;
+                $retour['data']['Url']=dirname(dirname(__FILE__))."\\Fiches\\".$rep['Nom'].".pdf";  //renvioie bon
+                
+                return $retour;
             }
             else{
                 return array('error'=>'fiche existe pas');
@@ -147,13 +140,14 @@ class Fiche {
 
             //prend chauqe réponse et mest dans la sortie 
             while($rep=$requete->fetch()){
+                $rep['Url']=dirname(dirname(__FILE__))."\\Fiches\\".$rep['Nom'].".pdf";
                 array_push($retour['data'], $rep);
             }
             return $retour;
         }
     }
 
-    public function Read($Sujet){ //sélectionnai Sujet approximative genre dys => dysorthographie
+    public function ReadLike($Sujet){ //sélectionnai Sujet approximative genre dys => dysorthographie
         if(strlen($Sujet)>=2){
             //requète pour avoir tous les sujets correspondant
             $query="SELECT Id, Nom, Sujet FROM fiche WHERE Sujet LIKE :Sujet LIMIT 15";
@@ -174,6 +168,7 @@ class Fiche {
 
             //prend chauqe réponse et mest dans la sortie 
             while($rep=$requete->fetch()){
+                $rep['data']['url']=dirname(dirname(__FILE__))."\\Fiches\\".$rep['Nom'].".pdf"; //l'url complet de la fiche
                 array_push($retour['data'], $rep);
             }
             return $retour;
@@ -215,24 +210,15 @@ class Fiche {
                     //mettre param
                     $requete->bindParam(':Id', $Id);
                     $requete->bindParam(':Nom', $this->Nom);
-                    $requete->bindParam(':Sujet', strtolower($this->Sujet));
+                    $requete->bindParam(':Sujet', $this->Sujet);
 
 
                     //execute
                     if($requete->execute()){
-                        if(isset($this->Json) && !empty($this->Json)){ //vérifie que queluqe chose dans jsno
-                            //si oui, update le fichier
-                            $Fichier=fopen("../../Fiches/".$Id.".json", "w"); //ouvrer et créer fichier pour cette Id
-                            if($Fichier){
-                                fwrite($Fichier, json_encode($this->Json));
-                                fclose($Fichier);
-                                return array();
-                            }
-                            else{
-                                return array('error'=>'erreur modification fiche');    
-                            }
-                        }
-                        return array();
+
+                        $retour['data']=array('upload'=>'upload', 'Id'=>$Id, "Nom"=>$this->Nom, "Sujet"=>$this->Sujet);
+                        
+                        return $retour;
                     }
                     else{
                         return array('error'=>'param invalide');
@@ -307,5 +293,6 @@ class Fiche {
     }
 
 }
+
 
 ?>
