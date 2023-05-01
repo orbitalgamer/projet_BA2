@@ -5,7 +5,7 @@ header('Access-Control-Allow-Methods: DELETE');
 header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type,Access-Control-Allow-Methods, Authorization, X-Requested-With');
 
 include_once '../../bdd.php';
-include_once '../../classes/Groupe.php';
+include_once '../../classes/Contact.php';
 include_once '../../erreur.php';
 
 //création objet bdd pour connection 
@@ -18,35 +18,10 @@ $Bdd = $db->connect();
 $Data = json_decode(file_get_contents("php://input"));
 
 if(isset($Data->Token)){
-    $Groupe = new Groupe($Bdd, $Data->Token);
+    $Contact = new Contact($Bdd, $Data->Token);
     
-    //défini var à par de défaut fct
-    $IdProf=-42;
-    $IdClasse=-42;
-
-    //doit savoir si veut que désalouer ou supprimer
-    if(isset($Data->Desalouer)){
-
-        //si veut que désalouer
-        if($Data->Desalouer == true){    
-            //regarde le quel des deux est mits si aucun erreur viens de fct
-            if(isset($Data->IdProf)){
-                $IdProf=$Data->IdProf;
-            }
-            if(isset($Data->IdClasse)){
-                $IdClasse=$Data->IdClasse;
-            }
-            $rep=$Groupe->Desalouer($IdProf, $IdClasse);
-        }
-        //si veux supprimer
-        else if($Data->Desalouer == false && isset($Data->IdClasse)){
-            $rep=$Groupe->DeleteClasse($Data->IdClasse);
-        }
-        //si pas mis les bon param pour supprimer
-        else{
-            $rep['error']="param invalide";
-        }
-        
+    if(isset($_GET['Id']) && !empty($_GET['Id'])){   
+        $rep=$Contact->Delete($_GET['Id']);
         //renvoier état si réussi ou echec avec erreur
         if(!isset($rep['error'])){
             echo json_encode(array('message' => 'succes'));
@@ -57,12 +32,12 @@ if(isset($Data->Token)){
             erreur($retour['error']);
             echo json_encode($retour);
         }
+
     }
     else{
-        erreur();
-        echo json_encode(array('message'=>'echec', 'error'=>'param invalide'));
+        echo json_encode(array('message'=>'echec','error'=>'param invalide'));
+        erreur('param invalide');
     }
-
 
 }
 else{
