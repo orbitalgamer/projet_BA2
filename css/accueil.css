@@ -272,52 +272,70 @@
     color: white;
   }
   
+  
   #Thibaut{
-    background-image:url("../img/Thibaut.png");
-    background-size: cover;
-    background-position-x: center;
+    background-image:url("../img/Nous/Thibaut.png");
+   
+    background-position-x: -160px;
+    background-position-y: -80px;
+    background-size: 260%;
   }
   #Manon{
-    background-image:url("../img/Thibaut.png");
-    background-size: cover;
-    background-position-x: center;
+    background-image:url("../img/Nous/Manon.png");
+   
+    background-position-x: -240px;
+    background-position-y: -150px;
+    background-size: 400%;
   }
   #Cyril{
-    background-image:url("../img/Thibaut.png");
-    background-size: cover;
-    background-position-x: center;
+    background-image:url("../img/Nous/Cyril.png");
+   
+    background-position-x: -140px;
+    background-position-y: -80px;
+    background-size: 250%;
   }
   #Gabriel{
-    background-image:url("../img/Thibaut.png");
-    background-size: cover;
-    background-position-x: center;
+    background-image:url("../img/Nous/Gabriel.png");
+   
+    background-position-x: -135px;
+    background-position-y: -80px;
+    background-size: 260%;
   }
   #NicolasV{
-    background-image:url("../img/Thibaut.png");
+    background-image:url("../img/Nous/NicolasV.jpg");
+   
+    background-position-x: -40px;
+    background-position-y: 0px;
     background-size: cover;
-    background-position-x: center;
   }
   #NicolasW{
-    background-image:url("../img/Thibaut.png");
-    background-size: cover;
-    background-position-x: center;
+    background-image:url("../img/Nous/NicolasW.png");
+   
+    background-position-x: -185px;
+    background-position-y: -130px;
+    background-size: 350%;
   }
   #Mejdi{
-    background-image:url("../img/Thibaut.png");
-    background-size: cover;
-    background-position-x: center;
+    background-image:url("../img/Nous/Mejdi.png");
+   
+    background-position-x: -185px;
+    background-position-y: -120px;
+    background-size: 350%;
   }
   #Hugo{
-    background-image:url("../img/Thibaut.png");
-    background-size: cover;
-    background-position-x: center;
+    background-image:url("../img/Nous/Hugo.png");
+   
+    background-position-x: -180px;
+    background-position-y: -120px;
+    background-size: 350%;
   }
   #Mohammed{
-    background-image:url("../img/Thibaut.png");
-    background-size: cover;
-    background-position-x: center;
+    background-image:url("../img/Nous/Mohammed.png");
+   
+    background-position-x: -208px;
+    background-position-y: -100px;
+    background-size: 350%;
   }
- 
   
 }
 
@@ -384,7 +402,7 @@
     width: 100%;
     height: auto;
     padding-bottom: 120px;
-    padding-top: 80px;
+    padding-top: 100px;
    
     display :flex;
     align-items: center;
@@ -569,49 +587,67 @@
   }
   
   #Thibaut{
-    background-image:url("../img/Thibaut.png");
-    background-size: cover;
-    background-position-x: center;
+    background-image:url("../img/Nous/Thibaut.png");
+   
+    background-position-x: -160px;
+    background-position-y: -80px;
+    background-size: 260%;
   }
   #Manon{
-    background-image:url("../img/Thibaut.png");
-    background-size: cover;
-    background-position-x: center;
+    background-image:url("../img/Nous/Manon.png");
+   
+    background-position-x: -240px;
+    background-position-y: -150px;
+    background-size: 400%;
   }
   #Cyril{
-    background-image:url("../img/Thibaut.png");
-    background-size: cover;
-    background-position-x: center;
+    background-image:url("../img/Nous/Cyril.png");
+   
+    background-position-x: -140px;
+    background-position-y: -80px;
+    background-size: 250%;
   }
   #Gabriel{
-    background-image:url("../img/Thibaut.png");
-    background-size: cover;
-    background-position-x: center;
+    background-image:url("../img/Nous/Gabriel.png");
+   
+    background-position-x: -135px;
+    background-position-y: -80px;
+    background-size: 260%;
   }
   #NicolasV{
-    background-image:url("../img/Thibaut.png");
+    background-image:url("../img/Nous/NicolasV.jpg");
+   
+    background-position-x: -40px;
+    background-position-y: 0px;
     background-size: cover;
-    background-position-x: center;
   }
   #NicolasW{
-    background-image:url("../img/Thibaut.png");
-    background-size: cover;
-    background-position-x: center;
+    background-image:url("../img/Nous/NicolasW.png");
+   
+    background-position-x: -185px;
+    background-position-y: -130px;
+    background-size: 350%;
   }
   #Mejdi{
-    background-image:url("../img/Thibaut.png");
-    background-size: cover;
-    background-position-x: center;
+    background-image:url("../img/Nous/Mejdi.png");
+   
+    background-position-x: -185px;
+    background-position-y: -120px;
+    background-size: 350%;
   }
   #Hugo{
-    background-image:url("../img/Thibaut.png");
-    background-size: cover;
-    background-position-x: center;
+    background-image:url("../img/Nous/Hugo.png");
+   
+    background-position-x: -180px;
+    background-position-y: -120px;
+    background-size: 350%;
   }
   #Mohammed{
-    background-image:url("../img/Thibaut.png");
-    background-size: cover;
-    background-position-x: center;
+    background-image:url("../img/Nous/Mohammed.png");
+   
+    background-position-x: -208px;
+    background-position-y: -100px;
+    background-size: 350%;
   }
  
   
