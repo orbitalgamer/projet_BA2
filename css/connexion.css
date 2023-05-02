@@ -201,7 +201,8 @@
         margin-left: auto;
         margin-right: auto;
         width: 80%;
-        height: 10%;
+        height: 5%;
+        margin-bottom: 5%;
         text-indent: 10px;
         font-size: calc((1vw + 1vh));
         background: #ffffff00;
@@ -239,6 +240,8 @@
     }
     .clicked{
         background: #00a6ff;
+        transform: scale(1.03) translateY(1px);
+        box-shadow: 0 2px 0 #888;
     }
 }
 
@@ -455,7 +458,8 @@
         margin-left: auto;
         margin-right: auto;
         width: 75%;
-        height: 5vh;
+        height: 3vh;
+        margin-bottom: 5%;
         text-indent: 10px;
         font-size: calc((1.2vw + 1.2vh));
         background: #ffffff00;
@@ -496,5 +500,7 @@
     }
     .clicked{
         background: #00a6ff;
+        transform: scale(1.03) translateY(1px);
+        box-shadow: 0 2px 0 #888;
     }
 }
