@@ -52,7 +52,7 @@
 }
   .grid{
     width: 100vw;
-    height: 400vh;
+    height: auto;
     display :flex;
     flex-direction: column;
     /*align-items: center;
@@ -229,7 +229,7 @@
   #propose{
     background-image:url("../img/enfant3.jpg");
     background-size: cover;
-    background-position-x: center;
+    background-position-x: 70%;
   }
   
   .box5{
@@ -550,7 +550,7 @@
     position: relative;
     align-self: center;
     top : 5%;
-    width: 160px;
+    width: 200px;
     aspect-ratio: 1/1.5;
     margin-left: 4%;
     margin-right: 4%;
@@ -589,64 +589,64 @@
   #Thibaut{
     background-image:url("../img/Nous/Thibaut.png");
    
-    background-position-x: -160px;
-    background-position-y: -80px;
-    background-size: 260%;
+    background-position-x: -195px;
+    background-position-y: -100px;
+    background-size: 250%;
   }
   #Manon{
     background-image:url("../img/Nous/Manon.png");
    
-    background-position-x: -240px;
-    background-position-y: -150px;
+    background-position-x: -305px;
+    background-position-y: -200px;
     background-size: 400%;
   }
   #Cyril{
     background-image:url("../img/Nous/Cyril.png");
    
-    background-position-x: -140px;
-    background-position-y: -80px;
+    background-position-x: -175px;
+    background-position-y: -100px;
     background-size: 250%;
   }
   #Gabriel{
     background-image:url("../img/Nous/Gabriel.png");
    
-    background-position-x: -135px;
-    background-position-y: -80px;
+    background-position-x: -165px;
+    background-position-y: -110px;
     background-size: 260%;
   }
   #NicolasV{
     background-image:url("../img/Nous/NicolasV.jpg");
    
-    background-position-x: -40px;
+    background-position-x: -50px;
     background-position-y: 0px;
     background-size: cover;
   }
   #NicolasW{
     background-image:url("../img/Nous/NicolasW.png");
    
-    background-position-x: -185px;
-    background-position-y: -130px;
-    background-size: 350%;
+    background-position-x: -258px;
+    background-position-y: -170px;
+    background-size: 370%;
   }
   #Mejdi{
     background-image:url("../img/Nous/Mejdi.png");
    
-    background-position-x: -185px;
-    background-position-y: -120px;
+    background-position-x: -230px;
+    background-position-y: -140px;
     background-size: 350%;
   }
   #Hugo{
     background-image:url("../img/Nous/Hugo.png");
    
-    background-position-x: -180px;
-    background-position-y: -120px;
+    background-position-x: -230px;
+    background-position-y: -150px;
     background-size: 350%;
   }
   #Mohammed{
     background-image:url("../img/Nous/Mohammed.png");
    
-    background-position-x: -208px;
-    background-position-y: -100px;
+    background-position-x: -260px;
+    background-position-y: -120px;
     background-size: 350%;
   }
  
