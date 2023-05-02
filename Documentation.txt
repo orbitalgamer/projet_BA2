@@ -396,3 +396,64 @@ utilisation des Test:
                 pas acces a cette enfant
             resultat :
                 echec/succes
+
+    utilisation des contacs :
+        pour créer:
+            api/Contact/Creation.php
+            param:
+                Nom, Prenom, Email, Specialite et optionnellement Description, Telephone
+            
+            erreur possible:
+                pas connecter
+                pas perm
+                contact existe deja
+                erreur requete //normalement devrai jamais arrvié celle-ci
+            
+            résulsta :
+                echec/succes
+
+        pour modifier:
+            api/Contact/Modification.php
+            param:
+                prend en param get avec NomGet=Id, l'Id de la personne
+                puis mets en param classique :
+                Nom, Prenom, Email, Specialite, Description, Telephone doit uniquement mettre ce qui on été modifié
+
+            erreur possible:
+                pas connecter
+                pas perm
+                contact existe pas
+                erreur requete //devrai jamais arriver
+            
+            resultat:
+                echec/succes
+            
+        pour afficher:
+            api/Contact/Affichage.php
+            param:
+                prend en param get avec NomGet=Id, l'Id de la personne //peut mettre All pour avoir toutes les personnes
+                prend en param get avec NomGet=Req, pour fair recherche sur Nom, Prenom, Specialite
+            
+            erreur possible:
+                param invalide
+
+            resultat:
+                succes/echec
+                soit 'data'=>liste=>Id, Nom, Prenom, Email, Telephone, Description, Specialite
+                soit 'data'=> Nom, Prenom, Email, Telephone, Description, Specialite si recherche pour un Id spécifique
+        
+        pour supprimer:
+            api/Contact/Suppression.php
+            param:
+                prend en param get avec NomGet=Id, l'Id de la personne
+            
+            erreur possible:
+                param invalide
+                token invalide
+                pas perm
+                pas connecter
+                contact existe pas
+                erreur requete //devrai jamais arriver
+            
+            resusltat:
+                succes/echec
