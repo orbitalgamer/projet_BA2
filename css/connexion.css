@@ -219,6 +219,7 @@
         border-radius: 25px;
         display :flex;
         text-decoration: none;
+        font-size: calc((4vw + 3vh)/2);
         
     }
     .boxconnexiontext{
@@ -231,22 +232,13 @@
         width: auto;
         height: auto;
     }
-    #notover{
-
-        width: 80%;
-        height: 15%;
-        font-size: calc((4vw + 3vh)/2);
-      /*  top : -10px;*/
-    }
-    #over{
+    .over{
         transform: scale(1.05);
         font-size: calc((4.1vw + 3.1vh)/2);
-        /*
-        width: 82%;
-        height: 16%;
-        
-        top : -13px;
-        */
+
+    }
+    .clicked{
+        background: #00a6ff;
     }
 }
 
@@ -359,7 +351,7 @@
     .grid{
         
         width: 100vw;
-        height: 84vh;
+        height: 87vh;
         display :flex;
         flex-direction: column;
         box-sizing: border-box;
@@ -477,11 +469,12 @@
         margin-left: auto;
         margin-right: auto;
         width: 75%;
-        height: 15vh;
+        height: 15%;
         background: #00B2FF;
         border-radius: 25px;
         display :flex;
         text-decoration: none;
+        font-size: calc((4vw + 3vh)/2);
         
     }
     .boxconnexiontext{
@@ -495,21 +488,13 @@
         height: auto;
        
     }
-    #notover{
 
-        width: 75%;
-        height: 15%;
-        font-size: calc((4vw + 3vh)/2);
-      /*  top : -10px;*/
-    }
-    #over{
+    .over{
         transform: scale(1.05);
         font-size: calc((4.1vw + 3.1vh)/2);
-        /*
-        width: 82%;
-        height: 16%;
-        
-        top : -13px;
-        */
+
+    }
+    .clicked{
+        background: #00a6ff;
     }
 }
