@@ -21,7 +21,7 @@ if(isset($data->Token)){
         $test = new Test($db, $data->Token);
 
         //get input
-        $test->IdEleve = $data->IdEleve;
+        $test->IdEleve = strtolower($data->IdEleve);
         $test->ScoreTDA = $data->ScoreTDA;
         $test->ScoreDyslexie = $data->ScoreDyslexie;
         $test->ScoreDysortho = $data->ScoreDysortho;

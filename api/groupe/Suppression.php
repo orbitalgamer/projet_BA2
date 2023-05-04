@@ -15,10 +15,10 @@ $Bdd = $db->connect();
 
 
 //récup info
-$data = json_decode(file_get_contents("php://input"));
+$Data = json_decode(file_get_contents("php://input"));
 
-if(isset($data->Token)){
-    $Groupe = new Groupe($Bdd, $data->Token);
+if(isset($Data->Token)){
+    $Groupe = new Groupe($Bdd, $Data->Token);
     
     //défini var à par de défaut fct
     $IdProf=-42;

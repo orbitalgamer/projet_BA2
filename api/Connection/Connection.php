@@ -16,7 +16,7 @@ $data = json_decode(file_get_contents("php://input"));
 
 if(isset($data->Identifiant) && isset($data->Mdp)){
 
-    $retour =$conn->Connection($data->Identifiant, $data->Mdp);
+    $retour =$conn->Connection(strtolower($data->Identifiant), $data->Mdp);
     if(!isset($retour['error'])){
         $rep=array('message'=>'succes');
         $rep['data']=$retour['data'];

@@ -20,13 +20,17 @@ $data = json_decode(file_get_contents("php://input"));
 if(isset($data->Token)){
     $enfant = new Enfant($db, $data->Token);
 
-    if(isset($data->Nom) && isset($data->Prenom) && isset($data->Annee) && isset($data->IdClasse)){
+    if(isset($data->Nom) && isset($data->Prenom) && isset($data->Annee)){
 
-        $enfant->Nom = $data->Nom;
-        $enfant->Prenom = $data->Prenom;
-        $enfant->Annee = $data->Annee;
-        $enfant->IdClasse = $data->IdClasse;
-
+        $enfant->Nom = strtolower($data->Nom);
+        $enfant->Prenom = strtolower($data->Prenom);
+        $enfant->Annee = strtolower($data->Annee);
+        if(isset($data->IdClasse)){
+            $enfant->IdClasse = strtolower($data->IdClasse);
+        }
+        else{
+            $enfant->IdClasse=null;
+        }
         // Mettre en requête Nom : (nom du groupe)
 
         $retour=$enfant->newEnfant();

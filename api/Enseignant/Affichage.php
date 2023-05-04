@@ -33,7 +33,7 @@ $Prof = new Enseignant($Bdd, $data->Token);
         }
     }
     else if(isset($_GET['Req'])){
-        $retour =$Prof->Rechercher($_GET['Req']);
+        $retour =$Prof->Rechercher(strtolower($_GET['Req']));
         if(!isset($retour['error'])){
             $rep = array('message' => "succes");
             $rep['data']= $retour['data'];

@@ -60,7 +60,7 @@ class Auth{
                 
                 $retour = array();
                 $retour['data']=array();
-                $retour['data']['token']=$reponse['TokenProf'];
+                $retour['data']['Token']=$reponse['TokenProf'];
                 return $retour;
             }
             //recrée token et le mets en bdd :
@@ -78,7 +78,7 @@ class Auth{
             if($requete->execute()){
                 $retour = array();
                 $retour['data']=array();
-                $retour['data']['token']=$this->TokenProf;
+                $retour['data']['Token']=$this->TokenProf;
                 return $retour;
             }else{
                 return array('error creation token');

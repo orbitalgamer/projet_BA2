@@ -57,7 +57,7 @@ class Enfant {
 
                     $rep=$requete->fetch();
 
-                    if($rep != null){
+                    if($rep != null || $this->IdClasse==null){
                         //Crea requête
                         $query = "INSERT INTO eleve (Nom, Prenom, Annee, IdClasse) VALUES (:Nom,:Prenom,:Annee,:IdClasse)";
 
@@ -67,8 +67,12 @@ class Enfant {
                         $requete->bindParam(':Nom', $this->Nom);
                         $requete->bindParam(':Prenom', $this->Prenom);
                         $requete->bindParam(':Annee', $this->Annee);
-                        $requete->bindParam(':IdClasse', $this->IdClasse);
-                        //var_dump($requete);
+                        if($this->IdClasse != null){
+                            $requete->bindParam(':IdClasse', $this->IdClasse);
+                        }
+                        else{
+                            $requete->bindParam(':IdClasse',  $this->IdClasse, PDO::PARAM_NULL);
+                        }
                         
                         //exécuter
 
@@ -590,6 +594,7 @@ class Enfant {
             return array('error'=>'pas connecter');
         }
     }
+    
 }
 
 ?>

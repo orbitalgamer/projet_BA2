@@ -4,6 +4,7 @@ header('Content-Type: application/json');
 
 include_once '../../bdd.php';
 include_once '../../classes/Fiche.php';
+include_once '../../erreur.php';
 
 //création objet bdd pour connection 
 $db = New BaseDeDonnee();
@@ -29,8 +30,8 @@ if(isset($_GET['Id'])){
         echo json_encode($rep);
     }
 }
-else if(isset($data->Sujet)){
-    $retour=$Fiche->ReadLike($data->Sujet);
+else if(isset($_GET['Sujet'])){
+    $retour=$Fiche->ReadLike(strtolower($_GET['Sujet']));
     if(!isset($retour['error'])){
         $rep = array('message' => "succes");
         $rep['data']= $retour['data'];
@@ -43,6 +44,7 @@ else if(isset($data->Sujet)){
     }
 }
 else{
-    echo json_encode(array('message'=>'echec','error'=>'token invalide'));
+
+    echo json_encode(array('message'=>'echec','error'=>'param invalide'));
 }
 ?>

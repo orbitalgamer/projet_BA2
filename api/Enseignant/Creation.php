@@ -21,9 +21,9 @@ if(isset($data->Token)){
 
     if(isset($data->Nom) && isset($data->Prenom) && isset($data->Email) && isset($data->Mdp)){
 
-        $Prof->Nom = $data->Nom;
-        $Prof->Prenom = $data->Prenom;
-        $Prof->Email = $data->Email;
+        $Prof->Nom = strtolower($data->Nom);
+        $Prof->Prenom = strtolower($data->Prenom);
+        $Prof->Email = strtolower($data->Email);
         $Prof->Mdp = $data->Mdp;
 
         //fait requète

@@ -100,14 +100,18 @@ utilisation classe :
                 "IdProf" prend soit Id particulier, soit All pour tous ou None pour aucun (si veut pour lui même peut utiliser None)
                 "IdClasse" prend soit Id particulier, soit All pour toutes
                 "Eleve" prend true/false si veut élève ou pas
+            prend en param Get avec NomGet="Req" le nom que recherche comme classe
             erreur possible :
                 param invalide
                 pas perm besoin de perm quand regarde pour IdProf différent de soi ou classe pas accès
                 pas acces classe quand prof essaye avoir info classe que pas accès
                 pas connecter 
             resulta
+                pour normal :
                 data=> Id,Nom de la classe=>Enseignant=>Nom,Prenom,Email
                                           =>Enfant =>Nom,Prenom,Annee
+                pour recherche :
+                data=>liste=>Nom,Id
     
     pour Modifier :
         api/Groupe/Modification.php
@@ -170,6 +174,45 @@ utilisation enfant:
             resultat
                 data=> IdClasse,NomClasse=>Entant=>Nom,Prenom,Annee
 
+    pour Importer :
+        api/Enfant/Import.php
+            /!\ATTENTION requète différent. doit passer en param POST le Token et fichier
+        requète type :
+        /*
+                
+                var input = document.querySelector("#fichier")
+
+                var data = new FormData()
+                //console.log(...input.files)
+                data.append('Fichier', input.files[0])
+                data.append('Token', 'OWM1NjEwZTU2MjExOWE5ZmUxYzg0MzE4ZTkyZmUxYWVlZmQ1Zjg3ZmQ4YjYxZjE')
+
+                fetch('http://localhost/projet_ba2/api/Enfant/Import.php', {
+                method: 'POST',
+                body: data,
+                }).then(response => {
+                return response.json();
+                }).then(Data=>{
+                //console.log(Data)
+                input.value = "";
+                })
+
+            avec dans l'html
+            <input type="file" id="fichier" accept=".pdf">
+        */
+
+        errur possible:
+            pas connecter
+            pas perm
+            fichier introuvable //normalement devrait jamais arriver
+            aucun fichier
+            fichier pas accepté //quand pas la bnne extension
+            fichier trop gros
+            fichier pas transmit //quand pas su être envoyer
+        resultt :
+            succes/echec
+
+
     pour modifier:
         api/Enfant/Modification.php
             prend en paramètre Get avec NomGet=Id 
@@ -199,16 +242,37 @@ utilisation enfant:
 utilisation des Fiches:
     pour créer:
         api/Fiche/Creation.php
-            parm :
-            "Nom"
-            "Sujet"
-            "Json" c'est le json pour l'editeur mais je m'occupe à le faire fonctionner
+        /!\ATTENTION requète différent. doit passer en param POST le Token, nom, sujet et fichier
+        
+        param différent car fichier
+            prend en POST
+            Fichier, Nom, Sujet
+
+            /*
+
+            var data = new FormData()
+            data.append('Fichier', input.files[0])
+            data.append('Nom', LENOMENQUESTION)
+            data.append('Sujet', SUJETENQUESTION)
+            data.append('Token', LETOKEN)
+
+            fetch('http://localhost/projet_ba2/api/Fiche/Creation.php', {
+            method: 'POST',
+            body: data,
+            })
+
+            */
+
         erreur possible
             pas connecter
             par perm
             erreur creation fiche //erruer dans écriture du fichier sur serveur
             erreur intern //erreur pour créer dans bdd
             fiche existe deja
+            fichier pas transmit //pas su l'enoyver
+            fichier trop gros
+            fichier pas valide //si pas bonne extension
+            
         résultat:
         succes/echec
 
@@ -217,16 +281,38 @@ utilisation des Fiches:
             param :
                 si passe en param Get avec NomGet="Id" puis l'Id, revnoi nom, sujet, json
                 si passe Id=All, renvoi tout mais pas le json
-                si passe en param normal "Sujet" avec un sujet ressemblant genre dys => dysorthogrpahie, ou autre va afficher les 15 premier les plus proche
+                si passe en param Get avec NomGet="Sujet" avec un sujet ressemblant genre dys => dysorthogrpahie, ou autre va afficher les 15 premier les plus proche
             erreur
                 fiche introuvable //si pas psosible trouvé json de la fiche
                 fiche existe pas
             résultat:
-                "data"=>fiche=>Id,Nom,Sujet,Json
+                "data"=>fiche=>Id,Nom,Sujet,Url //Url c'est le lien sur le serveur pour le pdf à mettre dans le <a href="">
                 echec/succes
     
     pour modifier :
         api/Fiche/Modification.php
+
+        /!\ATTENTION requète différent. doit passer en param POST le Token et fichier
+        
+        param différent car fichier
+            prend en POST
+            ce qui a été modifier sous Nom, Sujet, Fichier
+
+            /*
+
+            var data = new FormData()
+            data.append('Fichier', input.files[0])
+            data.append('Nom', LENOMENQUESTION)
+            data.append('Sujet', SUJETENQUESTION)
+            data.append('Token', LETOKEN)
+
+            fetch('http://localhost/projet_ba2/api/Fiche/Modification.php?Id=', {
+            method: 'POST',
+            body: data,
+            })
+
+            */
+
             param:
                 prend en param get NomGet='Id' l'id de la fiche
                 puis prend
@@ -310,3 +396,64 @@ utilisation des Test:
                 pas acces a cette enfant
             resultat :
                 echec/succes
+
+    utilisation des contacs :
+        pour créer:
+            api/Contact/Creation.php
+            param:
+                Nom, Prenom, Email, Specialite et optionnellement Description, Telephone
+            
+            erreur possible:
+                pas connecter
+                pas perm
+                contact existe deja
+                erreur requete //normalement devrai jamais arrvié celle-ci
+            
+            résulsta :
+                echec/succes
+
+        pour modifier:
+            api/Contact/Modification.php
+            param:
+                prend en param get avec NomGet=Id, l'Id de la personne
+                puis mets en param classique :
+                Nom, Prenom, Email, Specialite, Description, Telephone doit uniquement mettre ce qui on été modifié
+
+            erreur possible:
+                pas connecter
+                pas perm
+                contact existe pas
+                erreur requete //devrai jamais arriver
+            
+            resultat:
+                echec/succes
+            
+        pour afficher:
+            api/Contact/Affichage.php
+            param:
+                prend en param get avec NomGet=Id, l'Id de la personne //peut mettre All pour avoir toutes les personnes
+                prend en param get avec NomGet=Req, pour fair recherche sur Nom, Prenom, Specialite
+            
+            erreur possible:
+                param invalide
+
+            resultat:
+                succes/echec
+                soit 'data'=>liste=>Id, Nom, Prenom, Email, Telephone, Description, Specialite
+                soit 'data'=> Nom, Prenom, Email, Telephone, Description, Specialite si recherche pour un Id spécifique
+        
+        pour supprimer:
+            api/Contact/Suppression.php
+            param:
+                prend en param get avec NomGet=Id, l'Id de la personne
+            
+            erreur possible:
+                param invalide
+                token invalide
+                pas perm
+                pas connecter
+                contact existe pas
+                erreur requete //devrai jamais arriver
+            
+            resusltat:
+                succes/echec

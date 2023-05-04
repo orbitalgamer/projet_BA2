@@ -46,7 +46,6 @@ class Groupe {
 
                     //link param
                     $requete->bindParam(':Nom', $this->Nom);
-                    //var_dump($requete);
                     
                     //exécuter
 
@@ -491,6 +490,8 @@ class Groupe {
                 //mets les % pour fair requète like
                 $recherche= '%'.$recherche.'%';
 
+                
+
                 //prépare
                 $requete=$this->bdd->prepare($querry);
 
@@ -519,6 +520,7 @@ class Groupe {
 
             //execute
             $requete->execute();
+
 
             //créé stockage de donnée
              $reponse = array(); 
