@@ -103,11 +103,11 @@ let resultat = [];
 
 const Dysorthographique = [
 {
-  questionsPrincipale :  "L'élève fait des fautes d'orthographe fréquentes",
+  questionsPrincipale :  "L'enfant fait des fautes d'orthographe fréquentes",
 
   questionsSecondaire : [
     {
-      question: "Lors de l’ECRITURE, l’élève écrit un mot de différentes façons sur un même paragraphe ou une même ligne (ex : téritoir et territtoire)",
+      question: "En écrivant, l’enfant utilise différentes orthographes pour un même mot dans un même paragraphe ou une même ligne (ex : téritoir et territtoire)", // A comptabiliser pour dysortho et dyslexie
       answers: [
         { text: "Pas du tout", score: 0 },
         { text: "Un petit peu", score: 1 },
@@ -116,7 +116,7 @@ const Dysorthographique = [
       ]
     },
     {
-      question: "Lors de L’ECRITURE, l’élève inverse des lettres et syllabes (comme écrire « volé » pour « vélo »)",
+      question: "En écrivant, l’enfant inverse des lettres et des syllabes (ex : « volé » pour « vélo »)", // A comptabiliser pour dysortho et dyslexie
       answers: [
         { text: "Pas du tout", score: 0 },
         { text: "Un petit peu", score: 1 },
@@ -125,7 +125,7 @@ const Dysorthographique = [
       ]
     },
     {
-      question: "Lors de L’ECRITURE, l’élève oublie des lettres, des syllabes ou des lettres (comme écrire « conporain» pour « contemporain» ou « live» pour « livre»)",
+      question: "En écrivant, l'enfant oublie des syllabes ou des lettres (ex : « conporain » pour « contemporain » ou « live » pour « livre »)", // A comptabiliser pour dysortho et dyslexie
       answers: [
         { text: "Pas du tout", score: 0 },
         { text: "Un petit peu", score: 1 },
@@ -134,7 +134,7 @@ const Dysorthographique = [
       ]
     },
     {
-      question: "Lors de L’ECRITURE l’élève substitue des lettres, des mots, des sons proches lors de l’écriture (comme écrire « la belle maman » pour « la belle maison »)",
+      question: "En écrivant, l’enfant substitue des lettres, des mots, des sons proches (ex : « la belle maman » pour « la belle maison »)", // A comptabiliser pour dysortho et dyslexie
       answers: [
         { text: "Pas du tout", score: 0 },
         { text: "Un petit peu", score: 1 },
@@ -143,7 +143,7 @@ const Dysorthographique = [
       ]
     },
     {
-      question: "Lors de L’ECRITURE, l’élève raccourcit ou allonge des mots (comme écrire « alamère » pour « à la mer » ou « au par avant » pour « auparavant»)",
+      question: "En écrivant, l’enfant fait des erreurs de découpage des mots (ex : « alamère » pour « à la mer » ou « au par avant » pour « auparavant»)", //A comptabiliser pour dysortho et dyslexie
       answers: [
         { text: "Pas du tout", score: 0 },
         { text: "Un petit peu", score: 1 },
@@ -151,7 +151,7 @@ const Dysorthographique = [
         { text: "Enormément", score: 3 }
       ]
     },
-    {
+    /*{
       question: "Lors de L’ECRITURE, l’élève fait des erreurs de découpage des mots (comme « lent de main » pour « lendemain »)",
       answers: [
         { text: "Pas du tout", score: 0 },
@@ -159,16 +159,16 @@ const Dysorthographique = [
         { text: "Beaucoup", score: 2 },
         { text: "Enormément", score: 3 }
       ]
-    }
+    }*/
   ]
 } ,
 {
 
   questionsPrincipale : " ",
-  questionsSecondaire : [
+  questionsSecondaire : [  // Les questions ici doivent être posées obligatoirement, pas besoin de leur mettre une condition
     
       {
-         question: "Lors de l’ECOUTE, l’élève confond les sons proches (comme /p/, /t/, /b/ ou /d/)",
+         question: "A l’écoute, l’enfant confond les sons proches (comme /p/, /t/, /b/ ou /d/)", // A comptabiliser pour dysortho et dyslexie
         answers: [
           { text: "Pas du tout", score: 0 },
           { text: "Un petit peu", score: 1 },
@@ -177,7 +177,7 @@ const Dysorthographique = [
         ],
       },
       {
-        question: "Lors de la LECTURE, l’élève confond visuellement les lettres similaires (comme lire p et d, p et q, m et n, n et u, m et w, f et t)",
+        question: "Lors de la lecture, l’enfant confond visuellement les lettres similaires (comme p et d, p et q, m et n, n et u, m et w, f et t)", // A comptabiliser pour dysortho et dyslexie
         answers: [
           { text: "Pas du tout", score: 0 },
           { text: "Un petit peu", score: 1 },
@@ -186,7 +186,7 @@ const Dysorthographique = [
         ],
       },
       {
-        question: "De manière GENERALE, l’élève mélange les temps : l’élève a du mal avec la concordance des temps",
+        question: "L’enfant a des difficultés avec la conjugaison et la concordance des temps",
         answers: [
           { text: "Pas du tout", score: 0 },
           { text: "Un petit peu", score: 1 },
@@ -196,7 +196,7 @@ const Dysorthographique = [
       },
 
         {
-          question: "L’élève a du mal à faire plusieurs tâches en même temps",
+          question: "L’enfant a des difficultés à réaliser plusieurs tâches en même temps",
           answers: [
             { text: "Pas du tout", score: 0 },
             { text: "Un petit peu", score: 1 },
@@ -205,7 +205,7 @@ const Dysorthographique = [
           ],
         },
         {
-          question: "L’élève arrive a bien rester concentré au cours",
+          question: "L’enfant parvient à rester concentré en classe",
           answers: [
             { text: "Pas du tout", score: 3 },
             { text: "Un petit peu", score: 2 },
@@ -214,7 +214,7 @@ const Dysorthographique = [
           ],
         },
         {
-          question: "L’élève a un retard de langage et de parole",
+          question: "L’enfant a un retard de langage",
           answers: [
             { text: "Pas du tout", score: 0 },
             { text: "Un petit peu", score: 1 },
@@ -223,7 +223,7 @@ const Dysorthographique = [
           ],
         },
         {
-          question: "L’élève fait beaucoup de ratures et il est difficile de déchiffrer son écriture",
+          question: "L’enfant fait beaucoup de ratures et il est difficile de déchiffrer son écriture",
           answers: [
             { text: "Pas du tout", score: 0 },
             { text: "Un petit peu", score: 1 },
@@ -232,7 +232,7 @@ const Dysorthographique = [
           ],
         },
         {
-          question: "L’élève a difficile de s’autocorriger",
+          question: "L’enfant a des difficultés à s’autocorriger",
           answers: [
             { text: "Pas du tout", score: 0 },
             { text: "Un petit peu", score: 1 },
@@ -240,7 +240,7 @@ const Dysorthographique = [
             { text: "Enormément", score: 3 },
           ],
         },
-        {
+        /*{
           question: "L’élève est hyperactif",
           answers: [
             { text: "Pas du tout", score: 0 },
@@ -248,9 +248,9 @@ const Dysorthographique = [
             { text: "Beaucoup", score: 2 },
             { text: "Enormément", score: 3 },
           ],
-        },
+        },*/
         {
-          question : "L'élève a du mal dans la production de textes",
+          question : "L'enfant a des difficultés à produire des textes", // A comptabiliser pour dysortho et dyslexie
           answers: [
             { text: "Pas du tout", score: 0 },
             { text: "Un petit peu", score: 1 },
@@ -259,7 +259,7 @@ const Dysorthographique = [
           ]
         },
         {
-          question : "L'élève a du mal lors de la lecture",
+          question : "L'enfant a des difficultés lors de la lecture",
           answers: [
             { text: "Pas du tout", score: 0 },
             { text: "Un petit peu", score: 1 },
@@ -273,12 +273,12 @@ const Dysorthographique = [
 ]
 const Dyslexie = [
   {
-    questionsPrincipale : "Lors de l'ECRITURE, l'élève éprouve des difficultés au niveau de l'orthographe",
+    //questionsPrincipale : "Lors de l'ECRITURE, l'élève éprouve des difficultés au niveau de l'orthographe", // Tu peux supprimer cette question principale et poser d'office la première question secondaire, l'autre est déjà posée dans le premier test
     questionsSecondaire : [
-      [  {    "text": "Lors de l'ECRITURE, l'élève éprouve de la difficulté dans l'écriture de mots familiers",   
+      [  {    "text": "L'enfant éprouve des difficultés à écrire des mots connus",   
        "answers": [      { "text": "Pas du tout", "score": 0 },      { "text": "Un petit peu", "score": 1 },      { "text": "Beaucoup", "score": 2 },      { "text": "Enormément", "score": 3 }    ]
   },
-  {
+  /*{
     "text": "Lors de l’ECRITURE, l’élève raccourcit ou allonge des mots (comme écrire « alamère » pour « à la mer » ou «au par avant» pour « auparavant»)",
     "answers": [
       { "text": "Pas du tout", "score": 0 },
@@ -286,17 +286,17 @@ const Dyslexie = [
       { "text": "Beaucoup", "score": 2 },
       { "text": "Enormément", "score": 3 }
     ]
-  }
+  }*/
 ]
 
     ]
   }, 
   {
-    questionsPrincipale : "Lors de la LECTURE, l’élève a du mal à lire de façon fluide un texte",
+    questionsPrincipale : "L'enfant ne lit pas de manière fluide",
     questionsSecondaire : [
-      {    question: "Lors de la LECTURE, l’élève ajoute des lettres et syllabes (comme lire « plateau » au lieu de «plat»)",    answers: [      { label: "Pas du tout", score: 0 },      { label: "Un petit peu", score: 1 },      { label: "Beaucoup", score: 2 },      { label: "Énormément", score: 3 }    ]
+      {    question: "Lors de la lecture, l’enfant ajoute des lettres et syllabes (ex : « plateau » au lieu de «plat»)",    answers: [      { label: "Pas du tout", score: 0 },      { label: "Un petit peu", score: 1 },      { label: "Beaucoup", score: 2 },      { label: "Énormément", score: 3 }    ]
     },
-    {
+    /*{
       question: "Lors de la LECTURE, l’élève inverse lors des lettres ou des syllabes (comme lire « volé » pour « vélo »)",
       answers: [
         { label: "Pas du tout", score: 0 },
@@ -304,8 +304,8 @@ const Dyslexie = [
         { label: "Beaucoup", score: 2 },
         { label: "Énormément", score: 3 }
       ]
-    },
-    {
+    },*/
+    /*{
       question: "Lors de la LECTURE, l’élève confond les lettres similaires (comme p et d, p et q, m et n, n et u, m et w, f et t)",
       answers: [
         { label: "Pas du tout", score: 0 },
@@ -313,9 +313,9 @@ const Dyslexie = [
         { label: "Beaucoup", score: 2 },
         { label: "Énormément", score: 3 }
       ]
-    },
+    },*/
     {
-      question: "Lors de la LECTURE, l’élève lit de manière lente et hachée",
+      question: "L'enfant lit de manière lente et hachée",  // Ici, il y a une question à poser en "Sinon".  La question est "L'enfant lit rapidement en faisant des erreurs".  Tu la poses si on a répondu pas du tout ou un petit peu à la question à côté de ce commentaire
       answers: [
         { label: "Pas du tout", score: 0 },
         { label: "Un petit peu", score: 1 },
@@ -323,7 +323,7 @@ const Dyslexie = [
         { label: "Énormément", score: 3 }
       ]
     },
-    {
+    /*{
       question: "Lors de la LECTURE, l’élève enlève des lettres et syllabes (comme lire « conporain» au lieu de « contemporain» ou « lire » au lieu de « livre »)",
       answers: [
         { label: "Pas du tout", score: 0 },
@@ -331,8 +331,8 @@ const Dyslexie = [
         { label: "Beaucoup", score: 2 },
         { label: "Énormément", score: 3 }
       ]
-    },
-    {
+    },*/
+    /*{
       question: "Lors de la LECTURE, l’élève substitue des lettres (comme lire « la belle maman » au lieu de « la belle maison »)",
       answers: [
         { label: "Pas du tout", score: 0 },
@@ -340,9 +340,9 @@ const Dyslexie = [
         { label: "Beaucoup", score: 2 },
         { label: "Énormément", score: 3 }
       ]
-    },
+    },*/
     {
-      question: "Lors de la LECTURE, l’élève saute des mots ou des lignes",
+      question: "Lors de la lecture, l’enfant saute des mots ou des lignes",
       answers: [
         { label: "Pas du tout", score: 0 },
         { label: "Un petit peu", score: 1 },
@@ -351,7 +351,7 @@ const Dyslexie = [
       ]
     },
     {
-      question: "Lors de la LECTURE, l'élève éprouve des difficultés dans l'identification précise des mots familiers",
+      question: "Lors de la lecture, l'enfant éprouve des difficultés à identifier des mots connus",
       answers : [
         { label: "Pas du tout", score: 0 },
         { label: "Un petit peu", score: 1 },
@@ -364,9 +364,9 @@ const Dyslexie = [
     ]
   },  
   {
-    questionsPrincipale : " ",
+    questionsPrincipale : " ", // Les questions ici doivent être posées directement
     questionsSecondaire : [
-      {
+      /*{
       question: "L'élève a du mal à produire des textes",
       answers: [
         { score: 0, text: "Pas du tout" },
@@ -374,10 +374,10 @@ const Dyslexie = [
         { score: 2, text: "Beaucoup" },
         { score: 3, text: "Enormément" },
       ]
-    },
+    },*/
     
       {
-        question: "Lors de la LECTURE, l’élève a du mal à comprendre les consignes",
+        question: "L’enfant a des difficultés à comprendre l'intitulé des consignes",
         answers: [
           { text: "Pas du tout", score: 0 },
           { text: "Un petit peu", score: 1 },
@@ -386,7 +386,7 @@ const Dyslexie = [
         ]
       },
       {
-        question: "Lors de la LECTURE, l’élève a du mal à comprendre le contenu, le sens de ce qui a été lu",
+        question: "L’enfant a des difficultés à comprendre le sens de ce qu'il lit",
         answers: [
           { text: "Pas du tout", score: 0 },
           { text: "Un petit peu", score: 1 },
@@ -394,7 +394,7 @@ const Dyslexie = [
           { text: "Enormément", score: 3 }
         ]
       },
-      {
+      /*{
         question: "Lors de l’ECRITURE, L’élève écrit un mot de différentes façon sur un même paragraphe ou une même ligne (ex : ortografe et aurtaugraffe)",
         answers: [
           { text: "Pas du tout", score: 0 },
@@ -402,9 +402,9 @@ const Dyslexie = [
           { text: "Beaucoup", score: 2 },
           { text: "Enormément", score: 3 }
         ]
-      },
+      },*/
       {
-        question: "L'élève a des difficultés pour se repérer dans l'espace et le temps",
+        question: "L'enfant a des difficultés à se repérer dans l'espace et le temps",
         answers: [
           { score: 0, text: "Pas du tout" },
           { score: 1, text: "Un petit peu" },
@@ -412,7 +412,7 @@ const Dyslexie = [
           { score: 3, text: "Enormément" },
         ],
       },
-      {
+      /*{
         question: "Lors de l’ECOUTE, l’élève confond les sons proches (comme /p/, /t/, /b/ ou /d/)",
         answers: [
           { score: 0, text: "Pas du tout" },
@@ -420,15 +420,15 @@ const Dyslexie = [
           { score: 2, text: "Beaucoup" },
           { score: 3, text: "Enormément" },
         ],
-      },
+      },*/
 
     
     ]
   }]
 const TDA = [{
-   questionsPrincipale : " ",
+   questionsPrincipale : " ",  // Toutes les questions doivent être posées d'office
    questionsSecondaire : [ {
-      question: "L’élève est facilement distrait durant le cours",
+      question: "L’enfant est facilement distrait durant le cours",
       answers: [
         { score: 0, text: "Pas du tout" },
         { score: 1, text: "Un petit peu" },
@@ -437,7 +437,7 @@ const TDA = [{
       ]
     },
     {
-      question: "L’élève est rêveur",
+      question: "L’enfant est rêveur",
       answers: [
         { score: 0, text: "Pas du tout" },
         { score: 1, text: "Un petit peu" },
@@ -446,7 +446,7 @@ const TDA = [{
       ]
     },
     {
-      question: "L’élève se laisse mener par les autres",
+      question: "L’enfant se laisse mener par les autres",
       answers: [
         { score: 0, text: "Pas du tout" },
         { score: 1, text: "Un petit peu" },
@@ -455,7 +455,7 @@ const TDA = [{
       ]
     },
     {
-      question: "L’élève éprouve des difficultés d’apprentissage",
+      question: "L'enfant éprouve des difficultés d’apprentissage",
       answers: [
         { score: 0, text: "Pas du tout" },
         { score: 1, text: "Un petit peu" },
@@ -464,7 +464,7 @@ const TDA = [{
       ]
     },
     {
-      question: "L’élève perd souvent ses affaires (matériel scolaire, portefeuille, clés, lunettes..)",
+      question: "L’enfant perd souvent ses affaires (matériel scolaire, portefeuille, clés, lunettes..)",
       answers: [
         { score: 0, text: "Pas du tout" },
         { score: 1, text: "Un petit peu" },
@@ -473,7 +473,7 @@ const TDA = [{
       ]
     },
     {
-      question: "L’élève oublie souvent les tâches qu’il a à faire",
+      question: "L’enfant oublie souvent les tâches qu’il a à faire",
       answers: [
         { score: 0, text: "Pas du tout" },
         { score: 1, text: "Un petit peu" },
@@ -482,7 +482,7 @@ const TDA = [{
       ]
     },
     {
-      question: "L’élève ne semble pas écouter, même quand on lui parle personnellement",
+      question: "L’enfant ne semble pas écouter, même quand on lui parle personnellement",
       answers: [
         { score: 0, text: "Pas du tout" },
         { score: 1, text: "Un petit peu" },
@@ -491,7 +491,7 @@ const TDA = [{
       ]
     },
     {
-      question: "L’élève est impoli, impertinent",
+      question: "L’enfant est impoli, impertinent",
       answers: [
         { score: 0, text: "Pas du tout" },
         { score: 1, text: "Un petit peu" },
@@ -500,7 +500,7 @@ const TDA = [{
       ]
     },
     {
-      question: "L’élève porte attention à ce qui l’intéresse vraiment",
+      question: "L’enfant porte attention à ce qui l’intéresse vraiment",
       answers: [
         { response: "Pas du tout", score: 0 },
         { response: "Un petit peu", score: 1 },
@@ -509,7 +509,7 @@ const TDA = [{
       ]
     },
     {
-      question: "L’élève fait des crises de colère",
+      question: "L’enfant fait des crises de colère",
       answers: [
         { response: "Pas du tout", score: 0 },
         { response: "Un petit peu", score: 1 },
@@ -518,7 +518,7 @@ const TDA = [{
       ]
     },
     {
-      question: "L’élève a une humeur qui change rapidement et de façon marquée",
+      question: "L’enfant a une humeur qui change rapidement et de façon marquée",
       answers: [
         { response: "Pas du tout", score: 0 },
         { response: "Un petit peu", score: 1 },
@@ -527,7 +527,7 @@ const TDA = [{
       ]
     },
     {
-      question: "L’élève est bagarreur",
+      question: "L’enfant est bagarreur",
       answers: [
         { response: "Pas du tout", score: 0 },
         { response: "Un petit peu", score: 1 },
@@ -536,7 +536,7 @@ const TDA = [{
       ]
     },
     {
-      question: "L’élève est puéril, immature",
+      question: "L’enfant est puéril, immature",
       answers: [
         { response: "Pas du tout", score: 0 },
         { response: "Un petit peu", score: 1 },
@@ -545,7 +545,7 @@ const TDA = [{
       ]
     },
     {
-      question: "L’élève n’arrête pas de bouger, de gigoter",
+      question: "L’enfant n’arrête pas de bouger, de gigoter",
       answers: [
         { response: "Pas du tout", score: 0 },
         { response: "Un petit peu", score: 1 },
@@ -554,7 +554,7 @@ const TDA = [{
       ]
     },
     {
-      question: "L’élève est incapable de rester immobile",
+      question: "L’enfant est incapable de rester immobile",
       answers: [
         { response: "Pas du tout", score: 0 },
         { response: "Un petit peu", score: 1 },
@@ -563,7 +563,7 @@ const TDA = [{
       ]
     },
     {
-      question: "L’élève a des demandes qui doivent être satisfaites immédiatement",
+      question: "L’enfant a des demandes qui doivent être satisfaites immédiatement",
       answers: [
         { response: "Pas du tout", score: 0 },
         { response: "Un petit peu", score: 1 },
@@ -571,10 +571,10 @@ const TDA = [{
         { response: "Enormement", score: 3 }
       ]
     },
-    {    question: "L’élève perturbe les autres élèves",    answers: [      { label: "Pas du tout", score: 0 },      { label: "Un petit peu", score: 1 },      { label: "Beaucoup", score: 2 },      { label: "Enormément", score: 3 }    ]
+    {    question: "L’enfant perturbe les autres élèves",    answers: [      { label: "Pas du tout", score: 0 },      { label: "Un petit peu", score: 1 },      { label: "Beaucoup", score: 2 },      { label: "Enormément", score: 3 }    ]
   },
   {
-    question: "L’élève est incapable de se tenir tranquille lors des activités et loisirs",
+    question: "L’enfant est incapable de se tenir tranquille lors des activités et loisirs",
     answers: [
       { label: "Pas du tout", score: 0 },
       { label: "Un petit peu", score: 1 },
@@ -583,7 +583,7 @@ const TDA = [{
     ]
   },
   {
-    question: "L’élève termine les phrases des autres et ne peut pas attendre son tour dans une conversation",
+    question: "L’enfant termine les phrases des autres et ne peut pas attendre son tour dans une conversation",
     answers: [
       { label: "Pas du tout", score: 0 },
       { label: "Un petit peu", score: 1 },
@@ -592,7 +592,7 @@ const TDA = [{
     ]
   },
   {
-    question: "L’élève rencontre des difficultés en orthographe",
+    question: "L’enfant rencontre des difficultés en orthographe",
     answers: [
       { label: "Pas du tout", score: 0 },
       { label: "Un petit peu", score: 1 },
@@ -601,7 +601,7 @@ const TDA = [{
     ]
   },
   {
-    question: "L’élève ne lit pas aussi bien que les élèves de sa classe",
+    question: "L’enfant ne lit pas aussi bien que les élèves de sa classe",
     answers: [
       { label: "Pas du tout", score: 0 },
       { label: "Un petit peu", score: 1 },
@@ -610,7 +610,7 @@ const TDA = [{
     ]
   },
   {
-    question: "Lors d’un devoir, l’élève ne parvient pas à prêter attention aux détails ou commet des fautes d’étourderie",
+    question: "Lors d’un devoir, l’enfant ne parvient pas à prêter attention aux détails ou commet des fautes d’étourderie",
     answers: [
       { label: "Pas du tout", score: 0 },
       { label: "Un petit peu", score: 1 },
@@ -619,7 +619,7 @@ const TDA = [{
     ]
   },
   {
-    question: "L’élève a du mal à organiser ses travaux ou ses activités",
+    question: "L’enfant a du mal à organiser ses travaux ou ses activités",
     answers: [
       { label: "Pas du tout", score: 0 },
       { label: "Un petit peu", score: 1 },
