@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil</title>
+    <link href="./style/ProfilView.css" rel="stylesheet">
+</head>
+<body>
+   
+
+ 
+   
+    <div class="container">
+    <div class="headContainer">
+        Profil
+        <button class="arrow">
+            <svg xmlns="http://www.w3.org/2000/svg" class="arrowIcon" width="36" height="36" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+              </svg>
+
+        </button>
+    </div>
+        <div class="mainContainer">
+     
+         <div  class="formContainer">
+            <span class="infoPerso">Informations personnelles</span>
+            <label for="Nom">Nom </label>
+            <input class="inputBar" type="text" id="Nom" name="Nom" value="Nom">
+            <label for="Prenom">Prénom </label>
+            <input class="inputBar" type="text" id="Prenom" value="Prénom">
+            <label for="Email">Adresse mail </label>
+            <input class="inputBar" type="text" id="Email" value="Email">
+            <span class="infoPerso">Modifier votre mot de passe</span>
+            <label for="mdp">Mot de passe </label>
+            <input class="inputBar" type="password" id="mdp" value="mdp">
+            <label for="mdp">Confirmer votre mot de passe </label>
+            <input class="inputBar" type="password" id="confirmMdp" value="mdp">
+            <button  class="sauvegarder">Sauvegarder</button>
+         </div>
+        
+         <div class="modal">
+            <div class="headModal">
+                <div class="closeIcon">
+                    <img src="./img/4115230-cancel-close-cross-delete_114048.png">
+                </div>
+            </div>
+            <h1 class="textModal">Confirmez-vous vos changements ?</h1>
+            <div class="btnContainer">
+            <button class="modalBtn" id="confirmer">Confirmer</button>
+            <button class="modalBtn" id="annuler">Annuler</button>
+            </div>
+         </div>
+
+      
+        </div>
+    </div>
+   
+   <script type="module" src="./js/main.js"></script> 
+</body>
+</html>

@@ -1,0 +1,15 @@
+
+    if(count < TDA.length){
+    infoTest.innerHTML = `${TDA[count].question}`;
+    createRadio(response)
+    TDAtest()
+    
+    }
+    else{
+      scoreTest[mainCount].score = score;
+      score = 0;
+      count = 0;
+      mainCount++;
+      console.log(scoreTest);
+    }
+    console.log(score);

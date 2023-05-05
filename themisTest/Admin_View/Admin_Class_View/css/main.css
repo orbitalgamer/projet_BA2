@@ -1,0 +1,286 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+html {
+    font-size: 16px; /* Définir une taille de police de base */
+  }
+  body {
+   
+    margin : 0; /* Supprimer les marges par défaut */
+    overflow-x: hidden;
+    overflow-y:visible;
+    
+  }
+  .container {
+    width: 100%; /* Utiliser un pourcentage pour définir la largeur du conteneur */
+    height: 100vh;
+   
+  
+  
+  }
+
+  .sideMenu{
+
+  
+    height: 120%;
+    width: 5%;
+    position: absolute;
+    background-color: #13293D;
+    
+  }
+  .menuBtn{
+    margin-top: 0.6rem;
+    
+    width: 100%;
+    background-color: #13293D;
+    border: none;
+  }
+  .menuIcon{
+    
+  
+    width: 80%;
+    height: 6px;
+    background-color: #1B98E0;
+    margin: 6px 0;
+  }
+  
+  .mainSideMenu{
+    display: none;
+    flex-direction: column;
+    justify-content:start;
+    align-items: start;
+    height: 100%;
+    row-gap: 5rem;
+    margin-top: 5rem;
+   
+  
+    overflow-y: auto;
+    
+  }
+
+  .box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 99%;
+    height: 2rem;
+    
+    text-decoration: none;
+    color: aliceblue;
+    font-family: "Inter",sans-serif;
+    
+    transition: background-color, border-bottom-left-radius ,
+    border-top-left-radius, 0.8s;
+  
+  }
+  .box:hover{
+    opacity: 95%;
+    background-color: #1B98E0;
+    border-bottom-left-radius: 15px;
+    border-top-left-radius: 15px;
+  }
+  .headerContainer{
+    position: relative;
+    width: 95%;
+    height: 8%;
+    left: 5%;
+  
+    margin-left: 0%;
+    display: flex;
+    flex-direction: row;
+    column-gap: 20%;
+    justify-content: space-between;
+    align-items: center;
+  
+  
+    
+  }
+  .titre{
+  
+    font-size: 48px;
+    font-family: 'Inter', sans-serif;
+    margin-left: 1%;  
+  }
+  .searchBarContainer{
+    margin-right: 2%;
+  }
+  .searchBar{
+    
+    justify-self: end;
+    
+    border: none;
+    border-top: 1px solid #1B98E0;
+    border-left: 1px solid #1B98E0;
+    border-bottom: 1px solid #1B98E0;
+    border-bottom-left-radius: 25px ;
+    border-top-left-radius: 25px ;
+    
+  
+   
+    height: 40px;
+    width: 0rem;
+  }
+  .searchBar:focus{
+    border: none;
+  }
+  .searchBtn{
+    height: 43px;
+    width: 50px;
+    float: right;
+    border: none;
+    
+   
+  
+    background-color: #1B98E0;
+    color: aliceblue;
+    
+  
+  
+  } 
+
+  .mainContainer{
+ 
+    width: 100%;
+    height: 150%;
+    
+    margin-left: 0%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+  
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.45) inset;
+    background-color: #1b98e021;
+  }
+
+  .headMainContainer{
+    width: 100%;
+    height:5%;
+  
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+    column-gap: 5%;
+  }
+  .mainMainContainer{
+    width: 100%;
+    height: 150%;
+    margin-left: 15%;
+    display: grid;
+    grid-template-columns: repeat(3,30%);
+    grid-template-rows: repeat(0,10%);
+    justify-content: center;
+    align-items: center;
+    
+    
+  }
+  .headBtn{
+    position: relative;
+    right: 5%;
+    height: 25px;
+    width: 100px;
+
+    font-family: 'Inter',sans-serif;
+    color: aliceblue;
+    background-color: #1B98E0;
+  }
+  .classBlock{
+    
+    width: 65%;
+    height: 80%;
+    border: 2px solid #1B98E0;
+    border-radius: 15px;
+    background-color: aliceblue;
+    color:#1B98E0;
+    font-family: 'Inter',sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 800;
+
+  }
+  .textClassBox{
+    transition: 0.5s color;
+    cursor: pointer;
+    text-decoration: none;
+    color: #1B98E0;
+  }
+  .textClassBox:hover{
+    color: #13293D;
+  }
+  .deleteModal{
+    width: 30%;
+    height: 30%;
+    border: 1px solid black;
+    background-color: aliceblue;
+    position: absolute;
+    top : 20%;
+    left: 30%;
+
+    display: none;
+    flex-direction: column;
+    align-items: center;
+  }
+  .biDelete:hover{
+    color: #1B98E0;
+  }
+  .deleteBtnContainer{
+    
+  }
+  .addModal{
+    position: absolute;
+    top: 30%;
+    left: 30%;
+    width: 40%;
+    height: 30%;
+    border: 1px solid black;
+    background-color: aliceblue;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    
+  }
+  .headerModal{
+    width: 100%;
+    height: 15%;
+    display: inline-flex;
+    justify-content: end;
+  }
+  .bi{
+    color:#13293D;
+  }
+  .bi:hover{
+    cursor: pointer;
+    color:#1B98E0;
+  }
+  .inputModal{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    row-gap: 15%;
+    
+    width: 100%;
+    height: 75%;
+
+    font-size: 2rem;
+    font-family: 'Inter',sans-serif;
+  }
+  .btnModal{
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    column-gap:15% ;
+    width: 100%;
+    height: 10%;
+    background-color: #13293D;
+  }
+  .modalBtn{
+    width: 50%;
+    background-color: #1B98E0;
+    color:aliceblue;
+    font-family: "Inter",sans-serif;
+    border: 1px solid #13293D;
+    box-shadow: none;
+   
+  }

@@ -1,0 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+.html{
+    font-size: 16px;
+}
+
+body{
+    margin: 0;
+}
+
+.containerBody{
+    width: 100%;
+    height: 100vh;
+  
+    margin: 0;
+    overflow-x: hidden;
+}
+
+.navbar{
+    width: 100%;
+    height: 10%;
+
+    margin: 0;
+    background-color: #1B98E0;
+  
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    column-gap: 4%;
+}
+#ThemisTest{
+    position: relative;
+    right: 10%;
+    font-size: 200%;
+    font-weight: 800;
+  }
+  #Classe{
+    position: relative;
+    right: 8%;
+  }
+  #testMenu{
+    position: relative;
+    right: 8%;
+  }
+  #doc{
+    position: relative;
+    right: 8%;
+  }
+  #profil{
+    position: relative;
+    left: 5%;
+   cursor: pointer;
+  }
+  #contact{
+    position: relative;
+    right: 8%;
+  }
+  .title{
+    text-decoration: none;
+    color:aliceblue;
+    font-family: "Inter",sans-serif;
+    font-size: 20px;
+  }
+  .btn{
+    position: relative;
+    top:2px;
+  }
+  .mainContainer{
+    position: absolute;
+    display: none;
+    width: 100%;
+    height: 350%;
+    background-color:aliceblue;
+    border:1px solid black;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  }
+  
+  .bi{
+    margin: 0;
+    padding: 0;
+  }
+  li{
+    list-style: none;
+    position: relative;
+    right: 10%;
+    bottom: 20%;
+    margin: 0;
+  }
+  .line{
+    position: relative;
+    top: 1%;
+    width: 100%;
+    height: 5%;
+    background-color: #1B98E0;
+  }
+  .blockMenu{
+    width: 100%;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+    color: black;
+    font-family: "Inter",sans-serif;
+    transition: backgroud-color,0.2s;
+    align-self: center;
+  }
+  
+  .blockMenu:hover{
+    color: rgb(168, 168, 168);
+  }
+  .deconnexionIcon{
+  position: relative;
+  top:4px;
+  left: 10px;
+  }
+  #deconnexion{
+    position: relative;
+    top:15px;
+  
+  }
+
+
+.mainContainerBody{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   
+}
+.testContainer{
+    width: 90%;
+    height: 70%;
+    
+    position: relative;
+    bottom: 3rem;
+    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.inputContainer{
+    width: 100%;
+    height: 15%;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 1.5rem;
+    
+}
+label{
+    font-family: "Inter",sans-serif;
+}
+input{
+    border: 2px solid #1B98E0;
+    
+}
+.searchOutput{
+  position: absolute;
+  left: 53%;
+  width: 12%;
+  height: 15%;
+  border: 1px solid gray;
+  background-color: aliceblue;
+  display: none;
+  flex-direction: column;
+  
+}
+.Row{
+  text-align: center;
+  font-family: 'Inter',sans-serif;
+  border-bottom: 1px solid black;
+}
+.Row:hover{
+  background-color: rgb(191, 191, 191);
+}
+.infoTest{
+    font-size: 5rem;
+    font-family: "Inter",sans-serif;
+    color: gray;
+}
+
+
+.btnContainer{
+  width: 100%;
+  height: 20%;
+  position: relative;
+  top:10%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 5%;
+
+
+}
+
+.submitBtn{
+  width: 20%;
+  height: 30%;
+  background-color: #1B98E0;
+  color: aliceblue;
+  font-size: "Inter",sans-serif;
+  font-size: 1rem;
+}

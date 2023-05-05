@@ -1,0 +1,315 @@
+
+
+:root{
+  --color1 : #ffb94900;
+  --color2 : #24f57800;
+  --color3 : #1B98E0;
+  /*--colorfull: linear-gradient(180deg,#ade8f4 0%,#00b4d8 100% );*/
+  --colorfull: rgb(255, 255, 255);
+  
+}
+@font-face {
+	font-family: 'SylexiadSansMedium';
+	src: url('../Font/SylexiadSansMedium.ttf') format('opentype'),
+       url('../Font/SylexiadSansMedium.woff') format('woff');
+	font-weight: 500;
+	font-style: normal;
+}
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@500&display=swap');
+*{
+    box-sizing: border-box;
+  }
+  
+  html {
+    font-family: 'SylexiadSansMedium', sans-serif;
+    overflow-x: hidden;
+    margin : 0;
+  }
+@media screen and (min-width:140px) {
+  .barreup{
+    width : 100%;
+    height : 6vh;
+    border: 2px solid black;
+    position: sticky;
+    z-index: 1;
+    background: #ace9fb;
+    flex-direction: row;
+    display :flex;
+    gap : 8vw;
+    justify-content:center; 
+    align-items: center;
+    font-weight: 400;
+    font-size: 25px ;
+    overflow: hidden
+    
+ }
+ .barreup a {
+  color: #000000;
+  text-decoration: none;
+}
+  .grid{
+    width: 100vw;
+    height: 400vh;
+    display :flex;
+    flex-direction: column;
+    /*align-items: center;
+    justify-content: center;*/ 
+    background: var(--colorfull);
+
+    
+  }
+  .grid2{
+    width: 100%;
+    height: 100vh;
+    display :flex;
+    align-items: center;
+    justify-content: center;
+ 
+
+    
+  
+  }
+  .grid3{
+      width: 100%;
+      height: 210vh;
+      display :flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      row-gap: 100px; 
+      padding-top: 100px;
+      padding-bottom: 200px;
+  }
+  .grid4{
+    width: 100%;
+    height: auto;
+    padding-bottom: 120px;
+    padding-top: 80px;
+   
+    display :flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background: linear-gradient(180deg,var(--color2) 0%, #1B98E0 10%, #1B98E0 100%) ;
+    flex-wrap: wrap;
+ 
+    
+    
+    row-gap : 50px;
+   
+    /*flex-direction: line;*/
+  }
+  .barredown{
+    width : 101%;
+    height : 6vh;
+    flex-direction: row;
+    display :flex;
+    gap : 2%;
+    justify-content:left; 
+    align-items: center;
+    font-weight: 400;
+    font-size: calc((1vw + 1vh)) ;
+    overflow: hidden;
+    background: #1B98E0;
+    color: white;
+ }
+ .left{
+    width : auto;
+    height : 100%;
+    display :flex;
+    flex-wrap: nowrap;
+    gap : 2%;
+    justify-content:left; 
+    align-items: center;
+    font-weight: 400;
+    font-size: calc((0.9vw + 0.9vh)) ;
+
+ }
+ .right{
+    width : 100%;
+    height : 6vh;
+    flex-direction: row;
+    display :flex;
+    gap : 2%;
+    justify-content:right; 
+    align-items: center;
+    font-weight: 400;
+    font-size: calc((1vw + 1vh)) ;
+    overflow: hidden;
+ }
+ #Polytechlogo{
+  padding-right: 50px;
+  height : 4vh;
+  width : auto;
+}
+#Umonslogo{
+  
+  height : 4vh;
+  width : auto;
+}
+ .copyright{
+  height: auto; 
+  padding-left: 50px;
+  white-space: nowrap;
+ }
+  .box1{
+    position: relative;
+    align-self: center;
+    width: 78%;
+    height : 75vh;
+    font-weight: 400;
+    font-size: calc((5vw + 5vh)/2) ;
+    text-align:center;
+    display: table;
+    color : #ffffff;
+    border-radius: calc((8vw + 8vh)/2) ;
+    background-image:linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../img/enfant1.jpg");
+    background-size: cover;
+  }
+  .box1 span{
+    vertical-align:middle;
+    display: table-cell;
+  }
+  .box2{
+    position: relative;
+    align-self: center;
+    width: 60%;
+    height : 60vh;
+    font-weight: 400;
+    font-size: 36px;
+    display: flex; 
+    text-align: justify;
+    text-justify: inter-word;
+    flex-direction: column;
+    
+  }
+  h1{
+    margin-left: auto;
+    margin-right: auto;
+    font-size: calc((4vw + 4vh)/2) ;
+  }
+  p{
+    margin-left: 10px ;
+    margin-right: 10px;
+    font-size: calc((2vw + 2vh)/2) ;
+    line-height : 120%;
+  }
+  .box3{
+    position: relative;
+    align-self: center;
+    width: 30%;
+    height : 60vh;
+    font-weight: 400;
+    display: flex; 
+    
+  }
+  .box4{
+    position: relative;
+    align-self: center;
+    width: 60%;
+    height : 40vh;
+    font-weight: 400;
+    font-size: 36px;
+    display: flex; 
+    text-align: justify;
+    text-justify: inter-word;
+    flex-direction: column;
+  }
+  #objectif{
+    background-image:url("../img/enfant2.jpg");
+    background-size: cover;
+    background-position-x: center;
+  }
+  #propose{
+    background-image:url("../img/enfant3.jpg");
+    background-size: cover;
+    background-position-x: center;
+  }
+  
+  .box5{
+    position: relative;
+    align-self: center;
+    top : 5%;
+    width: 160px;
+    aspect-ratio: 1/1.5;
+    margin-left: 4%;
+    margin-right: 4%;
+    font-weight: 400;
+    font-size: 36px;
+    display: flex; 
+    flex-direction: column;
+    flex-wrap: nowrap;
+    border: 2px solid rgba(0, 0, 0, 0);
+    
+  }
+  .box6{
+    
+    position: relative;
+    aspect-ratio: 1/1;
+    width: 100%;
+    background: #949494;
+    border-radius: 100%;
+  }
+  .box7{
+    position: relative;
+    align-self: center;
+    top : 20px;
+    width: 190%;
+    height : 12%;
+    max-height : 50px;
+    font-size: 36px;
+    display: flex; 
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    font-size : 30px;
+    color: white;
+  }
+  #Thibaut{
+    background-image:url("../img/Thibaut.png");
+    background-size: cover;
+    background-position-x: center;
+  }
+  #Manon{
+    background-image:url("../img/Thibaut.png");
+    background-size: cover;
+    background-position-x: center;
+  }
+  #Cyril{
+    background-image:url("../img/Thibaut.png");
+    background-size: cover;
+    background-position-x: center;
+  }
+  #Gabriel{
+    background-image:url("../img/Thibaut.png");
+    background-size: cover;
+    background-position-x: center;
+  }
+  #NicolasV{
+    background-image:url("../img/Thibaut.png");
+    background-size: cover;
+    background-position-x: center;
+  }
+  #NicolasW{
+    background-image:url("../img/Thibaut.png");
+    background-size: cover;
+    background-position-x: center;
+  }
+  #Mejdi{
+    background-image:url("../img/Thibaut.png");
+    background-size: cover;
+    background-position-x: center;
+  }
+  #Hugo{
+    background-image:url("../img/Thibaut.png");
+    background-size: cover;
+    background-position-x: center;
+  }
+  #Mohammed{
+    background-image:url("../img/Thibaut.png");
+    background-size: cover;
+    background-position-x: center;
+  }
+ 
+  
+}
