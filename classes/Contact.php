@@ -69,7 +69,7 @@ class Contact {
                     }
                 }
                 else{
-                    return array('error'=>'personne existe deja');
+                    return array('error'=>'contact existe deja');
                 }
             }
             else{

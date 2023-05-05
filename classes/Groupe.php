@@ -143,7 +143,7 @@ class Groupe {
         //récupère nom
         $retour=$requete->fetch();
 
-        if($IdProf != 'None'){
+        if($IdProf != 'none'){
             //requète pour trouver les prof dans cette classe
             $querry = "SELECT Prof.Nom, Prof.Prenom, Prof.Email 
             FROM classenseignant Lien
@@ -155,7 +155,7 @@ class Groupe {
             $requete=$this->bdd->prepare($querry);
 
             //si veut que pour 1 prof particulier
-            if($IdProf != 'All'){
+            if($IdProf != 'all'){
                 $querry .= " AND Prof.Id=:IdProf"; //rajoute condiiton pour prof
                 $requete=$this->bdd->prepare($querry); //repréprarer
                 $requete->bindParam(':IdProf',$IdProf);
@@ -192,7 +192,8 @@ class Groupe {
         return $retour;
     }
 
-    public function Selectionner($IdProf='None', $IdClasse='All', $Eleve=false){
+    public function Selectionner($IdProf='none', $IdClasse='all', $Eleve=false){
+        
         /*
         différent param :
             $IdProf='None' càd que veut pas de prof
@@ -208,13 +209,13 @@ class Groupe {
 
         //check si conencter
         if(isset($_SESSION['Id'])){
-            if($IdProf == 'None'){ //regarde si veut pas de prof
+            if($IdProf == 'none'){ //regarde si veut pas de prof
                 if(!(isset($_SESSION['Admin']) && $_SESSION['Admin']==true)){ //si pas admin, peut que regarder class qu'il a lui même
                     $IdProf=$_SESSION['Id']; //renvoie que ces informations car si pas admin peut pas accèder aux autres
                 }
                 //sinon admin peut tout voir
             }
-            else if($IdProf == 'All'){
+            else if($IdProf == 'all'){
                 if(!(isset($_SESSION['Admin']) && $_SESSION['Admin']==true)){ //si pas admin et que veut tous, envoie pas perm
                     return array('error'=>'pas perm');
                 }
@@ -225,7 +226,7 @@ class Groupe {
                 }
             }
 
-            if($IdClasse != 'All'){  //si veut que une classe
+            if($IdClasse != 'all'){  //si veut que une classe
                 $Row= $this->SelectRow($IdProf, $IdClasse, $Eleve); //fait requète pour cette calsse
                 if($Row){
                     $retour=array();
@@ -237,9 +238,9 @@ class Groupe {
                 }
 
             }
-            else if($IdClasse == 'All' && $IdProf != 'All' && $IdProf !='None'){ //requète pour rechercher pour 1 prof
+            else if($IdClasse == 'all' && $IdProf != 'all' && $IdProf !='none'){ //requète pour rechercher pour 1 prof
                 //fait requète pour trouver nom et id classe àpd de l'id du prof
-
+                
                 $querry = "SELECT Classe.Nom, Classe.Id 
                             FROM classenseignant Lien 
                             LEFT JOIN classe Classe 
@@ -271,8 +272,8 @@ class Groupe {
                 return $retour;
 
             }
-            else if($IdClasse == 'All'){ //faire pour toutes les profs
-
+            else if($IdClasse == 'all'){ //faire pour toutes les profs
+                
                 //cherche tout les calsse avec leur Id
                 $querry = "SELECT Id, Nom FROM classe";
                 
@@ -310,7 +311,6 @@ class Groupe {
 
     //supprimer complètement classe
     public function DeleteClasse($IdClasse){
-
         if(isset($_SESSION['Id'])){
             if(isset($_SESSION['Admin']) && $_SESSION['Admin'] == true){
                 //verrifier si calsse existe.
@@ -318,7 +318,7 @@ class Groupe {
                 if(isset($Classe)){
                     //requète pour supprimer la classe et tout ce liens
                     $querry="DELETE Classe, Lien FROM classe Classe 
-                    INNER JOIN classenseignant Lien 
+                    LEFT JOIN classenseignant Lien 
                     ON Lien.IdClasse=Classe.Id
                     WHERE Classe.Id=:Id";
 

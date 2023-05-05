@@ -14,11 +14,10 @@ $db = New BaseDeDonnee();
 $Bdd = $db->connect();
 
 $data = json_decode(file_get_contents("php://input"));
+
 if(isset($data->Token)){
     $Prof = new Enseignant($Bdd, $data->Token);
     //récup info
-
-
     if(isset($data->Nom) && isset($data->Prenom) && isset($data->Email) && isset($data->Mdp)){
 
         $Prof->Nom = strtolower($data->Nom);

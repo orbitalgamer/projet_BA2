@@ -97,7 +97,7 @@ class Fiche {
     public function Read($Id="All"){ // pour lire une fiche particulier ou All pour toutes
         if($Id!="All"){
             //création requète
-            $query="SELECT Nom, Sujet FROM fiche WHERE Id=:Id";
+            $query="SELECT Id,Nom, Sujet FROM fiche WHERE Id=:Id";
 
             //preparer
             $requete=$this->Bdd->prepare($query);
@@ -116,7 +116,7 @@ class Fiche {
 
                 $retour= array();
                 $retour['data']=$rep;
-                $retour['data']['Url']=dirname(dirname(__FILE__))."\\Fiches\\".$rep['Nom'].".pdf";  //renvioie bon
+                $retour['data']['Url']=dirname(dirname(__FILE__))."/Fiches/".$rep['Id'].".pdf";  //renvioie bon
                 
                 return $retour;
             }
@@ -140,7 +140,7 @@ class Fiche {
 
             //prend chauqe réponse et mest dans la sortie 
             while($rep=$requete->fetch()){
-                $rep['Url']=dirname(dirname(__FILE__))."\\Fiches\\".$rep['Nom'].".pdf";
+                $rep['Url']=dirname(dirname(__FILE__))."/Fiches/".$rep['Id'].".pdf";
                 array_push($retour['data'], $rep);
             }
             return $retour;
@@ -168,7 +168,7 @@ class Fiche {
 
             //prend chauqe réponse et mest dans la sortie 
             while($rep=$requete->fetch()){
-                $rep['data']['url']=dirname(dirname(__FILE__))."\\Fiches\\".$rep['Nom'].".pdf"; //l'url complet de la fiche
+                $rep['data']['url']=dirname(dirname(__FILE__))."/Fiches/".$rep['Id'].".pdf"; //l'url complet de la fiche
                 array_push($retour['data'], $rep);
             }
             return $retour;
