@@ -1,6 +1,6 @@
 
 :root{
-    --back : #000000;
+    --back : black;
     --color2 : #24f57800;
     --color3 : #1B98E0;
     /*--colorfull: linear-gradient(180deg,#ade8f4 0%,#00b4d8 100% );*/
@@ -40,10 +40,10 @@
     .barreup{
       width : 100vw;
       height : 6vh;
-      border: 2px solid black;
+      border: 2px solid #383E42;
       position: sticky;
       z-index: 1;
-      background: #ace9fb;
+      background: #1B98E0;
       flex-direction: row;
       display :flex;
       gap : 8vw;
@@ -55,7 +55,7 @@
       
    }
    .barreup a {
-    color: #000000;
+    color: #383E42;
     text-decoration: none;
   }
     .grid{
@@ -105,7 +105,7 @@
       display :flex;
       align-items: center;
       justify-content: space-evenly;
-      background: linear-gradient(180deg,#00000000 0%, #1B98E0 10%, #1B98E0 100%) ;
+      background: linear-gradient(180deg,#383E4200 0%, #1B98E0 10%, #1B98E0 100%) ;
       flex-wrap: wrap;
    
       
@@ -125,7 +125,7 @@
       font-weight: 400;
       font-size: calc((1vw + 1vh)) ;
       overflow: hidden;
-      background: #000000;
+      background: #383E42;
       color: white;
    }
    .left{
@@ -179,7 +179,7 @@
       display: flex;
       flex-direction: column;
       color : #ffffff;
-      background-image:linear-gradient(180deg,rgba(0, 0, 0, 0.7) 0%,rgba(0, 0, 0, 0.7) 80%, var(--back) 100%), url("../img/enfant1.jpg");
+      background-image:linear-gradient(180deg,rgba(0, 0, 0, 0.8) 0%,rgba(0, 0, 0, 0.8) 80%, var(--back) 100%), url("../img/enfant1.jpg");
       background-size: cover;
       justify-content: center;
       gap: 10%;
@@ -194,13 +194,13 @@
       align-self: center;
       width: 40%;
       height : auto;
-      font-weight: 400;
+      font-weight: 500;
       margin : 10px;
       font-size: 25px;
       padding : 40px;
       display: flex; 
-      text-align: justify;
-      text-justify: inter-word;
+      /*text-align: justify;
+      text-justify: inter-word;*/
       flex-direction: column;
       justify-content: center;
       COLOR : aliceblue;
@@ -215,15 +215,16 @@
       font-size: 35px ;
       line-height : 150%;
       margin : 10px;
-      font-weight: 10;
-      font-family: 'impact', sans-serif;
+      font-weight: 500;
+      font-family: 'nunito';
     }
     .box3{
       position: relative;
       align-self: center;
       width: auto;
-      height : 60vh;
+      height : auto;
       font-weight: 400;
+      padding: 10px;
       display: flex; 
     
     }
@@ -257,11 +258,11 @@
     }
 
     #myChart {
-      width: 500px;
-      height: 500px;
+      width: 450px;
+      height: 450px;
       font-size: 200px;
-      background-color: #00000077;
-      border-radius: 50px;
+      background-color: black;
+      border-radius: 10px;
     }
     
   
@@ -382,10 +383,10 @@
       justify-content:space-evenly; 
       box-sizing: border-box;
       height : 5vh;
-      border: 2px solid black;
+      border: 2px solid #383E42;
       position: sticky;
       z-index: 1;
-      background: #ace9fb;
+      background: #1B98E0;
       flex-direction: row;
       display :flex;
       align-items: center;
@@ -395,7 +396,7 @@
      
   }
    .barreup a {
-    color: #000000;
+    color: black;
     text-decoration: none;
   }
     .grid{
@@ -460,7 +461,7 @@
       font-weight: 400;
       font-size: calc((3vw + 3vh)) ;
       overflow: hidden;
-      background: #000000;
+      background: #383E42;
       color: white;
    }
    .left{
