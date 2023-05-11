@@ -82,19 +82,21 @@
     }
     .grid3{
         width: 100vw;
-        height: 210vh;
+        height: auto;
         display :flex;
         align-items: center;
-        justify-content: space-between;
-        
-        
+        justify-content: center;
+        box-sizing: border-box;
+        gap:10%;
+        row-gap: 5vh;
+       
         
         flex-wrap: wrap;
        
         padding-top: 100px;
         padding-bottom: 200px;
-        padding-left : 10%;
-        padding-right : 10%;
+        padding-left : 10px;
+        padding-right : 10px;
     }
     .grid4{
       width: 100%;
@@ -192,7 +194,8 @@
     .box2{
       position: relative;
       align-self: center;
-      width: 40%;
+      width: 30%;
+      min-width: 400px;
       height : auto;
       font-weight: 500;
       margin : 10px;
@@ -203,6 +206,27 @@
       text-justify: inter-word;*/
       flex-direction: column;
       justify-content: center;
+      COLOR : aliceblue;
+      border-radius: 50px;
+      background: rgb(0, 49, 154);
+      box-shadow: blue 0px 0px 0px 2px inset, var(--back) 10px -10px 0px -3px, rgb(31, 193, 27) 10px -10px, var(--back) 20px -20px 0px -3px, rgb(255, 217, 19) 20px -20px, var(--back) 30px -30px 0px -3px, rgb(255, 156, 85) 30px -30px, var(--back) 40px -40px 0px -3px, rgb(255, 85, 85) 40px -40px;
+    }
+    .box4{
+      position: relative;
+      align-self: center;
+      width: 50%;
+      height : auto;
+      font-weight: 500;
+      margin : 50px;
+     
+      font-size: 25px;
+      padding : 40px;
+      gap: 50px;
+      display: flex; 
+      /*text-align: justify;
+      text-justify: inter-word;*/
+      flex-direction: column;
+      justify-content: flex-end;
       COLOR : aliceblue;
       border-radius: 50px;
       background: rgb(0, 49, 154);
@@ -227,23 +251,6 @@
       padding: 10px;
       display: flex; 
     
-    }
-    .box4{
-      position: relative;
-      align-self: center;
-      width: 60%;
-      height : 40vh;
-      font-weight: 400;
-      font-size: 36px;
-      display: flex; 
-      text-align: justify;
-      text-justify: inter-word;
-      flex-direction: column;
-    }
-    #objectif{
-      background-image:url("../img/enfant2.jpg");
-      background-size: cover;
-      background-position-x: 70%;
     }
     #cliquer{
      width: auto;
@@ -308,69 +315,6 @@
     }
     
     
-    #Thibaut{
-      background-image:url("./img/Nous/Thibaut.png");
-     
-      background-position-x: -30px;
-      background-position-y: -20px;
-      background-size: 140%;
-    }
-    #Manon{
-      background-image:url("./img/Nous/Manon.png");
-     
-      background-position-x: -12px;
-      background-position-y: -20px;
-      background-size: 120%;
-    }
-    #Cyril{
-      background-image:url("./img/Nous/Cyril.png");
-     
-      background-position-x: -34px;
-      background-position-y: -20px;
-      background-size: 140%;
-    }
-    #Gabriel{
-      background-image:url("./img/Nous/Gabriel.png");
-     
-      background-position-x: -49px;
-      background-position-y: -20px;
-      background-size: 160%;
-    }
-    #NicolasV{
-      background-image:url("./img/Nous/NicolasV.png");
-     
-      background-position-x: 17px;
-      background-position-y: -10px;
-      background-size: 80%;
-    }
-    #NicolasW{
-      background-image:url("./img/Nous/NicolasW.png");
-     
-      background-position-x: -60px;
-      background-position-y: -30px;
-      background-size: 170%;
-    }
-    #Mejdi{
-      background-image:url("./img/Nous/Mejdi.png");
-     
-      background-position-x: -55px;
-      background-position-y: -15px;
-      background-size: 170%;
-    }
-    #Hugo{
-      background-image:url("./img/Nous/Hugo.png");
-     
-      background-position-x: -49px;
-      background-position-y: -20px;
-      background-size: 160%;
-    }
-    #Mohammed{
-      background-image:url("./img/Nous/Mohammed.png");
-     
-      background-position-x: -72px;
-      background-position-y: -35px;
-      background-size: 180%;
-    }
     
   }
   
