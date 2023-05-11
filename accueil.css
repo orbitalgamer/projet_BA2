@@ -102,6 +102,15 @@
    
     /*flex-direction: line;*/
   }
+  .grid5{
+    height:auto;
+    width: 100vw;
+    display :flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    row-gap : 50px;
+  }
   .barredown{
     width : 101%;
     height : 6vh;
@@ -414,6 +423,15 @@
     row-gap : 50px;
    
     /*flex-direction: line;*/
+  }
+  .grid5{
+    height:auto;
+    width: 100vw;
+    display :flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    row-gap : 50px;
   }
   .barredown{
     position: relative;
