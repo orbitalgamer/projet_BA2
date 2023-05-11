@@ -31,7 +31,7 @@
         border: 2px solid black;
         position: sticky;
         z-index: 1;
-        background: #ace9fb;
+        background: #1B98E0;
         flex-direction: row;
         display :flex;
         gap : 8vw;
@@ -57,7 +57,7 @@
         font-weight: 400;
         font-size: calc((1vw + 1vh)) ;
         overflow: hidden;
-        background: #000000;
+        background: #383E42;
         color: white;
      }
      .left{
@@ -206,7 +206,7 @@
         text-indent: 10px;
         font-size: calc((1vw + 1vh));
         background: #ffffff00;
-        color: #00B2FF;
+        color: #1B98E0;
     }
     .boxconnexion{
         position: relative;
@@ -216,7 +216,7 @@
         margin-right: auto;
         width: 80%;
         height: 15%;
-        background: #00B2FF;
+        background: #1B98E0;
         border-radius: 25px;
         display :flex;
         text-decoration: none;
@@ -239,7 +239,7 @@
 
     }
     .clicked{
-        background: #00a6ff;
+        background: #1b70e0;
         transform: scale(1.03) translateY(1px);
         box-shadow: 0 2px 0 #888;
     }
@@ -282,7 +282,7 @@
         border: 2px solid black;
         position: sticky;
         z-index: 1;
-        background: #ace9fb;
+        background: #1B98E0;
         flex-direction: row;
         display :flex;
         align-items: center;
@@ -308,7 +308,7 @@
     font-weight: 400;
     font-size: calc((3vw + 3vh));
     overflow: hidden;
-    background: #000000;
+    background: #383E42;
     color: white;
     }
     .left{

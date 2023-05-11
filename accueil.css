@@ -35,7 +35,7 @@
     border: 2px solid black;
     position: sticky;
     z-index: 1;
-    background: #ace9fb;
+    background: #1B98E0;
     flex-direction: row;
     display :flex;
     gap : 8vw;
@@ -113,7 +113,7 @@
     font-weight: 400;
     font-size: calc((1vw + 1vh)) ;
     overflow: hidden;
-    background: #000000;
+    background: #383E42;
     color: white;
  }
  .left{
@@ -352,7 +352,7 @@
     border: 2px solid black;
     position: sticky;
     z-index: 1;
-    background: #ace9fb;
+    background: #1B98E0;
     flex-direction: row;
     display :flex;
     align-items: center;
@@ -427,7 +427,7 @@
     font-weight: 400;
     font-size: calc((3vw + 3vh)) ;
     overflow: hidden;
-    background: #000000;
+    background: #383E42;
     color: white;
  }
  .left{
