@@ -1,6 +1,6 @@
 
 :root{
-    --back : black;
+    --back : rgb(213, 235, 255);
     --color2 : #24f57800;
     --color3 : #1B98E0;
     /*--colorfull: linear-gradient(180deg,#ade8f4 0%,#00b4d8 100% );*/
@@ -40,7 +40,7 @@
     .barreup{
       width : 100vw;
       height : 6vh;
-      border: 2px solid #383E42;
+      border: 2px solid #000000;
       position: sticky;
       z-index: 1;
       background: #1B98E0;
@@ -55,8 +55,9 @@
       
    }
    .barreup a {
-    color: #383E42;
+    color: #000000;
     text-decoration: none;
+    height: auto;
   }
     .grid{
       width: 100vw;
@@ -87,7 +88,7 @@
         align-items: center;
         justify-content: center;
         box-sizing: border-box;
-        gap:10%;
+        gap:3%;
         row-gap: 5vh;
        
         
@@ -95,27 +96,10 @@
        
         padding-top: 100px;
         padding-bottom: 200px;
-        padding-left : 10px;
-        padding-right : 10px;
+        padding-left : 2%;
+        padding-right : 2%;
     }
-    .grid4{
-      width: 100%;
-      height: auto;
-      padding-bottom: 120px;
-      padding-top: 80px;
-     
-      display :flex;
-      align-items: center;
-      justify-content: space-evenly;
-      background: linear-gradient(180deg,#383E4200 0%, #1B98E0 10%, #1B98E0 100%) ;
-      flex-wrap: wrap;
    
-      
-      
-      row-gap : 50px;
-     
-      /*flex-direction: line;*/
-    }
     .barredown{
       width : 101%;
       height : 6vh;
@@ -164,6 +148,18 @@
     height : 4vh;
     width : auto;
   }
+  .box10{
+    width: auto;
+   height: auto;
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items : center
+  }
+  #Logo{
+    height : 6vh;
+    width : auto;
+  }
    .copyright{
     height: auto; 
     padding-left: 50px;
@@ -174,14 +170,14 @@
       align-self: top;
       margin-top: 0px;
       width: 100vw;
-      height : 95vh;
+      height : 100vh;
       font-weight: 400;
       font-size: calc((5vw + 5vh)/2) ;
       text-align:center;
       display: flex;
       flex-direction: column;
       color : #ffffff;
-      background-image:linear-gradient(180deg,rgba(0, 0, 0, 0.8) 0%,rgba(0, 0, 0, 0.8) 80%, var(--back) 100%), url("../img/enfant1.jpg");
+      background-image:linear-gradient(180deg,rgba(0, 0, 0, 0.8) 0%,rgba(0, 0, 0, 0.8) 100%), url("../img/enfant1.jpg");
       background-size: cover;
       justify-content: center;
       gap: 10%;
@@ -191,26 +187,62 @@
       font-size: calc(4vw + 4vh) ;
       font-weight: 600;
     }
-    .box2{
+    .boxatt{
       position: relative;
       align-self: center;
-      width: 30%;
+      width: 50%;
       min-width: 400px;
       height : auto;
       font-weight: 500;
       margin : 10px;
-      font-size: 25px;
+      font-size: 35px;
       padding : 40px;
       display: flex; 
       /*text-align: justify;
       text-justify: inter-word;*/
       flex-direction: column;
       justify-content: center;
-      COLOR : aliceblue;
+      COLOR : rgb(255, 255, 255);
       border-radius: 50px;
-      background: rgb(0, 49, 154);
-      box-shadow: blue 0px 0px 0px 2px inset, var(--back) 10px -10px 0px -3px, rgb(31, 193, 27) 10px -10px, var(--back) 20px -20px 0px -3px, rgb(255, 217, 19) 20px -20px, var(--back) 30px -30px 0px -3px, rgb(255, 156, 85) 30px -30px, var(--back) 40px -40px 0px -3px, rgb(255, 85, 85) 40px -40px;
+     
     }
+    .box2{
+      position: relative;
+      align-self: center;
+      width: 50%;
+      min-width: 400px;
+      height : auto;
+      font-weight: 500;
+      margin : 10px;
+      font-size: 35px;
+      padding : 40px;
+      padding-top:100px ;
+      padding-bottom: 100px;
+      display: flex; 
+      /*text-align: justify;
+      text-justify: inter-word;*/
+      flex-direction: column;
+      justify-content: center;
+      COLOR : rgb(0, 0, 0);
+      border-radius: 50px;
+      animation: apparition 2s;
+      border: 1px solid black;
+      background: rgb(220, 238, 255);
+      box-shadow: rgb(71, 71, 71) 10px 5px 8px 2px;
+      transition: box-shadow 1s;
+        
+     /* background: rgb(0, 49, 154);*/
+     /* box-shadow: blue 0px 0px 0px 2px inset, var(--back) 10px -10px 0px -3px, rgb(31, 193, 27) 10px -10px, var(--back) 20px -20px 0px -3px, rgb(255, 217, 19) 20px -20px, var(--back) 30px -30px 0px -3px, rgb(255, 156, 85) 30px -30px, var(--back) 40px -40px 0px -3px, rgb(255, 85, 85) 40px -40px;
+   */ }
+   .box2:hover{
+    box-shadow: rgba(71, 71, 71, 0) 10px 5px 8px 3px;
+
+   }
+   @keyframes apparition {
+    from {opacity : 0%;  }
+    to {opacity : 100%}
+   }
+   
     .box4{
       position: relative;
       align-self: center;
@@ -219,7 +251,7 @@
       font-weight: 500;
       margin : 50px;
      
-      font-size: 25px;
+      font-size: 35px;
       padding : 40px;
       gap: 50px;
       display: flex; 
@@ -227,20 +259,55 @@
       text-justify: inter-word;*/
       flex-direction: column;
       justify-content: flex-end;
-      COLOR : aliceblue;
+      COLOR : rgb(0, 0, 0);
       border-radius: 50px;
-      background: rgb(0, 49, 154);
+      border: 1px solid black;
+      background: rgb(220, 238, 255);
+      box-shadow: rgb(71, 71, 71) 10px 5px 8px 2px;
+      transition: box-shadow 1s;
+   /*   background: rgb(0, 49, 154);
       box-shadow: blue 0px 0px 0px 2px inset, var(--back) 10px -10px 0px -3px, rgb(31, 193, 27) 10px -10px, var(--back) 20px -20px 0px -3px, rgb(255, 217, 19) 20px -20px, var(--back) 30px -30px 0px -3px, rgb(255, 156, 85) 30px -30px, var(--back) 40px -40px 0px -3px, rgb(255, 85, 85) 40px -40px;
+    */}
+    .box4:hover{
+      box-shadow: rgba(71, 71, 71, 0) 10px 5px 8px 3px;
+  
+     }
+    .box5{
+      position: relative;
+      align-self: center;
+      width: auto;
+      height : auto;
+      font-weight: 400;
+     
+      display: flex; 
+      flex-direction: column  ;
+        color :rgb(255, 255, 255);
+      padding-left:auto;
+      padding-right: auto; 
     }
-
+      .boxtitre{
+      position: relative;
+      align-self: center;
+      width: 500px;
+      height : auto;
+      font-weight: 400;
+      padding: 10px;
+      display: flex; 
+      color :rgb(0, 0, 0);
+      margin-left:auto;
+      margin-right: auto;
+      font-size: 40px;
+      font-weight: 600;
+      
+      }
     p{
       margin-left: 10px ;
       margin-right: 10px;
-      font-size: 35px ;
+      font-size: 45px ;
       line-height : 150%;
       margin : 10px;
-      font-weight: 500;
-      font-family: 'nunito';
+      font-weight: 600;
+      
     }
     .box3{
       position: relative;
@@ -257,62 +324,24 @@
      height: auto;
      padding: 30px;
      border-radius: 50px;
-     box-shadow: black 0px 0px 10px 2px;
+     box-shadow: black 0px 0px 10px 0px;
      border: 1px solid black;
-     background: rgba(255, 0, 0, 0.788);
+     background: rgba(27, 152, 224, 0.8);
      font-size: calc(3vw + 3vh) ;
      color : white;
     }
-
+    
     #myChart {
       width: 450px;
       height: 450px;
       font-size: 200px;
-      background-color: black;
+      background-color: rgba(0, 0, 0, 0);
       border-radius: 10px;
     }
     
   
     
-    .box5{
-      position: relative;
-      align-self: center;
-      top : 5%;
-      width: 160px;
-      aspect-ratio: 1/1.5;
-      margin-left: 4%;
-      margin-right: 4%;
-      font-weight: 400;
-      font-size: 36px;
-      display: flex; 
-      flex-direction: column;
-      flex-wrap: nowrap;
-      border: 2px solid rgba(0, 0, 0, 0);
-      
-    }
-    .box6{
-      
-      position: relative;
-      aspect-ratio: 1/1;
-      width: 100%;
-      background: #949494;
-      border-radius: 100%;
-    }
-    .box7{
-      position: relative;
-      align-self: center;
-      top : 20px;
-      width: 190%;
-      height : 12%;
-      max-height : 50px;
-      font-size: 36px;
-      display: flex; 
-      flex-wrap: nowrap;
-      align-items: center;
-      justify-content: center;
-      font-size : 30px;
-      color: white;
-    }
+    
     
     
     
@@ -324,311 +353,295 @@
     .barreup{
       margin : 0;
       width : 100vw;
-      justify-content:space-evenly; 
-      box-sizing: border-box;
-      height : 5vh;
-      border: 2px solid #383E42;
-      position: sticky;
-      z-index: 1;
-      background: #1B98E0;
-      flex-direction: row;
+      height : auto;
       display :flex;
+      flex-direction: row;
       align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      box-sizing: border-box;
+      border: 2px solid #000000;
+      gap: 5%;
+      background: #1B98E0;
+      padding-left:5%;
+      padding-right: 5%;
+      
+      
       font-weight: 400;
       font-size: 18px ;
-      overflow: hidden;
+      
      
   }
    .barreup a {
     color: black;
     text-decoration: none;
+  } .grid{
+    width: 100vw;
+    height: auto;
+    display :flex;
+    flex-direction: column;
+    /*align-items: center;
+    justify-content: center;*/ 
+    background: var(--back);
+
+    
   }
-    .grid{
+  .grid2{
+    width: 100%;
+    height: 100vh;
+    display :flex;
+    
+    justify-content: center;
+ 
+
+    
+  
+  }
+  .grid3{
       width: 100vw;
       height: auto;
       display :flex;
-      flex-direction: column;
-      /*align-items: center;
-      justify-content: center;*/ 
-      background: var(--colorfull);
-  
-      
-    }
-    .grid2{
-      width: 100%;
-      height: 100vh;
-      display :flex;
       align-items: center;
       justify-content: center;
-      padding-top: 50px;
-      padding-bottom : 50px;
-  
-      
-    
-    }
-    .grid3{
-        width: 100%;
-        height: auto;
-        display :flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;   
-        padding-top: 50px;
-        padding-bottom: 100px;
-        margin-bottom : 100px;
-    }
-    .grid4{
-      width: 100%;
-      height: auto;
-      padding-bottom: 120px;
-      padding-top: 100px;
+      box-sizing: border-box;
+      gap:3%;
+      row-gap: 5vh;
      
-      display :flex;
-      align-items: center;
-      justify-content: space-evenly;
-      background: linear-gradient(180deg,var(--color2) 0%, #1B98E0 10%, #1B98E0 100%) ;
+      
       flex-wrap: wrap;
-   
-      row-gap : 50px;
      
-      /*flex-direction: line;*/
-    }
-    .barredown{
-      position: relative;
-      width : 100%;
-      height : 15vh;
-      flex-direction: column;
-      display :flex;
-      gap : 20px;
-      justify-content:center; 
-      align-items: center;
-      font-weight: 400;
-      font-size: calc((3vw + 3vh)) ;
-      overflow: hidden;
-      background: #383E42;
-      color: white;
-   }
-   .left{
-      width : 100%;
-      height : auto;
-      display :flex;
-      flex-wrap: nowrap;
-      gap : 2%;
-      justify-content:center; 
-      align-items: center;
-      font-weight: 400;
-      font-size: calc((1.7vw + 1.7vh)) ;
+      padding-top: 100px;
+      padding-bottom: 200px;
+      padding-left : 2%;
+      padding-right : 2%;
+  }
+ 
+  .barredown{
+    position: relative;
+    width : 100%;
+    height : 15vh;
+    flex-direction: column;
+    display :flex;
+    gap : 20px;
+    justify-content:center; 
+    align-items: center;
+    font-weight: 400;
+    font-size: calc((3vw + 3vh)) ;
+    overflow: hidden;
+    background: #383E42;
+    color: white;
+ }
+ .left{
+    width : 100%;
+    height : auto;
+    display :flex;
+    flex-wrap: nowrap;
+    gap : 2%;
+    justify-content:center; 
+    align-items: center;
+    font-weight: 400;
+    font-size: calc((1.7vw + 1.7vh)) ;
+
+ }
+ .right{
+    width : 100%;
+    height : auto;
+    flex-direction: row;
+    display :flex;
+    gap : 2%;
+    justify-content:center; 
+    align-items: center;
+    font-weight: 400;
+    font-size: calc((1vw + 1vh)) ;
+    overflow: hidden;
+ }
+ #Polytechlogo{
+  padding-right: 1px;
+  height : 4vh;
+  width : auto;
+}
+#Umonslogo{
   
-   }
-   .right{
-      width : 100%;
-      height : auto;
-      flex-direction: row;
-      display :flex;
-      gap : 2%;
-      justify-content:center; 
-      align-items: center;
-      font-weight: 400;
-      font-size: calc((1vw + 1vh)) ;
-      overflow: hidden;
-   }
-   #Polytechlogo{
-    padding-right: 1px;
-    height : 4vh;
-    width : auto;
+  height : 4vh;
+  width : auto;
+}
+.box10{
+  width: auto;
+ height: auto;
+ display: flex;
+ flex-direction: row;
+ justify-content: center;
+ align-items : center
+}
+#Logo{
+  height : 4vh;
+  width : auto;
+}
+ .copyright{
+  height: auto; 
+
+  white-space: nowrap;
+ }
+  .box1{
+    position: relative;
+    align-self: top;
+    margin-top: 0px;
+    width: 100vw;
+    height : 100vh;
+    font-weight: 400;
+    font-size: 30px ;
+    text-align:center;
+    display: flex;
+    flex-direction: column;
+    color : #ffffff;
+    background-image:linear-gradient(180deg,rgba(0, 0, 0, 0.8) 0%,rgba(0, 0, 0, 0.8) 100%), url("../img/enfant1.jpg");
+    background-size: cover;
+    justify-content: center;
+    gap: 10%;
+    padding : 50px;
   }
-  #Umonslogo{
-    
-    height : 4vh;
-    width : auto;
+  #Titre{
+    font-size: calc(4vw + 4vh) ;
+    font-weight: 600;
   }
-   .copyright{
-    height: auto; 
-    padding-left: 1px;
-    white-space: nowrap;
-   }
-    .box1{
-      position: relative;
-      align-self: center;
-      width: 90%;
-      height : 75vh;
-      font-weight: 400;
-      font-size: calc((5vw + 5vh)/2) ;
-      text-align:center;
-      display: flex;
-      flex-direction: column;
-      color : #ffffff;
-      border-radius: calc((8vw + 8vh)/2);
-      background-image:linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("./img/enfant1.jpg");
-      background-size: cover;
-      justify-content: center;
-      gap: 10%;
-      padding : 10px;
-      background-position-x: center;
-    }
-    #Titre{
-      font-size: calc(4vw + 4vh) ;
-      font-weight: 600;
-    }
-    .box2{
-      position: relative;
-      align-self: center;
-      width: 90%;
-      height : auto;
-      font-weight: 400;
-      font-size: 36px;
-      display: flex; 
-      text-align: justify;
-      text-justify: inter-word;
-      flex-direction: column;
-      
-    }
-    h1{
-      margin-left: auto;
-      margin-right: auto;
-      font-size: calc((6vw + 6vh)/2) ;
-    }
-    p{
-      margin-left: 10px ;
-      margin-right: 10px;
-      font-size: calc((4vw + 4vh)/2) ;
-      line-height : 120%;
-    }
-    .box3{
-      position: relative;
-      align-self: center;
-      width: 30%;
-      height : 0;
-      font-weight: 400;
-      display: flex; 
-      
-    }
-    .box4{
-      position: relative;
-      align-self: center;
-      width: 90%;
-      height : 60vh;
-      font-weight: 400;
-      font-size: 36px;
-      display: flex; 
-      text-align: justify;
-      text-justify: inter-word;
-      flex-direction: column;
-    }
-    #objectif{
-      background-image:url("./img/enfant2.jpg");
-      background-size: cover;
-      background-position-x: center;
-    }
-    #propose{
-      background-image:url("./img/enfant3.jpg");
-      background-size: cover;
-      background-position-x: center;
-    }
-    
-    .box5{
-      position: relative;
-      align-self: center;
-      top : 5%;
-      width: 200px;
-      aspect-ratio: 1/1.5;
-      margin-left: 4%;
-      margin-right: 4%;
-      font-weight: 400;
-      font-size: 36px;
-      display: flex; 
-      flex-direction: column;
-      flex-wrap: nowrap;
-      border: 2px solid rgba(0, 0, 0, 0);
-      
-    }
-    .box6{
-      
-      position: relative;
-      aspect-ratio: 1/1;
-      width: 100%;
-      background: #949494;
-      border-radius: 100%;
-    }
-    .box7{
-      position: relative;
-      align-self: center;
-      top : 20px;
-      width: 190%;
-      height : 12%;
-      max-height : 50px;
-      font-size: 36px;
-      display: flex; 
-      flex-wrap: nowrap;
-      align-items: center;
-      justify-content: center;
-      font-size : 30px;
-      color: white;
-    }
-    
-    #Thibaut{
-      background-image:url("./img/Nous/Thibaut.png");
-     
-      background-position-x: -50px;
-      background-position-y: -20px;
-      background-size: 160%;
-    }
-    #Manon{
-      background-image:url("./img/Nous/Manon.png");
-     
-      background-position-x: -25px;
-      background-position-y: -30px;
-      background-size: 130%;
-    }
-    #Cyril{
-      background-image:url("./img/Nous/Cyril.png");
-     
-      background-position-x: -54px;
-      background-position-y: -30px;
-      background-size: 155%;
-    }
-    #Gabriel{
-      background-image:url("./img/Nous/Gabriel.png");
-     
-      background-position-x: -70px;
-      background-position-y: -30px;
-      background-size: 170%;
-    }
-    #NicolasV{
-      background-image:url("./img/Nous/NicolasV.png");
-     
-      background-position-x: 20px;
-      background-position-y: -10px;
-      background-size: 80%;
-    }
-    #NicolasW{
-      background-image:url("./img/Nous/NicolasW.png");
-     
-      background-position-x: -75px;
-      background-position-y: -30px;
-      background-size: 170%;
-    }
-    #Mejdi{
-      background-image:url("./img/Nous/Mejdi.png");
-     
-      background-position-x: -70px;
-      background-position-y: -20px;
-      background-size: 170%;
-    }
-    #Hugo{
-      background-image:url("./img/Nous/Hugo.png");
-     
-      background-position-x: -75px;
-      background-position-y: -30px;
-      background-size: 170%;
-    }
-    #Mohammed{
-      background-image:url("./img/Nous/Mohammed.png");
-     
-      background-position-x: -90px;
-      background-position-y: -40px;
-      background-size: 180%;
-    }
+  .boxatt{
+    position: relative;
+    align-self: center;
+    width: 50%;
+    min-width: 400px;
+    height : auto;
+    font-weight: 500;
+    margin : 10px;
+    font-size: 35px;
+    padding : 40px;
+    display: flex; 
+    /*text-align: justify;
+    text-justify: inter-word;*/
+    flex-direction: column;
+    justify-content: center;
+    COLOR : rgb(255, 255, 255);
+    border-radius: 50px;
+   
+  }
+  .box2{
+    position: relative;
+    align-self: center;
+    width: 100vw;
+    height : auto;
+    font-weight: 500;
+    margin : 10px;
+   
+    font-size: 35px;
+    padding : 10px;
+    gap: 50px;
+    display: flex; 
+    /*text-align: justify;
+    text-justify: inter-word;*/
+    flex-direction: column;
+    justify-content: flex-end;
+    COLOR : rgb(0, 0, 0);
+    border-radius: 50px;
    
     
+   
+      
+   /* background: rgb(0, 49, 154);*/
+   /* box-shadow: blue 0px 0px 0px 2px inset, var(--back) 10px -10px 0px -3px, rgb(31, 193, 27) 10px -10px, var(--back) 20px -20px 0px -3px, rgb(255, 217, 19) 20px -20px, var(--back) 30px -30px 0px -3px, rgb(255, 156, 85) 30px -30px, var(--back) 40px -40px 0px -3px, rgb(255, 85, 85) 40px -40px;
+ */ }
+ 
+ @keyframes apparition {
+  from {opacity : 0%;  }
+  to {opacity : 100%}
+ }
+ 
+  .box4{
+    position: relative;
+    align-self: center;
+    width: 100vw;
+    height : auto;
+    font-weight: 500;
+    margin : 10px;
+   
+    font-size: 35px;
+    padding : 10px;
+    gap: 50px;
+    display: flex; 
+    /*text-align: justify;
+    text-justify: inter-word;*/
+    flex-direction: column;
+    justify-content: flex-end;
+    COLOR : rgb(0, 0, 0);
+    border-radius: 50px;
+   
+ /*   background: rgb(0, 49, 154);
+    box-shadow: blue 0px 0px 0px 2px inset, var(--back) 10px -10px 0px -3px, rgb(31, 193, 27) 10px -10px, var(--back) 20px -20px 0px -3px, rgb(255, 217, 19) 20px -20px, var(--back) 30px -30px 0px -3px, rgb(255, 156, 85) 30px -30px, var(--back) 40px -40px 0px -3px, rgb(255, 85, 85) 40px -40px;
+  */}
+ 
+  .box5{
+    position: relative;
+    align-self: center;
+    width: auto;
+    height : auto;
+    font-weight: 400;
+   
+    display: flex; 
+    flex-direction: column  ;
+      color :rgb(255, 255, 255);
+    padding-left:auto;
+    padding-right: auto; 
+  }
+    .boxtitre{
+    position: relative;
+    align-self: center;
+    width: 90vw;
+    height : auto;
+    font-weight: 400;
+    padding: 10px;
+    display: flex; 
+    color :rgb(0, 0, 0);
+    margin-left:auto;
+    margin-right: auto;
+    font-size: 30px;
+    font-weight: 600;
+    
+    }
+  p{
+    margin-left: 10px ;
+    margin-right: 10px;
+    font-size: 30px ;
+    line-height : 150%;
+    margin : 10px;
+    font-weight: 600;
+    
+  }
+  .box3{
+    position: relative;
+    align-self: center;
+    width: auto;
+    height : auto;
+    font-weight: 400;
+    padding: 10px;
+    display: flex; 
+  
+  }
+  #cliquer{
+   width: auto;
+   height: auto;
+   padding: 30px;
+   border-radius: 50px;
+   box-shadow: black 0px 0px 10px 0px;
+   border: 1px solid black;
+   background: rgba(27, 152, 224, 0.8);
+   font-size: calc(3vw + 3vh) ;
+   color : white;
+  }
+  
+  #myChart {
+    width: 90vw;
+    height: 90vw;
+    font-size: 200px;
+    background-color: rgba(0, 0, 0, 0);
+    border-radius: 10px;
+  }
+  
   }

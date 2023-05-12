@@ -1,5 +1,6 @@
 // Sélectionnez l'élément que vous voulez observer
 const elementToObserve = document.querySelector('#myChart');
+const elementToObserve2 = document.querySelector('.boxatt');
 
 // Créez l'instance de l'observateur d'intersection
 const observer = new IntersectionObserver(entries => {
@@ -8,15 +9,17 @@ const observer = new IntersectionObserver(entries => {
     // Si l'élément cible est visible
     if (entry.isIntersecting) {
       // Activer le script ici
-      
+
+    document.querySelector('.boxatt').setAttribute("class", "box2")
+   
 var myChart = new Chart(document.getElementById('myChart'), {
   type: 'pie',
   data: {
       title : "Boujour",
-    labels: ['Trouble détecté', 'Trouble non détecté'],
+    labels: ['Détecté', 'Non détecté'],
     datasets: [{
       backgroundColor: ['#ff6384', '#36a2eb'],
-      data: [149270, 49757]
+      data: [2, 1]
     }]
   },
   options: {
@@ -29,7 +32,7 @@ var myChart = new Chart(document.getElementById('myChart'), {
                   size: 20,
                   
               },
-              color : '#FFF',
+              color : '#000',
           }
       }
   },
@@ -57,5 +60,6 @@ var myChart = new Chart(document.getElementById('myChart'), {
 
 // Démarrez l'observation de l'élément cible
 observer.observe(elementToObserve);
+observer.observe(elementToObserve2);
 
 
