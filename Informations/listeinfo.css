@@ -20,11 +20,11 @@
     margin: 0;
     padding: 0;
 }
-@media screen and (min-width:700px) {
+@media screen and (min-width:800px) {
   .barreup{
-    width : 100%;
+    width : 100vw;
     height : 6vh;
-    border: 2px solid black;
+    border: 2px solid #000000;
     position: sticky;
     z-index: 1;
     background: #1B98E0;
@@ -34,8 +34,8 @@
     justify-content:center; 
     align-items: center;
     font-weight: 400;
-    font-size: 25px ;
-    overflow: hidden
+    font-size: 24px ;
+    overflow: hidden;
   }
   .barreup a {
     color: #000000;
@@ -80,6 +80,19 @@
     font-size: calc((1vw + 1vh)) ;
     overflow: hidden;
  }
+ 
+ .box10{
+  width: auto;
+ height: auto;
+ display: flex;
+ flex-direction: row;
+ justify-content: center;
+ align-items : center
+}
+#Logo{
+  height : 6vh;
+  width : auto;
+}
  #Polytechlogo{
   padding-right: 50px;
   height : 4vh;
@@ -229,7 +242,7 @@
 
 }
 
-@media screen and (min-width: 70px) and (max-width: 700px) {
+@media screen and (min-width: 70px) and (max-width: 800px) {
   .barreup{
     margin : 0;
     padding: 0;
@@ -254,6 +267,18 @@
     text-decoration: none;
   }
   
+  .box10{
+    width: auto;
+   height: auto;
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items : center
+  }
+  #Logo{
+    height : 6vh;
+    width : auto;
+  }
   
   .barredown{
     position: relative;
