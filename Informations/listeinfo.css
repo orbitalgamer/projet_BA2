@@ -245,21 +245,24 @@
 @media screen and (min-width: 70px) and (max-width: 800px) {
   .barreup{
     margin : 0;
-    padding: 0;
     width : 100vw;
-    justify-content:space-evenly; 
-    box-sizing: border-box;
-    height : 5vh;
-    border: 2px solid black;
-    position: sticky;
-    z-index: 1;
-    background: #1B98E0;
-    flex-direction: row;
+    height : auto;
     display :flex;
+    flex-direction: row;
     align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    border: 2px solid #000000;
+    gap: 5%;
+    background: #1B98E0;
+    padding-left:5%;
+    padding-right: 5%;
+    
+    
     font-weight: 400;
     font-size: 18px ;
-    overflow: hidden;
+    
    
   }
   .barreup a {
