@@ -36,6 +36,7 @@
       background: var(--back);
      
   }
+  
   @media screen and (min-width:800px)  {
     .barreup{
       width : 100vw;
@@ -317,6 +318,7 @@
       font-weight: 400;
       padding: 10px;
       display: flex; 
+      text-decoration: none;
     
     }
     #cliquer{
@@ -622,6 +624,7 @@
     font-weight: 400;
     padding: 10px;
     display: flex; 
+    text-decoration: none;
   
   }
   #cliquer{
