@@ -382,7 +382,7 @@
     .grid{
         
         width: 100vw;
-        height: 87vh;
+        height: 83vh;
         display :flex;
         flex-direction: column;
         box-sizing: border-box;
