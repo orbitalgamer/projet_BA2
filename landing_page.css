@@ -239,6 +239,7 @@
     box-shadow: rgba(71, 71, 71, 0) 10px 5px 8px 3px;
 
    }
+
    @keyframes apparition {
     from {opacity : 0%;  }
     to {opacity : 100%}
@@ -321,17 +322,32 @@
       text-decoration: none;
     
     }
-    #cliquer{
+    .cliquer{
+      position: relative;
+      align-self: center;
      width: auto;
      height: auto;
+     font-weight: 400;
      padding: 30px;
+     display: flex; 
      border-radius: 50px;
      box-shadow: black 0px 0px 10px 0px;
      border: 1px solid black;
-     background: rgba(27, 152, 224, 0.8);
+     background: rgba(27, 152, 224, 0.8); 
      font-size: calc(3vw + 3vh) ;
      color : white;
+     text-decoration: none;
     }
+    .cliquer:hover{
+      transform: scale(1.05);
+
+   }
+   .cliquer.clicked{
+    background: rgba(27, 89, 224, 0.8); 
+   
+   }
+
+   
     
     #myChart {
       width: 450px;
@@ -627,17 +643,33 @@
     text-decoration: none;
   
   }
-  #cliquer{
+  .cliquer{
+    position: relative;
+    align-self: center;
    width: auto;
    height: auto;
+   font-weight: 400;
    padding: 30px;
+   display: flex; 
    border-radius: 50px;
    box-shadow: black 0px 0px 10px 0px;
    border: 1px solid black;
-   background: rgba(27, 152, 224, 0.8);
+   background: rgba(27, 152, 224, 0.8); 
    font-size: calc(3vw + 3vh) ;
    color : white;
+   text-decoration: none;
   }
+  .cliquer:hover{
+    transform: scale(1.05);
+
+ }
+ .cliquer.clicked{
+  background: rgba(27, 89, 224, 0.8); 
+ 
+ }
+
+ 
+  
   
   #myChart {
     width: 90vw;

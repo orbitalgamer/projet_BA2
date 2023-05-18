@@ -1,7 +1,30 @@
 // Sélectionnez l'élément que vous voulez observer
 const elementToObserve = document.querySelector('#myChart');
 const elementToObserve2 = document.querySelector('.boxatt');
+const switchers = document.querySelectorAll(".cliquer");
+switchers.forEach(function(switcher){
 
+switcher.addEventListener('mousedown',function(){
+
+  switcher.classList.add('clicked');
+    
+  } );
+  switcher.addEventListener('mouseup',function(){
+
+    switcher.classList.remove('clicked');
+      
+    } );
+    
+    switcher.addEventListener('touchstart', function() {
+      switcher.classList.add('clicked');
+    });
+    
+    switcher.addEventListener('touchend', function() {
+      switcher.classList.remove('clicked');
+    });
+
+}
+)
 // Créez l'instance de l'observateur d'intersection
 const observer = new IntersectionObserver(entries => {
   // Pour chaque entrée dans la liste des entrées
@@ -26,7 +49,9 @@ var myChart = new Chart(document.getElementById('myChart'), {
     plugins: {
       tooltip: false,
       legend: {
+        onClick: null,
           labels: {
+            
               // This more specific font property overrides the global property
               font: {
                   size: 20,
