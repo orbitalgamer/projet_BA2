@@ -32,7 +32,6 @@ switcher.addEventListener('mouseout',function(){
         switcher.classList.remove('clicked');
       });
       switcher.addEventListener('click',()=>{
-
         const id = document.querySelector('.boxID')
         const mdp = document.querySelector('.boxpassword')
         console.log(id.value)
@@ -50,10 +49,12 @@ switcher.addEventListener('mouseout',function(){
               body:JSON.stringify({Token: localStorage.getItem("Token")})
             }).then(response => response.json()).then(data => {
               if(data.data[0].Admin == "1"){
-                switcher.setAttribute("href", "../Admin_View/Admin_Screen.html")
+                //switcher.setAttribute("href", "../Admin_View/Admin_Screen.html")
+                window.location.assign("../Admin_View/Admin_Screen.html"); //pour chargée nouvelle page
               }
               else if( data.data[0].Admin == "0"){
-                switcher.setAttribute("href","../Prof_View/prof_view.html");
+                /* switcher.setAttribute("href","../Prof_View/prof_view.html"); */
+                window.location.assign("../Prof_View/prof_view.html"); //pour chargée nouvelle page
               }
               else{
                 return;
@@ -67,5 +68,7 @@ switcher.addEventListener('mouseout',function(){
         
       })
     
+     
+      
      
       

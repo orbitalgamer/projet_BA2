@@ -219,6 +219,10 @@
         text-indent: 10px;
         font-size: calc((1vw + 1vh));
         background: #ffffff00;
+       
+    }
+    .box7{
+        width: auto;
         color: #1B98E0;
     }
     .boxconnexion{
@@ -494,6 +498,10 @@
         color: #00B2FF;
         
     }
+    .box7{
+        width: auto;
+        color: #1B98E0;
+    }   
     .boxconnexion{
         position: relative;
         box-sizing: border-box;
