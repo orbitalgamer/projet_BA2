@@ -1,0 +1,504 @@
+Algo à implémenter :
+
+//requête classe
+
+    requête modification attirbution classe (IdProf,IdClasse) :
+        recuperer type requête
+        idenfiter
+        si admin :
+            si Idprof et Iclasse défini :
+                push en bdd
+            end
+            sinon :
+                renvoyer erreur
+        end
+        sinon :
+            renvoyer pas perm
+        end
+
+    requête info (opt IdProf): //faire pour 1 élève particulier?
+        recuperer type requête
+        idenfiter
+        si connecte:
+            si IdProf défini:
+                requète bdd pour avoir classe du prof
+                renvoyer resultat
+            end
+            sinon:
+                requète bdd pour avoir toutes les classe
+                renvoyer resultat
+            end
+        end
+        sinon :
+            renvoyer vers connection
+        end
+    
+    requête création classe (Nom):
+        recuperer type requête
+        identifier
+        si admin:
+            requète rajoute classe
+            enovyer bien passé
+        end
+        sinon :
+            envoyer pas perm
+        end
+
+    requète suppression classe (IdClasse):
+        recuperer typer requète
+        identifier
+        si admin:
+            supprimer classe
+            supprimer dans table many to many les lien avec prof
+            update élève pour passe colone id class à Null
+            envoyer bien passé
+        end
+        sinon :
+            envoyer pas perm
+        end
+
+    /*à faire requête : 
+        -Afficher avec option de trie nbr_eleve, nom //demadner ce qu'il veut comme trie exactement
+    */
+
+//requête prof
+    requête pour modif prof (Nom, Prenom, Email):
+        recupérer type requête
+        identifier
+        si connecter :
+            reprend IdProf en session
+            si Nom, Prenom, Email, Mdp Ok :
+                update données
+            end
+            sinon :
+                renvoyer erreur
+            end
+        end
+
+    requête pour renvoyer info prof (opt IdProf):
+        recupèrer type requête
+        identifier
+        recuperer IdProf en sessions ou prend celui en param
+        si connecter :
+            revnoyer donné prof
+        end
+
+    requête création de compte prof (Email, Nom, Prenom, Mdp): //traité à part car ajoute de compte un peu spécial et même connection en général
+        recuperer requête
+        traiter que c'est création de compte
+        verifier que toutes les informations sont présente
+        si tout info présente alors :
+            requête bdd pour ajouter prof
+            renvoie que tout a été ok
+        end
+        sinon :
+            dire que manque données
+        end
+
+    requête suppresion prof (IdProf):
+        recuperer requête
+        identifier
+        si admin :
+            si IdProf déifini et IdProf!=$_SESSION['IdProf]:
+                requète suppression prof
+                requète suppresion lien many to many pour prof
+                requète suppresion test du prof
+                envoyer tout bien passé
+            end
+            sinon :
+                envoyer erreur IdProf pas defini
+            end
+        end
+        sinon :
+            envoyer pas perm
+        end
+
+//requête éleve
+    requête modification élève (IdEleve, Nom, Prenom, IdClasse, Année):
+        recupérer type requète
+        identifier
+        si admin :
+            recuperer info sur l'élève
+            si toutes infos sont présent :
+                modifier en base données
+            end
+            sinon :
+                renvoyer erreur
+            end
+        end
+        sinon :
+            renvoyer erreur pas admin
+        end
+
+    requête info élève (opt IdEleve):
+        recuperer type requète
+        idenfiter
+        si connecté :
+            si IdEleve défini :
+                requète bdd pour avoir l'élève en quesiton
+                renvoyer en json
+            end
+            sinon :
+                requète pour tous les élèves
+                renvoyer en json //voir comment ça scale avec beaucoup élève
+            end
+        end
+        sinon :
+            renvoyé pas connecte
+        end
+
+    Lecture du fichier de l'école (Fichier): //fonction sert à prendre tous les élève d'un fichier .csv et ensuite les import dans la bdd
+        Transfert fichier vers serveur
+        si Transfert ok :
+            Ouverture fichier
+            créer tableau correspodance nom classe -> id classe
+            var erreur
+            si Ouverture ok :
+                tant que pas fin de fichier :
+                    Lire ligne ou colonne
+                    regarder nom class.
+                        si dans tableau correspondance :
+                            prendre Idclasse pour push dans bdd
+                        end
+                        sinon :
+                            requète bdd pour verifier si class existe.
+                            si existe :
+                                définir id class de élève par rapport à la requète bdd
+                                rajouté dans tableau correspondance nom actule -> id classe
+                            end
+                            sinon :
+                                définir id null
+                                erreur=true
+                            end
+                        end
+                        si erreur == true :
+                            renvoyer vers page modificaiton manuel //gérer dans cette page que on mets premier ce qui n'ont pas de classe
+                        end
+                    push dans array/bdd
+                end 
+                fermer fichier
+            end
+            sinon afficher erreur Ouverture
+        sinon afficher erreur Transfert
+        delete fichier
+
+    requête encodage manuel (Nom, Prenom, Classe, Année):
+        traiter requête pour savoir le type encodage
+        si Nom, Prenom, Class, Année est définit :
+            requète pour ajouter élève
+            renvoyer ok
+        end
+        sinon :
+            renvoyer que manque données.
+        end
+
+    requête suppression élève (IdEleve):
+        recuperer type de requête
+        idenfiter
+        si admin :
+            si IdEleve défini
+                Supprimer éleve
+                supprimer test en relation
+                renvoyer réussi
+            end
+            sinon :
+                dire erreur IdEleve pas défini
+            end
+        end
+        sinon :
+            dire pas perm
+        end
+
+//requète contact
+
+    requète ajout contact (Nom, Prenom, Email, Description, Trouble):
+        recuperer type requète
+        identifier
+        si admin:
+            si param défini:
+                requète bdd création contact
+            end
+            sinon:
+                enovye erreur paramètre pas défini
+            end
+        end
+        sinon:
+            envoyer pas perm
+        end
+
+    requète supprimer contact (IdContact):
+        recuperer type requète
+        identifier
+        si admin:
+            si IdContact défini:
+                requète bdd suppression
+            end
+            sinon:
+                enovye erreur paramètre pas défini
+            end
+        end
+        sinon:
+            envoyer pas perm
+        end    
+
+    requète afficher contact (opt IdContact):
+        recuperer type requète
+        si IdContact défini:
+            requète bdd pour cette Id
+            enoyver cette Id
+        end
+        sinon:
+            requète bdd pour tous les IdContact
+            envoyer en Json
+        end    
+
+    requète modifier contact (IdContact, Nom, Prenom, Email, Description, Trouble):
+        recuperer type requète
+        identifier
+        si admin:
+            si param défini:
+                requète bdd pour update
+                envoyer ok
+            end
+            sinon:
+                envoyoer erreur param pas défini
+            end
+        end
+        sinon:
+            envoyer pas perm
+        end 
+    /*
+        envoie test ? compliqué car stock que résultat
+    */
+
+//requète test
+    requète recupération test (opt IdEleve, opt Idprof): //pour faire requète sur prof mettre le premier à null
+        recuperer type requète
+        idenfiter
+        si IdEleve ok :
+            si connecte :
+                requête bdd pour avoir résultat pour l'élève
+                renvoyer résultat
+            end
+            sinon :
+                envoyer vers connection
+            end
+        end
+
+        si IdEleve==null et IdProf défini:
+            si admin:
+                requête bdd pour avoir test du prof en décroissant
+                renvoyer resultat
+            end
+            sinon :
+                requête bdd pour IdProf en session //pour pas que prof ait accès au test d'autre prof
+                renvoyer résultat
+            end
+        end
+
+        sinon:
+            si connecte :
+                requête bdd pour avoir résultat pour tous les élèves par Id décroissant
+                renvoyer résultat en json
+            end
+            sinon :
+                envoyer vers connection
+            end
+        end
+
+    requête ajout test (IdEleve, scores):
+        recuperer type requête
+        idenfiter
+        si connecte :
+            recupère Idprof en session
+            si IdEleve, IdProf + score ok :
+                push vers bdd
+            end
+            sinon:
+                renvoyé erreur
+            end
+        end
+        sinon :
+            renvoyé que pas connecter
+        end
+
+    requête suppression (IdTest):
+        recuperer type requête
+        idenfiter:
+        si admin:
+            requête bdd supprimer test
+            envoyer succès
+        end
+        sinon:
+            si IdProf==$_SESSION['IdPorf']:
+                requête bdd supprimer test
+                envoye succès
+            end
+            sinon:
+                erreur pas permision
+            end
+        end
+    /* à faire requête
+        -trier ? pas date ? à clarifier
+    */
+
+//requète fiche info
+    requète recup info (opt Id, opt Trouble):
+        recuperer type requète
+        si Id défini:
+            lire fichier Id.json pour avoir info
+            renvoyer vers constructeur editor.js
+            renvoyer ok
+        end
+        si Id=Null et que Trouble ok
+            requète bdd pour Nom avec trouble % like
+            renovyer list avec json pour constructeur
+        end
+
+    requète update (IdFiche, json de Editor.js, trouble):
+        récuper type requète
+        identifier
+        si admin : 
+            si IdFiche, Nom et Json défini:
+                requète bdd pour changer nom, trouble
+                réectriture fichier Id.json
+                renvoyer réussi
+            end
+            sinon:
+                renvoyer erreur pas toutes info
+            end
+        end
+        sinon:
+            renvoyer pas perm
+        end
+
+    requète création fiche (Nom, Trouble, Json de Editor.js):
+        récuper type requète
+        identifier
+        si admin : 
+            si IdFiche, Nom et Json défini:
+                requète bdd pour crée info
+                éctriture fichier Id.json
+                renvoyer réussi
+            end
+            sinon:
+                renvoyer erreur pas toutes info
+            end
+        end
+        sinon:
+            renvoyer pas perm
+        end
+
+    requète suppresion fiche (IdFiche):
+        recuperer type requète
+        identifier
+        si admin:
+            si IdFiche défini:
+                requète bdd supprimer fiche
+                supprimer fichier IdFichie.json
+            end
+            sinon:
+                envoyer param pas défini
+            end
+        end
+        sinon:
+            renvoyer pas perm
+        end
+
+
+//requête autre
+
+    requête connexion (Identifant, mdp) :
+        recupère requête
+        traiter que c'est une requête connexion
+        si email/identifiant et mdp même que dans bdd alors : //email pas obligatoire comme identifiant différent
+            stocker en var session Id //ainsi si empty, on sait que n'est pas connecté
+            renvoyer ok
+        end
+        sinon :
+            renvoyer erreur connexion
+        end
+
+    requête déconnexion :
+        supprimer session
+        renvoyer que a été déconecter
+
+
+//script autre
+script pour désalouer prof : //sert à désalouer prof aprèsn année scollaire
+    regarder date tous les jours à 3H du mat
+    si date = 1er aout :
+        vider tableau class-prof
+        enovyer email à admin pour dire realouer prof
+        définir nouvelle date dans 1 ans
+    end
+
+
+//patern default requête :
+
+recuperer requête :
+    traiter requête pour savoir autorisation requise
+    si pas besoin connexion alors :
+        renvoi direct des informations //sert si on stock des articles ou info en bdd pour savoir les modifiers facilement
+        //servira surtout si veut pas faire editeur de texte en ligne pour les 
+        //même si veut pas stocker txt en bdd et stock que lien vers un emplacement hdd avec le bonne info
+    end
+    si connecter alors : //si requête demande être connecté pour avoir liste de ces élèves
+        requête bdd pour identifier la personne
+        si permision acceptée alors :
+            faire requête voulue
+            reprendre info
+            encode en json
+            renvoyer en json
+        end
+        sinon :
+            informé que accès impossible ou juste rien renvoyer
+        end
+    end
+    sinon :
+        renvoyer vers page connexion pour connecter
+    end
+
+
+
+
+/*
+
+
+
+prioité n école
+donc faire bdd externe
+compte super admin pour ajouter école
+créer user de l'école MySQL
+créer bdd de l'école
+stocker en bdd nom école + mdp bdd.
+pour stocker mdp chiffre, repdrendre projet cryptage symétrique
+
+compte :
+    -Id
+    -Email
+    -Mdp
+    -Admin
+
+école :
+    -Id
+    -Identifiant
+    -Nom
+    -MdpChiffré en symétrique
+
+
+également faire bdd pour pesonne contact
+doit avoir 
+    -Id
+    -IdCompte
+    -Nom
+    -Prenom
+    -Professionel
+    -Description
+
+artices :
+    -Id
+    -Nom
+    //texte stocké dans un fichier externe avec même nom et de type Json
+
+*/
