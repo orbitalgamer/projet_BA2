@@ -1,0 +1,17 @@
+  for(let i = 0 ; i < response.length; i++){
+  let responseString = response[i];
+  console.log(responseString);
+  const checkLabel = document.createElement("Label");
+  checkLabel.setAttribute("class","reponse")
+  checkLabel.setAttribute("for",responseString);
+  checkLabel.textContent= responseString;
+  //radio input creation
+  const checkInput = document.createElement("input");
+  checkInput.setAttribute("class","reponse")
+  checkInput.setAttribute("type","radio");
+  checkInput.setAttribute("id",responseString);
+  checkInput.setAttribute("name","radio");
+  checkInput.setAttribute("value",responseString);
+  checkLabel.appendChild(checkInput);
+  inputContainer.appendChild(checkLabel);
+  }

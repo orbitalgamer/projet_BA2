@@ -1,0 +1,470 @@
+@font-face {
+	font-family: 'SylexiadSansMedium';
+	src: url('../Font/SylexiadSansMedium.ttf') format('opentype'),
+      url('../Font/SylexiadSansMedium.woff') format('woff');
+	font-weight: 500;
+	font-style: normal;
+}
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@500&display=swap');
+*{
+    box-sizing: border-box;
+  }
+  
+  html {
+    font-family: 'SylexiadSansMedium', sans-serif;
+    overflow-x: hidden;
+    margin : 0;
+    padding: 0;
+  }
+  body {
+    margin: 0;
+    padding: 0;
+}
+@media screen and (min-width:800px) {
+  .barreup{
+    width : 100vw;
+    height : 6vh;
+    border: 2px solid #000000;
+    position: sticky;
+    z-index: 1;
+    background: #1B98E0;
+    flex-direction: row;
+    display :flex;
+    gap : 8vw;
+    justify-content:center; 
+    align-items: center;
+    font-weight: 400;
+    font-size: 24px ;
+    overflow: hidden;
+  }
+  .barreup a {
+    color: #000000;
+    text-decoration: none;
+  }
+  
+  .barredown{
+    width : 100%;
+    height : 6vh;
+    flex-direction: row;
+    display :flex;
+    gap : 2%;
+    justify-content:left; 
+    align-items: center;
+    font-weight: 400;
+    font-size: calc((1vw + 1vh)) ;
+    overflow: hidden;
+    background: #383E42;
+    color: white;
+ }
+ .left{
+    width : auto;
+    height : 100%;
+    display :flex;
+    flex-wrap: nowrap;
+    gap : 2%;
+    justify-content:left; 
+    align-items: center;
+    font-weight: 400;
+    font-size: calc((0.9vw + 0.9vh)) ;
+
+ }
+ .right{
+    width : 100%;
+    height : 6vh;
+    flex-direction: row;
+    display :flex;
+    gap : 2%;
+    justify-content:right; 
+    align-items: center;
+    font-weight: 400;
+    font-size: calc((1vw + 1vh)) ;
+    overflow: hidden;
+ }
+ 
+ .box10{
+  width: auto;
+ height: auto;
+ display: flex;
+ flex-direction: row;
+ justify-content: center;
+ align-items : center
+}
+#Logo{
+  height : 6vh;
+  width : auto;
+}
+ #Polytechlogo{
+  padding-right: 50px;
+  height : 4vh;
+  width : auto;
+}
+#Umonslogo{
+  
+  height : 4vh;
+  width : auto;
+}
+ .copyright{
+  height: auto; 
+  padding-left: 50px;
+  white-space: nowrap;
+ }
+   .grid1{
+    position: relative;
+    box-sizing: border-box;
+    width: 100vw;
+    height: 120vh;
+    display :flex;
+    flex-direction: column;
+    margin : 0;
+    
+  }
+   .grid2{
+    position: relative;
+    box-sizing: border-box;
+    width : 100%;
+    height : 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap : 5%;
+    margin-left : 10px;
+  }
+  .box1{
+    position: relative;
+    box-sizing: border-box;
+    width : 50%;
+    height : auto;
+    font-size:calc((4vw + 4vh)/2) ;
+    margin-left: 10px;
+
+  }
+  .recherche{
+    position: relative;
+    box-sizing: border-box;
+    width : 22vw;
+    height : 6vh;
+    border: 1px solid #000000;
+    font-size:calc((1.5vw + 1.5vh)/2) ;
+    background: #abe0ff;
+    margin-left: 10px;
+  }
+  .grid3{
+    position: relative;
+    box-sizing: border-box;
+    width : 100%;
+    height : 75%;
+    display: flex;
+    flex-direction: column;
+    gap:5%;
+    padding : 1px;
+  }
+  .letter{
+    position: relative;
+    box-sizing: border-box;
+    width : 100%;
+    height : auto;
+    font-size:calc((2.2vw + 2vh)/2) ;
+    border-top: 1px solid #000000;
+    padding: 10px;
+  
+  }
+  .box2{
+    position: relative;
+   
+    width : 100%;
+    height : auto;  
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-evenly; 
+    gap: 10px;
+    row-gap: 50px;
+  
+
+  }
+  .box2 a{
+    color: #000000;
+    text-decoration: none;
+
+  }
+  .box3{
+    width: 12%;
+    height: 100%;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    
+  }
+  .trouble{
+
+    position: relative;
+    aspect-ratio: 1 / 1;
+    background: #abe0ff;
+    border-radius: 100%;
+    font-size: auto;
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    
+    min-width: 160px;
+   
+    }
+    .trouble.notover{
+      
+      width: 100%;
+      
+      
+    }
+    .trouble.over{
+      transform: scale(1.05);
+      
+      border: 2px solid #656565ab;
+      box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.4);
+     
+    }
+    .txttrouble{
+      width: auto;
+      box-sizing: border-box;
+      height: auto;
+      margin: auto;
+      font-size:23px ;
+      font-weight: 800;
+    }
+    #_1{
+      background: radial-gradient(50% 50% at 50% 50%, #FFFFFF 0%, #FF9E9E 100%);;
+    }
+    #_2{
+      background: radial-gradient(50% 50% at 50% 50%, #FFFFFF 0%, #ffe283 100%);
+    }
+    #_3{
+      background: radial-gradient(50% 50% at 50% 50%, #FFFFFF 0%, #FF9DFF 100%);
+    }
+    
+
+}
+
+@media screen and (min-width: 70px) and (max-width: 800px) {
+  .barreup{
+    margin : 0;
+    width : 100vw;
+    height : auto;
+    display :flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    border: 2px solid #000000;
+    gap: 5%;
+    background: #1B98E0;
+    padding-left:5%;
+    padding-right: 5%;
+    
+    
+    font-weight: 400;
+    font-size: 18px ;
+    
+   
+  }
+  .barreup a {
+    color: #000000;
+    text-decoration: none;
+  }
+  
+  .box10{
+    width: auto;
+   height: auto;
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items : center
+  }
+  #Logo{
+    height : 6vh;
+    width : auto;
+  }
+  
+  .barredown{
+    position: relative;
+width : 100%;
+height : 8vh;
+flex-direction: column;
+display :flex;
+
+justify-content:space-evenly; 
+align-items: center;
+font-weight: 400;
+font-size: calc((3vw + 3vh));
+overflow: hidden;
+background: #383E42;
+color: white;
+margin-bottom : 15px;
+}
+.left{
+width : 100%;
+height : auto;
+display :flex;
+flex-wrap: nowrap;
+gap : 2%;
+
+justify-content:center; 
+align-items: center;
+font-weight: 400;
+font-size: calc((1.7vw + 1.7vh)) ;
+
+}
+.right{
+width : 100%;
+height : auto;
+flex-direction: row;
+display :flex;
+gap : 2%;
+justify-content:center; 
+align-items: center;
+font-weight: 400;
+font-size: calc((1vw + 1vh)) ;
+overflow: hidden;
+}
+#Polytechlogo{
+padding-right: 1px;
+    height : 4vh;
+ width : auto;
+}
+#Umonslogo{
+
+height : 4vh;
+width : auto;
+}
+.copyright{
+    height: auto; 
+padding-left: 1px;
+ white-space: nowrap;
+}
+   .grid1{
+    position: relative;
+    box-sizing: border-box;
+    width: 100vw;
+    height: 100vh;
+    display :flex;
+    flex-direction: column;
+    margin : 0;
+    padding: 0;
+    
+  }
+   .grid2{
+    position: relative;
+    box-sizing: border-box;
+    width : 95%;
+    height : 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap : 5%;
+    margin-left : 10px;
+  }
+  .box1{
+    position: relative;
+    box-sizing: border-box;
+    width : 70%;
+    height : auto;
+    font-size:calc((3vw + 3vh)) ;
+    margin-left: 10px;
+
+  }
+  .recherche{
+    position: relative;
+    box-sizing: border-box;
+    width : 50vw;
+    height : 5vh;
+    border: 1px solid #000000;
+    font-size:calc((1.5vw + 1.5vh)) ;
+    background: #abe0ff;
+    margin-left: 10px;
+  }
+  .grid3{
+    position: relative;
+    box-sizing: border-box;
+    width : 100%;
+    height : 75%;
+    display: flex;
+    flex-direction: column;
+    gap:5%;
+    padding : 1px;
+  }
+  .letter{
+    position: relative;
+    box-sizing: border-box;
+    width : 100%;
+    height : auto;
+    font-size:calc((3vw + 3vh)/2) ;
+    border-top: 1px solid #000000;
+    padding: 10px;
+  
+  }
+  .box2{
+    position: relative;
+   
+    width : 100%;
+    height : auto;  
+    display: flex;
+    flex-wrap: wrap; 
+    flex-direction: row;
+    justify-content: space-evenly;
+    row-gap: 50px;
+ 
+  }
+  .box2 a{
+    color: #000000;
+    text-decoration: none;
+
+  }
+  .box3{
+    width: auto;
+    height: auto;
+
+   
+  }
+  .trouble{
+
+    position: relative;
+    background: #abe0ff;
+    border-radius: 0;
+    font-size: auto;
+    display: flex;
+    min-width: 140px;
+    font-size:calc((2vw + 2vh)) ;
+    width: 50px;
+    height: 50px;
+    }
+    .trouble.notover{
+      font-size:calc((2vw + 2vh)) ;
+      
+    }
+    .trouble.over{
+      transform: scale(1.05);
+      
+      border: 2px solid #656565ab;
+      box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.4);
+     
+    }
+    .txttrouble{
+      width: auto;
+      box-sizing: border-box;
+      height: auto;
+      margin: auto;
+      font-size:20px ;
+      font-weight: 800;
+    }
+    #_1{
+      background: radial-gradient(50% 50% at 50% 50%, #FFFFFF 0%, #FF9E9E 100%);;
+    }
+    #_2{
+      background: radial-gradient(50% 50% at 50% 50%, #FFFFFF 0%, #ffe283 100%);
+    }
+    #_3{
+      background: radial-gradient(50% 50% at 50% 50%, #FFFFFF 0%, #FF9DFF 100%);
+    }
+    
+
+}
+
+

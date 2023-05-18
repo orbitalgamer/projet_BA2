@@ -1,0 +1,682 @@
+
+:root{
+    --back : rgb(213, 235, 255);
+    --color2 : #24f57800;
+    --color3 : #1B98E0;
+    /*--colorfull: linear-gradient(180deg,#ade8f4 0%,#00b4d8 100% );*/
+    --colorfull: aliceblue;
+    
+  }
+  @font-face {
+      font-family: 'SylexiadSansMedium';
+      src: url('./Font/SylexiadSansMedium.ttf') format('opentype'),
+         url('./Font/SylexiadSansMedium.woff') format('woff');
+      font-weight: 500;
+      font-style: normal;
+  }
+  @font-face {
+    font-family: 'Impact';
+    src: url('./Font/impact.ttf');
+  }
+  @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@500&display=swap');
+  *{
+      box-sizing: border-box;
+    }
+    
+    html {
+      font-family: 'SylexiadSansMedium', sans-serif;
+      overflow-x: hidden;
+      margin : 0;
+      background: var(--back);
+      
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      background: var(--back);
+     
+  }
+  
+  @media screen and (min-width:800px)  {
+    .barreup{
+      width : 100vw;
+      height : 6vh;
+      border: 2px solid #000000;
+      position: sticky;
+      z-index: 1;
+      background: #1B98E0;
+      flex-direction: row;
+      display :flex;
+      gap : 8vw;
+      justify-content:center; 
+      align-items: center;
+      font-weight: 400;
+      font-size: 24px ;
+      overflow: hidden;
+      
+   }
+   .barreup a {
+    color: #000000;
+    text-decoration: none;
+    height: auto;
+  }
+    .grid{
+      width: 100vw;
+      height: auto;
+      display :flex;
+      flex-direction: column;
+      /*align-items: center;
+      justify-content: center;*/ 
+      background: var(--back);
+  
+      
+    }
+    .grid2{
+      width: 100%;
+      height: 100vh;
+      display :flex;
+      
+      justify-content: center;
+   
+  
+      
+    
+    }
+    .grid3{
+        width: 100vw;
+        height: auto;
+        display :flex;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+        gap:3%;
+        row-gap: 5vh;
+       
+        
+        flex-wrap: wrap;
+       
+        padding-top: 100px;
+        padding-bottom: 200px;
+        padding-left : 2%;
+        padding-right : 2%;
+    }
+   
+    .barredown{
+      width : 101%;
+      height : 6vh;
+      flex-direction: row;
+      display :flex;
+      gap : 2%;
+      justify-content:left; 
+      align-items: center;
+      font-weight: 400;
+      font-size: calc((1vw + 1vh)) ;
+      overflow: hidden;
+      background: #383E42;
+      color: white;
+   }
+   .left{
+      width : auto;
+      height : 100%;
+      display :flex;
+      flex-wrap: nowrap;
+      gap : 2%;
+      justify-content:left; 
+      align-items: center;
+      font-weight: 400;
+      font-size: calc((0.9vw + 0.9vh)) ;
+  
+   }
+   .right{
+      width : 100%;
+      height : 6vh;
+      flex-direction: row;
+      display :flex;
+      gap : 2%;
+      justify-content:right; 
+      align-items: center;
+      font-weight: 400;
+      font-size: calc((1vw + 1vh)) ;
+      overflow: hidden;
+   }
+   #Polytechlogo{
+    padding-right: 50px;
+    height : 4vh;
+    width : auto;
+  }
+  #Umonslogo{
+    
+    height : 4vh;
+    width : auto;
+  }
+  .box10{
+    width: auto;
+   height: auto;
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items : center
+  }
+  #Logo{
+    height : 6vh;
+    width : auto;
+  }
+   .copyright{
+    height: auto; 
+    padding-left: 50px;
+    white-space: nowrap;
+   }
+    .box1{
+      position: relative;
+      align-self: top;
+      margin-top: 0px;
+      width: 100vw;
+      height : 100vh;
+      font-weight: 400;
+      font-size: calc((5vw + 5vh)/2) ;
+      text-align:center;
+      display: flex;
+      flex-direction: column;
+      color : #ffffff;
+      background-image:linear-gradient(180deg,rgba(0, 0, 0, 0.8) 0%,rgba(0, 0, 0, 0.8) 100%), url("./img/enfant1.jpg");
+      background-size: cover;
+      justify-content: center;
+      gap: 10%;
+      padding : 50px;
+    }
+    #Titre{
+      font-size: calc(4vw + 4vh) ;
+      font-weight: 600;
+    }
+    .boxatt{
+      position: relative;
+      align-self: center;
+      width: 50%;
+      min-width: 400px;
+      height : auto;
+      font-weight: 500;
+      margin : 10px;
+      font-size: 35px;
+      padding : 40px;
+      display: flex; 
+      /*text-align: justify;
+      text-justify: inter-word;*/
+      flex-direction: column;
+      justify-content: center;
+      COLOR : rgb(255, 255, 255);
+      border-radius: 50px;
+     
+    }
+    .box2{
+      position: relative;
+      align-self: center;
+      width: 50%;
+      min-width: 400px;
+      height : auto;
+      font-weight: 500;
+      margin : 10px;
+      font-size: 35px;
+      padding : 40px;
+      padding-top:100px ;
+      padding-bottom: 100px;
+      display: flex; 
+      /*text-align: justify;
+      text-justify: inter-word;*/
+      flex-direction: column;
+      justify-content: center;
+      COLOR : rgb(0, 0, 0);
+      border-radius: 50px;
+      animation: apparition 2s;
+      border: 1px solid black;
+      background: rgb(220, 238, 255);
+      box-shadow: rgb(71, 71, 71) 10px 5px 8px 2px;
+      transition: box-shadow 1s;
+        
+     /* background: rgb(0, 49, 154);*/
+     /* box-shadow: blue 0px 0px 0px 2px inset, var(--back) 10px -10px 0px -3px, rgb(31, 193, 27) 10px -10px, var(--back) 20px -20px 0px -3px, rgb(255, 217, 19) 20px -20px, var(--back) 30px -30px 0px -3px, rgb(255, 156, 85) 30px -30px, var(--back) 40px -40px 0px -3px, rgb(255, 85, 85) 40px -40px;
+   */ }
+   .box2:hover{
+    box-shadow: rgba(71, 71, 71, 0) 10px 5px 8px 3px;
+
+   }
+
+   @keyframes apparition {
+    from {opacity : 0%;  }
+    to {opacity : 100%}
+   }
+   
+    .box4{
+      position: relative;
+      align-self: center;
+      width: 50%;
+      height : auto;
+      font-weight: 500;
+      margin : 50px;
+     
+      font-size: 35px;
+      padding : 40px;
+      gap: 50px;
+      display: flex; 
+      /*text-align: justify;
+      text-justify: inter-word;*/
+      flex-direction: column;
+      justify-content: flex-end;
+      COLOR : rgb(0, 0, 0);
+      border-radius: 50px;
+      border: 1px solid black;
+      background: rgb(220, 238, 255);
+      box-shadow: rgb(71, 71, 71) 10px 5px 8px 2px;
+      transition: box-shadow 1s;
+   /*   background: rgb(0, 49, 154);
+      box-shadow: blue 0px 0px 0px 2px inset, var(--back) 10px -10px 0px -3px, rgb(31, 193, 27) 10px -10px, var(--back) 20px -20px 0px -3px, rgb(255, 217, 19) 20px -20px, var(--back) 30px -30px 0px -3px, rgb(255, 156, 85) 30px -30px, var(--back) 40px -40px 0px -3px, rgb(255, 85, 85) 40px -40px;
+    */}
+    .box4:hover{
+      box-shadow: rgba(71, 71, 71, 0) 10px 5px 8px 3px;
+  
+     }
+    .box5{
+      position: relative;
+      align-self: center;
+      width: auto;
+      height : auto;
+      font-weight: 400;
+     
+      display: flex; 
+      flex-direction: column  ;
+        color :rgb(255, 255, 255);
+      padding-left:auto;
+      padding-right: auto; 
+    }
+      .boxtitre{
+      position: relative;
+      align-self: center;
+      width: 500px;
+      height : auto;
+      font-weight: 400;
+      padding: 10px;
+      display: flex; 
+      color :rgb(0, 0, 0);
+      margin-left:auto;
+      margin-right: auto;
+      font-size: 40px;
+      font-weight: 600;
+      
+      }
+    p{
+      margin-left: 10px ;
+      margin-right: 10px;
+      font-size: 45px ;
+      line-height : 150%;
+      margin : 10px;
+      font-weight: 600;
+      
+    }
+    .box3{
+      position: relative;
+      align-self: center;
+      width: auto;
+      height : auto;
+      font-weight: 400;
+      padding: 10px;
+      display: flex; 
+      text-decoration: none;
+    
+    }
+    .cliquer{
+      position: relative;
+      align-self: center;
+     width: auto;
+     height: auto;
+     font-weight: 400;
+     padding: 30px;
+     display: flex; 
+     border-radius: 50px;
+     box-shadow: black 0px 0px 10px 0px;
+     border: 1px solid black;
+     background: rgba(27, 152, 224, 0.8); 
+     font-size: calc(3vw + 3vh) ;
+     color : white;
+     text-decoration: none;
+    }
+    .cliquer:hover{
+      transform: scale(1.05);
+
+   }
+   .cliquer.clicked{
+    background: rgba(27, 89, 224, 0.8); 
+   
+   }
+
+   
+    
+    #myChart {
+      width: 450px;
+      height: 450px;
+      font-size: 200px;
+      background-color: rgba(0, 0, 0, 0);
+      border-radius: 10px;
+    }
+    
+  
+    
+    
+    
+    
+    
+  }
+  
+  
+  
+  @media screen and (min-width:40px) and (max-width: 800px) {
+    .barreup{
+      margin : 0;
+      width : 100vw;
+      height : auto;
+      display :flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      box-sizing: border-box;
+      border: 2px solid #000000;
+      gap: 5%;
+      background: #1B98E0;
+      padding-left:5%;
+      padding-right: 5%;
+      
+      
+      font-weight: 400;
+      font-size: 18px ;
+      
+     
+  }
+   .barreup a {
+    color: black;
+    text-decoration: none;
+  } .grid{
+    width: 100vw;
+    height: auto;
+    display :flex;
+    flex-direction: column;
+    /*align-items: center;
+    justify-content: center;*/ 
+    background: var(--back);
+
+    
+  }
+  .grid2{
+    width: 100%;
+    height: 100vh;
+    display :flex;
+    
+    justify-content: center;
+ 
+
+    
+  
+  }
+  .grid3{
+      width: 100vw;
+      height: auto;
+      display :flex;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+      gap:3%;
+      row-gap: 5vh;
+     
+      
+      flex-wrap: wrap;
+     
+      padding-top: 100px;
+      padding-bottom: 200px;
+      padding-left : 2%;
+      padding-right : 2%;
+  }
+ 
+  .barredown{
+    position: relative;
+    width : 100%;
+    height : 15vh;
+    flex-direction: column;
+    display :flex;
+    gap : 20px;
+    justify-content:center; 
+    align-items: center;
+    font-weight: 400;
+    font-size: calc((3vw + 3vh)) ;
+    overflow: hidden;
+    background: #383E42;
+    color: white;
+ }
+ .left{
+    width : 100%;
+    height : auto;
+    display :flex;
+    flex-wrap: nowrap;
+    gap : 2%;
+    justify-content:center; 
+    align-items: center;
+    font-weight: 400;
+    font-size: calc((1.7vw + 1.7vh)) ;
+
+ }
+ .right{
+    width : 100%;
+    height : auto;
+    flex-direction: row;
+    display :flex;
+    gap : 2%;
+    justify-content:center; 
+    align-items: center;
+    font-weight: 400;
+    font-size: calc((1vw + 1vh)) ;
+    overflow: hidden;
+ }
+ #Polytechlogo{
+  padding-right: 1px;
+  height : 4vh;
+  width : auto;
+}
+#Umonslogo{
+  
+  height : 4vh;
+  width : auto;
+}
+.box10{
+  width: auto;
+ height: auto;
+ display: flex;
+ flex-direction: row;
+ justify-content: center;
+ align-items : center
+}
+#Logo{
+  height : 4vh;
+  width : auto;
+}
+ .copyright{
+  height: auto; 
+
+  white-space: nowrap;
+ }
+  .box1{
+    position: relative;
+    align-self: top;
+    margin-top: 0px;
+    width: 100vw;
+    height : 100vh;
+    font-weight: 400;
+    font-size: 30px ;
+    text-align:center;
+    display: flex;
+    flex-direction: column;
+    color : #ffffff;
+    background-image:linear-gradient(180deg,rgba(0, 0, 0, 0.8) 0%,rgba(0, 0, 0, 0.8) 100%), url("./img/enfant1.jpg");
+    background-size: cover;
+    justify-content: center;
+    gap: 10%;
+    padding : 50px;
+  }
+  #Titre{
+    font-size: calc(4vw + 4vh) ;
+    font-weight: 600;
+  }
+  .boxatt{
+    position: relative;
+    align-self: center;
+    width: 50%;
+    min-width: 400px;
+    height : auto;
+    font-weight: 500;
+    margin : 10px;
+    font-size: 35px;
+    padding : 40px;
+    display: flex; 
+    /*text-align: justify;
+    text-justify: inter-word;*/
+    flex-direction: column;
+    justify-content: center;
+    COLOR : rgb(255, 255, 255);
+    border-radius: 50px;
+   
+  }
+  .box2{
+    position: relative;
+    align-self: center;
+    width: 100vw;
+    height : auto;
+    font-weight: 500;
+    margin : 10px;
+   
+    font-size: 35px;
+    padding : 10px;
+    gap: 50px;
+    display: flex; 
+    /*text-align: justify;
+    text-justify: inter-word;*/
+    flex-direction: column;
+    justify-content: flex-end;
+    COLOR : rgb(0, 0, 0);
+    border-radius: 50px;
+   
+    
+   
+      
+   /* background: rgb(0, 49, 154);*/
+   /* box-shadow: blue 0px 0px 0px 2px inset, var(--back) 10px -10px 0px -3px, rgb(31, 193, 27) 10px -10px, var(--back) 20px -20px 0px -3px, rgb(255, 217, 19) 20px -20px, var(--back) 30px -30px 0px -3px, rgb(255, 156, 85) 30px -30px, var(--back) 40px -40px 0px -3px, rgb(255, 85, 85) 40px -40px;
+ */ }
+ 
+ @keyframes apparition {
+  from {opacity : 0%;  }
+  to {opacity : 100%}
+ }
+ 
+  .box4{
+    position: relative;
+    align-self: center;
+    width: 100vw;
+    height : auto;
+    font-weight: 500;
+    margin : 10px;
+   
+    font-size: 35px;
+    padding : 10px;
+    gap: 50px;
+    display: flex; 
+    /*text-align: justify;
+    text-justify: inter-word;*/
+    flex-direction: column;
+    justify-content: flex-end;
+    COLOR : rgb(0, 0, 0);
+    border-radius: 50px;
+   
+ /*   background: rgb(0, 49, 154);
+    box-shadow: blue 0px 0px 0px 2px inset, var(--back) 10px -10px 0px -3px, rgb(31, 193, 27) 10px -10px, var(--back) 20px -20px 0px -3px, rgb(255, 217, 19) 20px -20px, var(--back) 30px -30px 0px -3px, rgb(255, 156, 85) 30px -30px, var(--back) 40px -40px 0px -3px, rgb(255, 85, 85) 40px -40px;
+  */}
+ 
+  .box5{
+    position: relative;
+    align-self: center;
+    width: auto;
+    height : auto;
+    font-weight: 400;
+   
+    display: flex; 
+    flex-direction: column  ;
+      color :rgb(255, 255, 255);
+    padding-left:auto;
+    padding-right: auto; 
+  }
+    .boxtitre{
+    position: relative;
+    align-self: center;
+    width: 90vw;
+    height : auto;
+    font-weight: 400;
+    padding: 10px;
+    display: flex; 
+    color :rgb(0, 0, 0);
+    margin-left:auto;
+    margin-right: auto;
+    font-size: 30px;
+    font-weight: 600;
+    
+    }
+  p{
+    margin-left: 10px ;
+    margin-right: 10px;
+    font-size: 30px ;
+    line-height : 150%;
+    margin : 10px;
+    font-weight: 600;
+    
+  }
+  .box3{
+    position: relative;
+    align-self: center;
+    width: auto;
+    height : auto;
+    font-weight: 400;
+    padding: 10px;
+    display: flex; 
+    text-decoration: none;
+  
+  }
+  .cliquer{
+    position: relative;
+    align-self: center;
+   width: auto;
+   height: auto;
+   font-weight: 400;
+   padding: 30px;
+   display: flex; 
+   border-radius: 50px;
+   box-shadow: black 0px 0px 10px 0px;
+   border: 1px solid black;
+   background: rgba(27, 152, 224, 0.8); 
+   font-size: calc(3vw + 3vh) ;
+   color : white;
+   text-decoration: none;
+  }
+  .cliquer:hover{
+    transform: scale(1.05);
+
+ }
+ .cliquer.clicked{
+  background: rgba(27, 89, 224, 0.8); 
+ 
+ }
+
+ 
+  
+  
+  #myChart {
+    width: 90vw;
+    height: 90vw;
+    font-size: 200px;
+    background-color: rgba(0, 0, 0, 0);
+    border-radius: 10px;
+  }
+  
+  }

@@ -1,0 +1,718 @@
+
+:root{
+  --color1 : #ffb94900;
+  --color2 : #24f57800;
+  --color3 : #1B98E0;
+  /*--colorfull: linear-gradient(180deg,#ade8f4 0%,#00b4d8 100% );*/
+  --colorfull: rgb(255, 255, 255);
+  
+}
+@font-face {
+	font-family: 'SylexiadSansMedium';
+	src: url('../Font/SylexiadSansMedium.ttf') format('opentype'),
+       url('../Font/SylexiadSansMedium.woff') format('woff');
+	font-weight: 500;
+	font-style: normal;
+}
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@500&display=swap');
+*{
+    box-sizing: border-box;
+  }
+  
+  html {
+    font-family: 'SylexiadSansMedium', sans-serif;
+    overflow-x: hidden;
+    margin : 0;
+  }
+  body {
+    margin: 0;
+    padding: 0;
+}
+@media screen and (min-width:800px)  {
+  .barreup{ margin : 0;
+    width : 100%;
+   
+    box-sizing: border-box;
+    height : 6vh;
+    border: 2px solid black;
+    position: sticky;
+    z-index: 1;
+    background: #1B98E0;
+    flex-direction: row;
+    display :flex;
+    gap : 8vw;
+    justify-content:center; 
+    align-items: center;
+    font-weight: 400;
+    font-size: 24px ;
+    overflow: hidden;
+   
+  }
+  .barreup a {
+    color: #000000;
+    text-decoration: none;
+  }
+  
+  .box10{
+    width: auto;
+   height: auto;
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items : center
+  }
+  #Logo{
+    height : 6vh;
+    width : auto;
+  }
+
+  .grid{
+    width: 100vw;
+    height: auto;
+    display :flex;
+    flex-direction: column;
+    /*align-items: center;
+    justify-content: center;*/ 
+    background: var(--colorfull);
+
+    
+  }
+  .grid2{
+    width: 100%;
+    height: 100vh;
+    display :flex;
+    align-items: center;
+    justify-content: center;
+ 
+
+    
+  
+  }
+  .grid3{
+      width: 100%;
+      height: 210vh;
+      display :flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      row-gap: 100px; 
+      padding-top: 100px;
+      padding-bottom: 200px;
+  }
+  .grid4{
+    width: 100%;
+    height: auto;
+    padding-bottom: 120px;
+    padding-top: 80px;
+   
+    display :flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background: linear-gradient(180deg,var(--color2) 0%, #1B98E0 10%, #1B98E0 100%) ;
+    flex-wrap: wrap;
+ 
+    
+    
+    row-gap : 50px;
+   
+    /*flex-direction: line;*/
+  }
+  .grid5{
+    height:auto;
+    width: 100vw;
+    display :flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    row-gap : 50px;
+  }
+  
+  .box10{
+    width: auto;
+   height: auto;
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items : center
+  }
+  #Logo{
+    height : 6vh;
+    width : auto;
+  }
+  .barredown{
+    width : 101%;
+    height : 6vh;
+    flex-direction: row;
+    display :flex;
+    gap : 2%;
+    justify-content:left; 
+    align-items: center;
+    font-weight: 400;
+    font-size: calc((1vw + 1vh)) ;
+    overflow: hidden;
+    background: #383E42;
+    color: white;
+ }
+ .left{
+    width : auto;
+    height : 100%;
+    display :flex;
+    flex-wrap: nowrap;
+    gap : 2%;
+    justify-content:left; 
+    align-items: center;
+    font-weight: 400;
+    font-size: calc((0.9vw + 0.9vh)) ;
+
+ }
+ .right{
+    width : 100%;
+    height : 6vh;
+    flex-direction: row;
+    display :flex;
+    gap : 2%;
+    justify-content:right; 
+    align-items: center;
+    font-weight: 400;
+    font-size: calc((1vw + 1vh)) ;
+    overflow: hidden;
+ }
+ #Polytechlogo{
+  padding-right: 50px;
+  height : 4vh;
+  width : auto;
+}
+#Umonslogo{
+  
+  height : 4vh;
+  width : auto;
+}
+ .copyright{
+  height: auto; 
+  padding-left: 50px;
+  white-space: nowrap;
+ }
+  .box1{
+    position: relative;
+    align-self: center;
+    width: 78%;
+    height : 75vh;
+    font-weight: 400;
+    font-size: calc((5vw + 5vh)/2) ;
+    text-align:center;
+    display: flex;
+    flex-direction: column;
+    color : #ffffff;
+    border-radius: calc((8vw + 8vh)/2);
+    background-image:linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../img/enfant1.jpg");
+    background-size: cover;
+    justify-content: center;
+    gap: 10%;
+    padding : 50px;
+  }
+  #Titre{
+    font-size: calc(4vw + 4vh) ;
+    font-weight: 600;
+  }
+  .box2{
+    position: relative;
+    align-self: center;
+    width: 60%;
+    height : 60vh;
+    font-weight: 400;
+    font-size: 36px;
+    display: flex; 
+    text-align: justify;
+    text-justify: inter-word;
+    flex-direction: column;
+    
+  }
+  h1{
+    margin-left: auto;
+    margin-right: auto;
+    font-size: calc((4vw + 4vh)/2) ;
+  }
+  p{
+    margin-left: 10px ;
+    margin-right: 10px;
+    font-size: calc((2vw + 2vh)/2) ;
+    line-height : 120%;
+  }
+  .box3{
+    position: relative;
+    align-self: center;
+    width: 30%;
+    height : 60vh;
+    font-weight: 400;
+    display: flex; 
+    
+  }
+  .box4{
+    position: relative;
+    align-self: center;
+    width: 60%;
+    height : 40vh;
+    font-weight: 400;
+    font-size: 36px;
+    display: flex; 
+    text-align: justify;
+    text-justify: inter-word;
+    flex-direction: column;
+  }
+  #objectif{
+    background-image:url("../img/enfant2.jpg");
+    background-size: cover;
+    background-position-x: 70%;
+  }
+  #propose{
+    background-image:url("../img/enfant3.jpg");
+    background-size: cover;
+    background-position-x: 70%;
+  }
+  
+  .box5{
+    position: relative;
+    align-self: center;
+    top : 5%;
+    width: 160px;
+    aspect-ratio: 1/1.5;
+    margin-left: 4%;
+    margin-right: 4%;
+    font-weight: 400;
+    font-size: 36px;
+    display: flex; 
+    flex-direction: column;
+    flex-wrap: nowrap;
+    border: 2px solid rgba(0, 0, 0, 0);
+    
+  }
+  .box6{
+    
+    position: relative;
+    aspect-ratio: 1/1;
+    width: 100%;
+    background: #949494;
+    border-radius: 100%;
+  }
+  .box7{
+    position: relative;
+    align-self: center;
+    top : 20px;
+    width: 190%;
+    height : 12%;
+    max-height : 50px;
+    font-size: 36px;
+    display: flex; 
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    font-size : 30px;
+    color: white;
+  }
+  
+  
+  #Thibaut{
+    background-image:url("../img/Nous/Thibaut.png");
+   
+    background-position-x: -30px;
+    background-position-y: -20px;
+    background-size: 140%;
+  }
+  #Manon{
+    background-image:url("../img/Nous/Manon.png");
+   
+    background-position-x: -12px;
+    background-position-y: -20px;
+    background-size: 120%;
+  }
+  #Cyril{
+    background-image:url("../img/Nous/Cyril.png");
+   
+    background-position-x: -34px;
+    background-position-y: -20px;
+    background-size: 140%;
+  }
+  #Gabriel{
+    background-image:url("../img/Nous/Gabriel.png");
+   
+    background-position-x: -49px;
+    background-position-y: -20px;
+    background-size: 160%;
+  }
+  #NicolasV{
+    background-image:url("../img/Nous/NicolasV.png");
+   
+    background-position-x: 17px;
+    background-position-y: -10px;
+    background-size: 80%;
+  }
+  #NicolasW{
+    background-image:url("../img/Nous/NicolasW.png");
+   
+    background-position-x: -60px;
+    background-position-y: -30px;
+    background-size: 170%;
+  }
+  #Mejdi{
+    background-image:url("../img/Nous/Mejdi.png");
+   
+    background-position-x: -55px;
+    background-position-y: -15px;
+    background-size: 170%;
+  }
+  #Hugo{
+    background-image:url("../img/Nous/Hugo.png");
+   
+    background-position-x: -49px;
+    background-position-y: -20px;
+    background-size: 160%;
+  }
+  #Mohammed{
+    background-image:url("../img/Nous/Mohammed.png");
+   
+    background-position-x: -72px;
+    background-position-y: -35px;
+    background-size: 180%;
+  }
+  
+}
+
+
+
+@media screen and (min-width:40px) and (max-width: 800px) {
+  .barreup{
+    margin : 0;
+    width : 100vw;
+    height : auto;
+    display :flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    border: 2px solid #000000;
+    gap: 5%;
+    background: #1B98E0;
+    padding-left:5%;
+    padding-right: 5%;
+    
+    
+    font-weight: 400;
+    font-size: 18px ;
+   
+}
+ .barreup a {
+  color: #000000;
+  text-decoration: none;
+}
+.box10{
+  width: auto;
+ height: auto;
+ display: flex;
+ flex-direction: row;
+ justify-content: center;
+ align-items : center
+}
+#Logo{
+  height : 6vh;
+  width : auto;
+}
+  .grid{
+    width: 100vw;
+    height: auto;
+    display :flex;
+    flex-direction: column;
+    /*align-items: center;
+    justify-content: center;*/ 
+    background: var(--colorfull);
+
+    
+  }
+  .grid2{
+    width: 100%;
+    height: 100vh;
+    display :flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 50px;
+    padding-bottom : 50px;
+
+    
+  
+  }
+  .grid3{
+      width: 100%;
+      height: auto;
+      display :flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;   
+      padding-top: 50px;
+      padding-bottom: 100px;
+      margin-bottom : 100px;
+  }
+  .grid4{
+    width: 100%;
+    height: auto;
+    padding-bottom: 120px;
+    padding-top: 100px;
+   
+    display :flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background: linear-gradient(180deg,var(--color2) 0%, #1B98E0 10%, #1B98E0 100%) ;
+    flex-wrap: wrap;
+ 
+    row-gap : 50px;
+   
+    /*flex-direction: line;*/
+  }
+  .grid5{
+    height:auto;
+    width: 100vw;
+    display :flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    row-gap : 50px;
+  }
+  .barredown{
+    position: relative;
+    width : 100%;
+    height : 15vh;
+    flex-direction: column;
+    display :flex;
+    gap : 20px;
+    justify-content:center; 
+    align-items: center;
+    font-weight: 400;
+    font-size: calc((3vw + 3vh)) ;
+    overflow: hidden;
+    background: #383E42;
+    color: white;
+ }
+ .left{
+    width : 100%;
+    height : auto;
+    display :flex;
+    flex-wrap: nowrap;
+    gap : 2%;
+    justify-content:center; 
+    align-items: center;
+    font-weight: 400;
+    font-size: calc((1.7vw + 1.7vh)) ;
+
+ }
+ .right{
+    width : 100%;
+    height : auto;
+    flex-direction: row;
+    display :flex;
+    gap : 2%;
+    justify-content:center; 
+    align-items: center;
+    font-weight: 400;
+    font-size: calc((1vw + 1vh)) ;
+    overflow: hidden;
+ }
+ #Polytechlogo{
+  padding-right: 1px;
+  height : 4vh;
+  width : auto;
+}
+#Umonslogo{
+  
+  height : 4vh;
+  width : auto;
+}
+ .copyright{
+  height: auto; 
+  padding-left: 1px;
+  white-space: nowrap;
+ }
+  .box1{
+    position: relative;
+    align-self: center;
+    width: 100vw;
+    height : 75vh;
+    font-weight: 400;
+    font-size: calc((5vw + 5vh)/2) ;
+    text-align:center;
+    display: flex;
+    flex-direction: column;
+    color : #ffffff;
+    border-radius: calc((8vw + 8vh)/2);
+    background-image:linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../img/enfant1.jpg");
+    background-size: cover;
+    justify-content: center;
+    gap: 10%;
+    background-position-x: center;
+    padding : 10px;
+  }
+  #Titre{
+    font-size: calc(4vw + 4vh) ;
+    font-weight: 600;
+  }
+  .box2{
+    position: relative;
+    align-self: center;
+    width: 90%;
+    height : auto;
+    font-weight: 400;
+    font-size: 36px;
+    display: flex; 
+    text-align: justify;
+    text-justify: inter-word;
+    flex-direction: column;
+    
+  }
+  h1{
+    margin-left: auto;
+    margin-right: auto;
+    font-size: calc((6vw + 6vh)/2) ;
+  }
+  p{
+    margin-left: 10px ;
+    margin-right: 10px;
+    font-size: calc((4vw + 4vh)/2) ;
+    line-height : 120%;
+  }
+  .box3{
+    position: relative;
+    align-self: center;
+    width: 30%;
+    height : 0;
+    font-weight: 400;
+    display: flex; 
+    
+  }
+  .box4{
+    position: relative;
+    align-self: center;
+    width: 90%;
+    height : 60vh;
+    font-weight: 400;
+    font-size: 36px;
+    display: flex; 
+    text-align: justify;
+    text-justify: inter-word;
+    flex-direction: column;
+  }
+  #objectif{
+    background-image:url("../img/enfant2.jpg");
+    background-size: cover;
+    background-position-x: center;
+  }
+  #propose{
+    background-image:url("../img/enfant3.jpg");
+    background-size: cover;
+    background-position-x: center;
+  }
+  
+  .box5{
+    position: relative;
+    align-self: center;
+    top : 5%;
+    width: 200px;
+    aspect-ratio: 1/1.5;
+    margin-left: 4%;
+    margin-right: 4%;
+    font-weight: 400;
+    font-size: 36px;
+    display: flex; 
+    flex-direction: column;
+    flex-wrap: nowrap;
+    border: 2px solid rgba(0, 0, 0, 0);
+    
+  }
+  .box6{
+    
+    position: relative;
+    aspect-ratio: 1/1;
+    width: 100%;
+    background: #949494;
+    border-radius: 100%;
+  }
+  .box7{
+    position: relative;
+    align-self: center;
+    top : 20px;
+    width: 190%;
+    height : 12%;
+    max-height : 50px;
+    font-size: 36px;
+    display: flex; 
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    font-size : 30px;
+    color: white;
+  }
+  
+  #Thibaut{
+    background-image:url("../img/Nous/Thibaut.png");
+   
+    background-position-x: -50px;
+    background-position-y: -20px;
+    background-size: 160%;
+  }
+  #Manon{
+    background-image:url("../img/Nous/Manon.png");
+   
+    background-position-x: -25px;
+    background-position-y: -30px;
+    background-size: 130%;
+  }
+  #Cyril{
+    background-image:url("../img/Nous/Cyril.png");
+   
+    background-position-x: -54px;
+    background-position-y: -30px;
+    background-size: 155%;
+  }
+  #Gabriel{
+    background-image:url("../img/Nous/Gabriel.png");
+   
+    background-position-x: -70px;
+    background-position-y: -30px;
+    background-size: 170%;
+  }
+  #NicolasV{
+    background-image:url("../img/Nous/NicolasV.png");
+   
+    background-position-x: 20px;
+    background-position-y: -10px;
+    background-size: 80%;
+  }
+  #NicolasW{
+    background-image:url("../img/Nous/NicolasW.png");
+   
+    background-position-x: -75px;
+    background-position-y: -30px;
+    background-size: 170%;
+  }
+  #Mejdi{
+    background-image:url("../img/Nous/Mejdi.png");
+   
+    background-position-x: -70px;
+    background-position-y: -20px;
+    background-size: 170%;
+  }
+  #Hugo{
+    background-image:url("../img/Nous/Hugo.png");
+   
+    background-position-x: -75px;
+    background-position-y: -30px;
+    background-size: 170%;
+  }
+  #Mohammed{
+    background-image:url("../img/Nous/Mohammed.png");
+   
+    background-position-x: -90px;
+    background-position-y: -40px;
+    background-size: 180%;
+  }
+ 
+  
+}
