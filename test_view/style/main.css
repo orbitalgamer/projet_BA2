@@ -1,14 +1,6 @@
-@font-face {
-  font-family: 'SylexiadSansMedium';
-  src: url('../../Font/SylexiadSansMedium.ttf') format('opentype'),
-     url('../../Font/SylexiadSansMedium.woff') format('woff');
-  font-weight: 500;
-  font-style: normal;
-}
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 .html{
     font-size: 16px;
-    overflow-x: hidden;
 }
 
 body{
@@ -20,12 +12,9 @@ body{
     width: 100%;
     height: 100vh;
   
-    margin: 0;
-    overflow-x: hidden;
+   
 }
-
 @media screen and (min-width:800px) {
-  
 
 .barreup{
   width : 100vw;
@@ -165,6 +154,12 @@ width : auto;
     font-family: "Inter",sans-serif;
     font-size: 20px;
   }
+  .titre{
+    text-decoration: none;
+    color:aliceblue;
+    font-family: "Inter",sans-serif;
+    font-size: 20px;
+  }
   .btn{
     position: relative;
     top:2px;
@@ -230,8 +225,9 @@ width : auto;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-   
+
 }
+
 .testContainer{
     width: 90%;
     height: 70%;
@@ -244,7 +240,9 @@ width : auto;
     display: flex;
     flex-direction: column;
     align-items: center;
+    
 }
+
 .inputContainer{
     width: 100%;
     height: 15%;
@@ -253,8 +251,17 @@ width : auto;
     display: flex;
     flex-direction: column;
     align-items: center;
-    row-gap: 1.5rem;
-    
+   row-gap: 1.5rem;
+   animation: inputAnim 2s; 
+}
+@keyframes inputAnim {
+  from{
+    opacity: 0%;
+  }
+  to{
+    opacity: 100%;
+  }
+  
 }
 label{
     font-family: "Inter",sans-serif;
@@ -286,7 +293,9 @@ input{
     font-size: 5rem;
     font-family: "Inter",sans-serif;
     color: gray;
+
 }
+
 
 
 .btnContainer{
@@ -304,13 +313,18 @@ input{
 }
 
 .submitBtn{
-  width: 20%;
-  height: 30%;
-  background-color: #1B98E0;
-  color: aliceblue;
+  width: 10%;
+  height: 50%;
+  background-color:aliceblue;
+  
+
   font-size: "Inter",sans-serif;
-  font-size: 1rem;
+
+ 
+  
 }
+
+
 .bar{
   height :50%;
   width : 80%;
@@ -328,324 +342,512 @@ input{
   width: max-content;
   font-size: 2rem; 
 }
+
+.rad-label {
+  display: flex;
+  align-items: center;
+
+  border-radius: 100px;
+  padding: 14px 16px;
+  margin: 10px 0;
+
+  cursor: pointer;
+  transition: .3s;
+}
+
+.rad-label:hover,
+.rad-label:focus-within {
+  background: hsla(0, 0%, 80%, .14);
+}
+
+.rad-input {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  z-index: -1;
+}
+
+.rad-design {
+  width: 22px;
+  height: 22px;
+  border-radius: 100px;
+
+  background: linear-gradient(to right bottom, hsl(154, 97%, 62%), hsl(225, 97%, 62%));
+  position: relative;
+}
+
+.rad-design::before {
+  content: '';
+
+  display: inline-block;
+  width: inherit;
+  height: inherit;
+  border-radius: inherit;
+
+  background: hsl(0, 0%, 90%);
+  transform: scale(1.1);
+  transition: .3s;
+}
+
+.rad-input:checked+.rad-design::before {
+  transform: scale(0);
+}
+
+.rad-text {
+  color: hsl(0, 0%, 60%);
+  margin-left: 14px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-size: 18px;
+  font-weight: 900;
+
+  transition: .3s;
+}
+
+.rad-input:checked~.rad-text {
+  color: hsl(0, 0%, 40%);
+}
+
+.numberQuestion{
+  position: relative;
+  left: 43%;
+  bottom: 2%;
+}
+.bi-arrow-right{
+  width: 30px;
+  height: 30px;
+  color:gray;
+  position: relative;
+  top: 5%;
+  transition: 0.5s width,0.5s height ;
+}
 }
 @media screen and (min-width:40px) and (max-width: 800px){
-  
 
-    .barreup{
-      margin : 0;
-      width : 100vw;
-      height : auto;
-      font-family: 'SylexiadSansMedium', sans-serif;
-      font-weight: 400;
-      font-size: 18px ;
-      
-      display :flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: center;
-      flex-wrap: wrap;
-      box-sizing: border-box;
-      border: 2px solid #000000;
-      gap: 5%;
-      background: #1B98E0;
-      padding-left:5%;
-      padding-right: 5%;
-     
-  }
-  .barreup a {
-    color: black;
-    text-decoration: none;
-  
-  }
-  
-  .box10{
-    width: auto;
-    height: auto;
-    display: flex;
+  .barreup{
+    margin : 0;
+    width : 100vw;
+    height : auto;
+    font-family: 'SylexiadSansMedium', sans-serif;
+    font-weight: 400;
+    font-size: 18px ;
+    
+    display :flex;
     flex-direction: row;
+    align-items: center;
     justify-content: center;
-    align-items : center
-  
-  }
-  #Logo{
-    height : 6vh;
-    width : auto;
-  }
-  
-  .barredown{
-    position: relative;
-    width : 100%;
-    height : 15vh;
-    flex-direction: column;
-    display :flex;
-    gap : 20px;
-    justify-content:center; 
-    align-items: center;
-    font-weight: 400;
-    font-size: calc((3vw + 3vh)) ;
-    overflow: hidden;
-    background: #383E42;
-    color: white;
- }
- .left{
-    width : 100%;
-    height : auto;
-    display :flex;
-    flex-wrap: nowrap;
-    gap : 2%;
-    justify-content:center; 
-    align-items: center;
-    font-weight: 400;
-    font-size: calc((1.7vw + 1.7vh)) ;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    border: 2px solid #000000;
+    gap: 5%;
+    background: #1B98E0;
+    padding-left:5%;
+    padding-right: 5%;
+   
+}
+.barreup a {
+  color: black;
+  text-decoration: none;
 
- }
- .right{
-    width : 100%;
-    height : auto;
-    flex-direction: row;
-    display :flex;
-    gap : 2%;
-    justify-content:center; 
-    align-items: center;
-    font-weight: 400;
-    font-size: calc((1vw + 1vh)) ;
-    overflow: hidden;
- }
- #Polytechlogo{
-  padding-right: 1px;
-  height : 4vh;
-  width : auto;
 }
-#Umonslogo{
-  
-  height : 4vh;
-  width : auto;
-}
+
 .box10{
   width: auto;
- height: auto;
- display: flex;
- flex-direction: row;
- justify-content: center;
- align-items : center
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items : center
+
 }
 #Logo{
-  height : 4vh;
+  height : 6vh;
   width : auto;
 }
- .copyright{
-  height: auto; 
 
-  white-space: nowrap;
- }
-  .navbar{
-      width: 100%;
-      height: 10%;
-  
-      margin: 0;
-      background-color: #1B98E0;
-    
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-      column-gap: 4%;
-  }
-  #ThemisTest{
-      position: relative;
-      right: 10%;
-      font-size: 200%;
-      font-weight: 800;
-    }
-    #Classe{
-      position: relative;
-      right: 8%;
-    }
-    #testMenu{
-      position: relative;
-      right: 8%;
-    }
-    #doc{
-      position: relative;
-      right: 8%;
-    }
-    #profil{
-      position: relative;
-      left: 5%;
-     cursor: pointer;
-    }
-    #contact{
-      position: relative;
-      right: 8%;
-    }
-    .title{
-      text-decoration: none;
-      color:aliceblue;
-      font-family: "Inter",sans-serif;
-      font-size: 20px;
-    }
-    .btn{
-      position: relative;
-      top:2px;
-    }
-    .mainContainer{
-      position: absolute;
-      display: none;
-      width: 100%;
-      height: 350%;
-      background-color:aliceblue;
-      border:1px solid black;
-      box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-    }
-    
-    .bi{
-      margin: 0;
-      padding: 0;
-    }
-    li{
-      list-style: none;
-      position: relative;
-      right: 10%;
-      bottom: 20%;
-      margin: 0;
-    }
-    .line{
-      position: relative;
-      top: 1%;
-      width: 100%;
-      height: 5%;
-      background-color: #1B98E0;
-    }
-    .blockMenu{
-      width: 100%;
-      text-decoration: none;
-      font-size: 12px;
-      font-weight: 600;
-      color: black;
-      font-family: "Inter",sans-serif;
-      transition: backgroud-color,0.2s;
-      align-self: center;
-    }
-    
-    .blockMenu:hover{
-      color: rgb(168, 168, 168);
-    }
-    .deconnexionIcon{
-    position: relative;
-    top:4px;
-    left: 10px;
-    }
-    #deconnexion{
-      position: relative;
-      top:15px;
-    
-    }
-  
-  
-  .mainContainerBody{
-      width: 100%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-     
-  }
-  .testContainer{
-      width: 90%;
-      height: 70%;
-      
-      position: relative;
-      bottom: 3rem;
-      box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
-  
-  
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-  }
-  .inputContainer{
-      width: 100%;
-      height: 15%;
-      position: relative;
-      top: 10%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      row-gap: 1.5rem;
-      
-  }
-  label{
-      font-family: "Inter",sans-serif;
-  }
-  input{
-      border: 2px solid #1B98E0;
-      
-  }
-  .searchOutput{
-    position: absolute;
-    left: 53%;
-    width: 12%;
-    height: 15%;
-    border: 1px solid gray;
-    background-color: aliceblue;
-    display: none;
-    flex-direction: column;
-    
-  }
-  .Row{
-    text-align: center;
-    font-family: 'Inter',sans-serif;
-    border-bottom: 1px solid black;
-  }
-  .Row:hover{
-    background-color: rgb(191, 191, 191);
-  }
-  .infoTest{
-      font-size: 5rem;
-      font-family: "Inter",sans-serif;
-      color: gray;
-  }
-  
-  
-  .btnContainer{
+.barredown{
+  position: relative;
+  width : 100%;
+  height : 15vh;
+  flex-direction: column;
+  display :flex;
+  gap : 20px;
+  justify-content:center; 
+  align-items: center;
+  font-weight: 400;
+  font-size: calc((3vw + 3vh)) ;
+  overflow: hidden;
+  background: #383E42;
+  color: white;
+}
+.left{
+  width : 100%;
+  height : auto;
+  display :flex;
+  flex-wrap: nowrap;
+  gap : 2%;
+  justify-content:center; 
+  align-items: center;
+  font-weight: 400;
+  font-size: calc((1.7vw + 1.7vh)) ;
+
+}
+.right{
+  width : 100%;
+  height : auto;
+  flex-direction: row;
+  display :flex;
+  gap : 2%;
+  justify-content:center; 
+  align-items: center;
+  font-weight: 400;
+  font-size: calc((1vw + 1vh)) ;
+  overflow: hidden;
+}
+#Polytechlogo{
+padding-right: 1px;
+height : 4vh;
+width : auto;
+}
+#Umonslogo{
+
+height : 4vh;
+width : auto;
+}
+.box10{
+width: auto;
+height: auto;
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items : center
+}
+#Logo{
+height : 4vh;
+width : auto;
+}
+.copyright{
+height: auto; 
+
+white-space: nowrap;
+}
+.navbar{
     width: 100%;
-    height: 20%;
-    position: relative;
-    top:25%;
+    height: 10%;
+
+    margin: 0;
+    background-color: #1B98E0;
   
     display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
-    column-gap: 5%;
-  
-  
-  }
-  
-  .submitBtn{
-    width: 20%;
-    height: 30%;
-    background-color: #1B98E0;
-    color: aliceblue;
-    font-size: "Inter",sans-serif;
-    font-size: 1rem;
-  }
-  .bar{
-    height :50%;
-    width : 80%;
-    border: 1px solid black
-  }
-  .barpercent{
-    height:100%;
-    width : 25%;
-   
-  }
-  .percent{
+    column-gap: 4%;
+}
+#ThemisTest{
     position: relative;
-    left:100% ;
-    height: max-content;
-    width: max-content;
-    font-size: 2rem; 
+    right: 10%;
+    font-size: 200%;
+    font-weight: 800;
   }
+  #Classe{
+    position: relative;
+    right: 8%;
   }
+  #testMenu{
+    position: relative;
+    right: 8%;
+  }
+  #doc{
+    position: relative;
+    right: 8%;
+  }
+  #profil{
+    position: relative;
+    left: 5%;
+   cursor: pointer;
+  }
+  #contact{
+    position: relative;
+    right: 8%;
+  }
+  .title{
+    text-decoration: none;
+    color:aliceblue;
+    font-family: "Inter",sans-serif;
+    font-size: 20px;
+  }
+  .titre{
+    text-decoration: none;
+    color:aliceblue;
+    font-family: "Inter",sans-serif;
+    font-size: 20px;
+  }
+  .btn{
+    position: relative;
+    top:2px;
+  }
+  .mainContainer{
+    position: absolute;
+    display: none;
+    width: 100%;
+    height: 350%;
+    background-color:aliceblue;
+    border:1px solid black;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  }
+  
+  .bi{
+    margin: 0;
+    padding: 0;
+  }
+  li{
+    list-style: none;
+    position: relative;
+    right: 10%;
+    bottom: 20%;
+    margin: 0;
+  }
+  .line{
+    position: relative;
+    top: 1%;
+    width: 100%;
+    height: 5%;
+    background-color: #1B98E0;
+  }
+  .blockMenu{
+    width: 100%;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+    color: black;
+    font-family: "Inter",sans-serif;
+    transition: backgroud-color,0.2s;
+    align-self: center;
+  }
+  
+  .blockMenu:hover{
+    color: rgb(168, 168, 168);
+  }
+  .deconnexionIcon{
+  position: relative;
+  top:4px;
+  left: 10px;
+  }
+  #deconnexion{
+    position: relative;
+    top:15px;
+  
+  }
+
+
+.mainContainerBody{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.testContainer{
+    width: 90%;
+    height: 70%;
+    
+    position: relative;
+    bottom: 3rem;
+    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.inputContainer{
+    width: 100%;
+    height: 15%;
+    position: relative;
+    top: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   row-gap: 1.5rem;
+   animation: inputAnim 2s; 
+}
+@keyframes inputAnim {
+  from{
+    opacity: 0%;
+  }
+  to{
+    opacity: 100%;
+  }
+  
+}
+label{
+    font-family: "Inter",sans-serif;
+}
+input{
+    border: 2px solid #1B98E0;
+    
+}
+.searchOutput{
+  position: absolute;
+  left: 53%;
+  width: 12%;
+  height: 15%;
+  border: 1px solid gray;
+  background-color: aliceblue;
+  display: none;
+  flex-direction: column;
+  
+}
+.Row{
+  text-align: center;
+  font-family: 'Inter',sans-serif;
+  border-bottom: 1px solid black;
+}
+.Row:hover{
+  background-color: rgb(191, 191, 191);
+}
+.infoTest{
+    font-size: 5rem;
+    font-family: "Inter",sans-serif;
+    color: gray;
+
+}
+
+
+
+.btnContainer{
+  width: 100%;
+  height: 20%;
+  position: relative;
+  top:25%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 5%;
+
+
+}
+
+.submitBtn{
+  width: 10%;
+  height: 50%;
+  background-color:aliceblue;
+  
+
+  font-size: "Inter",sans-serif;
+
+ 
+  
+}
+
+
+.bar{
+  height :50%;
+  width : 80%;
+  border: 1px solid black
+}
+.barpercent{
+  height:100%;
+  width : 25%;
+ 
+}
+.percent{
+  position: relative;
+  left:100% ;
+  height: max-content;
+  width: max-content;
+  font-size: 2rem; 
+}
+
+.rad-label {
+  display: flex;
+  align-items: center;
+
+  border-radius: 100px;
+  padding: 14px 16px;
+  margin: 10px 0;
+
+  cursor: pointer;
+  transition: .3s;
+}
+
+.rad-label:hover,
+.rad-label:focus-within {
+  background: hsla(0, 0%, 80%, .14);
+}
+
+.rad-input {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  z-index: -1;
+}
+
+.rad-design {
+  width: 22px;
+  height: 22px;
+  border-radius: 100px;
+
+  background: linear-gradient(to right bottom, hsl(154, 97%, 62%), hsl(225, 97%, 62%));
+  position: relative;
+}
+
+.rad-design::before {
+  content: '';
+
+  display: inline-block;
+  width: inherit;
+  height: inherit;
+  border-radius: inherit;
+
+  background: hsl(0, 0%, 90%);
+  transform: scale(1.1);
+  transition: .3s;
+}
+
+.rad-input:checked+.rad-design::before {
+  transform: scale(0);
+}
+
+.rad-text {
+  color: hsl(0, 0%, 60%);
+  margin-left: 14px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-size: 18px;
+  font-weight: 900;
+
+  transition: .3s;
+}
+
+.rad-input:checked~.rad-text {
+  color: hsl(0, 0%, 40%);
+}
+
+.numberQuestion{
+  position: relative;
+  left: 43%;
+  bottom: 2%;
+}
+.bi-arrow-right{
+  width: 30px;
+  height: 30px;
+  color:gray;
+  position: relative;
+  top: 5%;
+  transition: 0.5s width,0.5s height ;
+}
+} 
