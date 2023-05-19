@@ -39,7 +39,7 @@ var myChart = new Chart(document.getElementById('myChart'), {
   type: 'pie',
   data: {
       title : "Boujour",
-    labels: ['Détecté', 'Non détecté'],
+    labels: ['Détectés', 'Non-détectés'],
     datasets: [{
       backgroundColor: ['#ff6384', '#36a2eb'],
       data: [2, 1]

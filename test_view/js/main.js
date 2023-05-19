@@ -191,7 +191,7 @@ const Dysorthographique = [
       question : "Votre enfant lit de manière lente et hachée", 
       id : 0
     },  {
-      question : "Lors de la lecture, Votre enfant saute des mots ou des lignes", 
+      question : "Lors de la lecture, votre enfant saute des mots ou des lignes", 
       id : 0
     }, {
       question : "Lors de la lecture, votre enfant éprouve des difficultés à identifier des mots connus", 
@@ -310,7 +310,7 @@ const TDA = [
     id:0
   },
   {
-    question: "Lors d’un devoir, Votre enfant ne parvient pas à prêter attention aux détails ou commet des fautes d’étourderie",
+    question: "Lors d’un devoir, votre enfant ne parvient pas à prêter attention aux détails ou commet des fautes d’étourderie",
     id: 0
   },
   {
@@ -635,12 +635,15 @@ function getRadioValue(name) {
   return null; // aucun radio n'est checké
 }
 function getRatio(score,array){
-  console.log(score);
+  console.log("init" + score);
   let nbrQuestions = array.length - 1;
   let maxScore = nbrQuestions*3;
+  console.log("maxscore" + maxScore);
   score = score/maxScore;
   score = score*100;
+  console.log("score tmp" + score);
   score = Math.floor(score);
+  console.log("fin" + score);
   return score;
 }
 /* function checkResponse(){ 
@@ -818,15 +821,20 @@ function previousQuestion(){
  
 }
 function getConclusionString(score){
-  if(score > 50){
-    return "l'élève a une forte chance d'être atteint de ce trouble"
+  console.log("ccls" + score);
+  if(score >= 75){
+    return "Il est très probable que l'enfant soit atteint, il est nécessaire de consulter un professionnel"
   }
-  else if(20 < score < 50){
-    return "l'éléve a une faible chance d'être atteint de ce trouble "
+  else if(50 <= score < 75){
+    return "Il est probable que l'enfant soit atteint"
   }
-  else if(score <= 20){
-    return "l'éléve n'est pas atteint de ce trouble"
+  else if(25 <= score < 50){
+    return "Il est probable que l'enfant ne soit pas atteint"
   }
+  else if (score < 25){
+    return "Il est très probable que l'enfant ne soit pas atteint"
+  }
+
 
 }
 

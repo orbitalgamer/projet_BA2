@@ -14,6 +14,13 @@ body{
   
    
 }
+@font-face {
+  font-family: 'SylexiadSansMedium';
+  src: url('../../Font/SylexiadSansMedium.ttf') format('opentype'),
+     url('../../Font/SylexiadSansMedium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+}
 @media screen and (min-width:800px) {
 
 .barreup{
