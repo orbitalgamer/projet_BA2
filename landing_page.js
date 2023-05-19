@@ -38,7 +38,7 @@ const observer = new IntersectionObserver(entries => {
 var myChart = new Chart(document.getElementById('myChart'), {
   type: 'pie',
   data: {
-      title : "Boujour",
+      
     labels: ['Détectés', 'Non-détectés'],
     datasets: [{
       backgroundColor: ['#ff6384', '#36a2eb'],
