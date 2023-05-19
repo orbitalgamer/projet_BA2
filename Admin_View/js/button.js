@@ -17,6 +17,8 @@ export const tableContainer = document.querySelector(".tableContainer");
 export const blockContainer =  document.querySelector(".blockContainer");
 export const mainSideMenu = document.querySelector(".mainSideMenu");
 export const titre = document.querySelector(".titre");
+export const titleProfil = document.querySelector("#titleProfil");
+export const mainTable = document.querySelector(".mainTable");
 /*------------------------------768px--------------------------------------------------*/
 export const mainSideMenu768px = document.querySelector(".mainSideMenu768px");
 export const sideMenu768px = document.querySelector(".sideMenu768px");

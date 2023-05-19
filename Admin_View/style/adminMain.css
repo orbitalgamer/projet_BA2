@@ -322,6 +322,14 @@ body {
   width: 100%;
   background-color: #13293D;
 }
+.title{
+  text-decoration: none;
+  color:black;
+  font-family: "Inter",sans-serif;
+  font-size: 20px;
+  position: absolute;
+  left: 85%;
+}
 }
 @media screen and (max-width:1400px) and (min-width:1200px){
   html {
@@ -620,6 +628,12 @@ body {
     height: 30%;
     width: 100%;
     background-color: #13293D;
+  }
+  .title{
+    text-decoration: none;
+    color:aliceblue;
+    font-family: "Inter",sans-serif;
+    font-size: 20px;
   }
   
   

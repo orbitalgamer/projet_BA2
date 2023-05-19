@@ -14,7 +14,8 @@ import {
   searchBar768px,
   infoPageText,
   twoLine768px,
-  titre
+  titre,
+  mainTable
 } 
 from "./button.js";
 
@@ -460,3 +461,26 @@ function unframeIconMenu768px(){
   
 }
 export {frameIconMenu768px,unframeIconMenu768px}
+
+
+//--------------------------api-----------
+
+
+
+function showClass(){
+  fetch("https://api.themistest.be/api/Groupe/Affichage.php",{
+    method:"POST",
+    body :JSON.stringify({Token : localStorage.getItem("Token"),"IdClasse":"All"})
+  }).then(response => response.json()).then(data => {
+   for(let i=0 ; i < data.data.length ; i++){
+    const newClasse = document.createElement("a");
+    newClasse.setAttribute("class","row");
+    newClasse.setAttribute("href","https://api.themistest.be/api/Groupe/Affichage.php?")
+    newClasse.textContent = data.data[i].Nom;
+
+    mainTable.appendChild(newClasse);
+   }
+
+
+  });
+}
